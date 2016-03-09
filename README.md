@@ -2,9 +2,10 @@
 
 ![Logo](http://2.bp.blogspot.com/-Co2l_xpzW1c/VKU77-duzAI/AAAAAAAABII/DL_kJXFE6js/s1600/Honda-logo%2B(1).png)
 
-## Please visit our [live application] and website (https://demo.reactstarterkit.com/)
-- WEBSITE ADDRESS
+## Please visit our [live application]() and website (https://demo.reactstarterkit.com/)
 
+
+##Join us in our team's chat room
 [![Gitter](https://badges.gitter.im/Bu1ly/classProject.svg)](https://gitter.im/Bu1ly/classProject?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=body_badge)
 
 ## [Issue Board](https://huboard.com/robi-y/seproject-team-template#/)
