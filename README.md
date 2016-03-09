@@ -5,7 +5,7 @@
 ## Please visit our [live application] and website (https://demo.reactstarterkit.com/)
 - WEBSITE ADDRESS
 
-[![Join the chat at https://gitter.im/robi-y/seproject-team-template](https://gitter.im/Bu1ly/classProject?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Gitter](https://badges.gitter.im/Bu1ly/classProject.svg)](https://gitter.im/Bu1ly/classProject?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=body_badge)
 
 ## [Issue Board](https://huboard.com/robi-y/seproject-team-template#/)
 
