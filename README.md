@@ -1,13 +1,11 @@
-# seproject-team-template
+# ClassProject
 
-A template repository with wiki for a team project at JCE's software engineering course
+![Logo](http://2.bp.blogspot.com/-Co2l_xpzW1c/VKU77-duzAI/AAAAAAAABII/DL_kJXFE6js/s1600/Honda-logo%2B(1).png)
 
-![project logo (this one is taken from basecamp)](http://klipfolio.com/sites/default/files/integrations/basecamp.png)
+## Please visit our [live application] and website (https://demo.reactstarterkit.com/)
+- WEBSITE ADDRESS
 
-## Please visit our [live application](https://demo.reactstarterkit.com/)
-- Alright, currently only a landing page...
-
-[![Join the chat at https://gitter.im/robi-y/seproject-team-template](https://badges.gitter.im/robi-y/seproject-team-template.svg)](https://gitter.im/robi-y/seproject-team-template?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Join the chat at https://gitter.im/robi-y/seproject-team-template](https://gitter.im/Bu1ly/classProject?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=body_badge)
 
 ## [Issue Board](https://huboard.com/robi-y/seproject-team-template#/)
 
@@ -16,7 +14,7 @@ This project is developed as part of the requirements for a [software engineerin
 
 Please visit our wiki for furthur project info: 
 
-### [User Manual](../../wiki/user-manual) (empty)
+### [User Manual](https://github.com/Bu1ly/classProject/wiki) (empty)
 
 ### [Team Page](../../wiki/team)
 
