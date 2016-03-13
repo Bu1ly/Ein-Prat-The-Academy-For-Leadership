@@ -1,6 +1,6 @@
-# ClassProject
+# Ein Prat - Academy for leadership
 
-![Logo](http://2.bp.blogspot.com/-Co2l_xpzW1c/VKU77-duzAI/AAAAAAAABII/DL_kJXFE6js/s1600/Honda-logo%2B(1).png)
+![logo](https://upload.wikimedia.org/wikipedia/he/thumb/6/6c/Ein_Prat_Logo.jpg/220px-Ein_Prat_Logo.jpg)
 
 ## Please visit our [live application]() and website (https://demo.reactstarterkit.com/)
 
