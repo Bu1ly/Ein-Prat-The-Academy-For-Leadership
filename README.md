@@ -1,8 +1,9 @@
-# Ein Prat - Academy for leadership
+# Ein Prat -The Academy For Leadership  
+
 
 ![logo](https://upload.wikimedia.org/wikipedia/he/thumb/6/6c/Ein_Prat_Logo.jpg/220px-Ein_Prat_Logo.jpg)
 
-## Please visit our [live application]() and website (https://demo.reactstarterkit.com/)
+## Please visit our website (https://demo.reactstarterkit.com/)
 
 
 ##Join us in our team's chat room
