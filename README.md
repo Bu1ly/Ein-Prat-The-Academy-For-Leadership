@@ -15,9 +15,10 @@ This project is developed as part of the requirements for a [software engineerin
 
 Please visit our wiki for furthur project info: 
 
+### [Team Page](https://github.com/Bu1ly/classProject/wiki/Our-Team)
+
 ### [User Manual](https://github.com/Bu1ly/classProject/wiki/User-Manual)
 
-### [Team Page](../../wiki/team)
 
 ### Project Documents
 - [Project Idea](docs/idea.pdf) ([Presentation](docs/idea-slides.pdf))
