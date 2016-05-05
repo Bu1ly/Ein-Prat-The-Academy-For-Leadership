@@ -14,7 +14,7 @@ var seniors = {};
 seniors.db = new dataBase(dName, new server(dHost, dPort, {auto_reconnect:true},{}));
 
 // open the dataBase
-seniors.db.open(function(e,d){
+seniors.db.open(function(e){
     if(e){
         console.log(e);
     }else{
