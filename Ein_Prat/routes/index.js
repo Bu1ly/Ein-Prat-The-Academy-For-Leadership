@@ -6,5 +6,6 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Ein Prat!' });
 });
 
+hello 
 
 module.exports = router;
