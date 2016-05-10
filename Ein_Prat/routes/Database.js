@@ -1,3 +1,6 @@
+/**
+ * Created by GershonGraos on 06/05/2016.
+ */
 var dataBase = require('mongodb');
 var server = require('mongodb');
 
@@ -32,4 +35,3 @@ subs.new = function(newData, callback){
         }
     }  );
 }
-
