@@ -60,15 +60,5 @@ app.use(function(err, req, res, next) {
 });
 
 
-//connect app to Server
-
-app.listen(3000,function () {
-
-  var host = server.address().address;
-  var port = server.address().port;
-
-  console.log("App is now listening to http://%s:%s", host, port);
-})
-
 
 module.exports = app;
