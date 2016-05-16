@@ -14,6 +14,20 @@ function addRow() {
         row.insertCell(1).innerHTML= last_name.value;
         row.insertCell(2).innerHTML= id.value;
         row.insertCell(3).innerHTML= '<input type="button" value = "Delete" onClick="Javacsript:deleteRow(this)">';
+
+
+    // ================================= need to check =========================
+        MongoClient.connect(URL, function(err, db) {
+            if (err) return
+
+            var collection = db.collection('id')
+            collection.insert({name: myName.value, last_name:last_name.value, id_number:id.value }, function(err, result) {
+                db.close()
+            })
+        })
+
+    // ==========================================================================
+
     }
 
 
