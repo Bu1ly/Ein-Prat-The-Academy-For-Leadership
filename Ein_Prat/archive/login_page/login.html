@@ -16,40 +16,6 @@
     </head>
 
     <body>
-<!--    init and setup facebook login SDK   -->
- 
-<script>
-  window.fbAsyncInit = function() {
-    FB.init({
-      appId      : '1747387218839587',
-      xfbml      : true,
-      version    : 'v2.6'
-    });
-  };
-
-  (function(d, s, id){
-     var js, fjs = d.getElementsByTagName(s)[0];
-     if (d.getElementById(id)) {return;}
-     js = d.createElement(s); js.id = id;
-     js.src = "//connect.facebook.net/en_US/sdk.js";
-     fjs.parentNode.insertBefore(js, fjs);
-   }(document, 'script', 'facebook-jssdk'));
-</script>
-
- 
-        
-        
-<!--include we need to active login button from facebook        -->
-    <div id="fb-root"></div>
-        <script>(function(d, s, id) {
-          var js, fjs = d.getElementsByTagName(s)[0];
-          if (d.getElementById(id)) return;
-          js = d.createElement(s); js.id = id;
-          js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.6&appId=1747387218839587";
-          fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));</script>
-
-        
 
 <a href="#" data-toggle="modal" data-target="#login-modal">Login</a>
 
@@ -60,17 +26,11 @@
 				  <form>
 					<input type="text" name="user" placeholder="Username">
 					<input type="password" name="pass" placeholder="Password">
-					<input type="submit" name="login" class="login loginmodal-submit" value="Login">
+					<input type="submit" name="login" class="login loginmodal-submit" value="התחבר">
 				  </form>
-					 
-                    
-<!--                    <input  ng-click="FBlogin()" type="image" src="FB.jpg"  name="fb-login" class="fb-button"/>-->
-                    
-                    <div class="fb-login-button" data-max-rows="1" data-size="xlarge" data-show-faces="true" data-auto-logout-link="false"></div>                      
-                    
-                   <div class="login-help">
+					
+				  <div class="login-help">
 					<a href="#">Register</a> - <a href="#">Forgot Password</a>
-                    
 				  </div>
 				</div>
 			</div>
