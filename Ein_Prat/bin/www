@@ -5,7 +5,7 @@
  */
 
 
-var x = 10;
+
 var app = require('../app');
 var debug = require('debug')('untitled1211212121:server');
 var http = require('http');

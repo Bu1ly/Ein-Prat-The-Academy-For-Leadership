@@ -78,9 +78,24 @@ app.post('/delete', function (req,res) {
     var SeniorJason = req.body; // get the user data
     console.log(SeniorJason); //print for debug
 
+    // create senior object
+    var seniorJason = {
+        name : jason.name,
+        lastName : jason.lastName,
+        identity : jason.identity
+    }
 
+    // create new DB instance
+    var newSenior = new Senior(seniorJason);
 
-})
+    // remove the newSenior to the DB
+    newSenior.remove(function(err){
+        if(err)
+            res.status(500).end("Error");
+        else
+            res.status(200).end("Removed", seniorJason, "from Seniors DB");
+    })
+});
 
 
 
