@@ -5,11 +5,10 @@ var Schema = mongoose.Schema;//to create schemas
 
 //init for using POST calls
 var bodyParser = require('body-parser');
-app.use(bodyParser.urlencoded({ extended: false }));//read URL encoded
+app.use(bodyParser.urlencoded({ extended: true }));//read URL encoded
 app.use(bodyParser.json()); //read json data
 
-// exports
-var exports = module.exports = {};
+
 
 //static routes init
 
@@ -36,7 +35,11 @@ var seniors = new Schema({
     lastName: String
 });
 
+//new Collection
 
-//module.exports(connection);
+var Seniour = connection.model('Senior', seniors);
+
+
+module.exports('server.js');
 
 
