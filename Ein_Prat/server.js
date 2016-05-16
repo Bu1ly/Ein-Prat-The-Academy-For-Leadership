@@ -8,6 +8,8 @@ var bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: false }));//read URL encoded
 app.use(bodyParser.json()); //read json data
 
+// exports
+var exports = module.exports = {};
 
 //static routes init
 
@@ -35,6 +37,6 @@ var seniors = new Schema({
 });
 
 
-
+//module.exports(connection);
 
 
