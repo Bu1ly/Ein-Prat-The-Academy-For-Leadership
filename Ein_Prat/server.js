@@ -23,8 +23,11 @@ app.use(express.static('views'));
 
 //Connect to DB
 
-var connection = mongoose.createConnection('mongodb://Bu1ly:danivolp89@ds049624.mlab.com:49624/ein_prat',function () {
-
+var connection = mongoose.createConnection('mongodb://Bu1ly:danivolp89@ds049624.mlab.com:49624/ein_prat',function (error) {
+    if(error)
+        res.status(500).end("Error");
+    else
+        res.status(200).end("Added", seniorJason, "to Seniors DB");
     console.log("App is now connected to Mlab DB");
 });
 
@@ -40,13 +43,14 @@ var seniors = new Schema({
 var Senior = connection.model('Senior',seniors);
 
 // Main route
-app.get('/', function (req,res) {
+app.get('/', function (req,res,error) {
     res.sendfile(path.join(__dirname + "/views/index.ejs"));
 });
 
 // --------API CALLS --------
+
 //Register new Users
-app.post('reg', function(req,res){
+app.post('/reg', function(req,res){
    var jason = req.body; // get the user data
     console.log(jason); //print for debug
 
@@ -69,7 +73,7 @@ app.post('reg', function(req,res){
     })
 });
 
-// Delete some User
+// Delete User
 app.post('/delete', function (req,res) {
     var SeniorJason = req.body; // get the user data
     console.log(SeniorJason); //print for debug
@@ -81,6 +85,6 @@ app.post('/delete', function (req,res) {
 
 
 
-//module.exports(server);
+
 
 
