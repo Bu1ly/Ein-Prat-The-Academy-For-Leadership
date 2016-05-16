@@ -1,4 +1,5 @@
-var app = require('express'); // get express for server init
+var express = require('express'); // get express for server init
+var app = express();
 var path = require('path');// get the path
 var mongoose = require('mongoose');// DB connections
 var Schema = mongoose.Schema;//to create schemas
@@ -23,12 +24,17 @@ app.use(express.static('views'));
 
 //Connect to DB
 
-var connection = mongoose.createConnection('mongodb://Bu1ly:danivolp89@ds049624.mlab.com:49624/ein_prat',function (error) {
+var connection = mongoose.createConnection('mongodb://Bu1ly:danivolp89@ds049624.mlab.com:49624/ein_prat',function (req, res, error) {
+    res.writeHead(200,{"Content-Type": "text/plain"});
+    res.write("Trying to connect to the DB but problem accured");
+    res.end();
+
     if(error)
         res.status(500).end("Error");
     else
         res.status(200).end("Added", seniorJason, "to Seniors DB");
     console.log("App is now connected to Mlab DB");
+    connection.connect()
 });
 
 //Create schema
