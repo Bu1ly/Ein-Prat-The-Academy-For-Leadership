@@ -4,10 +4,12 @@
  * Module dependencies.
  */
 
-var x = 9;
+
 var app = require('../app');
 var debug = require('debug')('untitled1211212121:server');
 var http = require('http');
+
+
 
 /**
  * Get port from environment and store in Express. 
@@ -31,9 +33,9 @@ var server = http.createServer(app);
 server.listen(port, function(){
   var host = server.address().address;
   var port = server.address().port;
-
   console.log("App is now listening to: " + port)
 });
+
 server.on('error', onError);
 server.on('listening', onListening);
 
@@ -42,7 +44,7 @@ server.on('listening', onListening);
  */
 
 function normalizePort(val) {
-  var port = parseInt(val, 10);
+  var port = parseInt(val, 10); //string converter to int
 
   if (isNaN(port)) {
     // named pipe
