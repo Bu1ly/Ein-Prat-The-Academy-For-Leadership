@@ -100,7 +100,9 @@ app.post('/delete', function (req,res) {
 
 
 // exports
-var exports = module.exports = {};
+exports.Server = connection;
+module.exports =  app;
+
 
 
 
