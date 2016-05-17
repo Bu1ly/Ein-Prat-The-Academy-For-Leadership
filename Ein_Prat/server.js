@@ -21,12 +21,13 @@ app.use(express.static('views'));
 
 
 //Connect to DB
-//mongodb://Bu1ly:danivolp89@ds049624.mlab.com:49624/ein_prat
-var connection = mongoose.createConnection('mongodb://localhost:27017/Database',function (error) {
+
+var connection = mongoose.createConnection('mongodb://danny:danivolp89@ds049624.mlab.com:49624/ein_prat',function (error) {
     console.log("Trying to connect to the Mlab DB....\n");
 
     if(error){
         console.log("Warning! Error accured!\n");
+        console.log(error.name, "<- Is the error name\n", error.message , "<- Is the error message");
     }
     else
         console.log("App is now connected to Mlab DB");
