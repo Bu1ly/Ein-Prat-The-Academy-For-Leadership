@@ -21,20 +21,18 @@ app.use(express.static('views'));
 
 
 //Connect to DB
-
-var connection = mongoose.createConnection('mongodb://danny:danivolp89@ds049624.mlab.com:49624/ein_prat',function (error) {
+//mongodb://Bu1ly:danivolp89@ds049624.mlab.com:49624/ein_prat
+var connection = mongoose.createConnection('mongodb://localhost:27017/Database',function (error) {
     console.log("Trying to connect to the Mlab DB....\n");
 
     if(error){
         console.log("Warning! Error accured!\n");
-        console.log(error.name, " <- Is the error name\n", error.message, "<- Is the error message");
     }
     else
         console.log("App is now connected to Mlab DB");
 });
 
 //Create schema
-
 var seniors = new Schema({
     name: String,
     identity: String,
@@ -49,7 +47,8 @@ app.get('/', function (req,res,error) {
     res.sendfile(path.join(__dirname + "/views/index.ejs"));
 });
 
-// --------API CALLS --------
+
+// -------- API CALLS --------
 
 //Register new Users
 app.post('/reg', function(req,res){
@@ -61,7 +60,7 @@ app.post('/reg', function(req,res){
         name : jason.name,
         lastName : jason.lastName,
         identity : jason.identity
-    }
+    };
 
     // create new DB instance
     var newSenior = new Senior(seniorJason);
@@ -85,7 +84,7 @@ app.post('/delete', function (req,res) {
         name : jason.name,
         lastName : jason.lastName,
         identity : jason.identity
-    }
+    };
 
     // create new DB instance
     var newSenior = new Senior(seniorJason);
@@ -101,8 +100,9 @@ app.post('/delete', function (req,res) {
 
 
 // exports
-exports.Server = connection;
-module.exports =  app;
+module.exports =  app;  // to use app in other files, e.g: var Foo = function(){};  app.fooMethod = Foo;
+exports.Server = connection; // connection to the localhost Db if i want to use DB in other files
+
 
 
 
