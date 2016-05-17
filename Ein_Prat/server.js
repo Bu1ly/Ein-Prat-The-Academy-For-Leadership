@@ -9,8 +9,6 @@ var bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: false }));//read URL encoded
 app.use(bodyParser.json()); //read json data
 
-// exports
-var exports = module.exports = {};
 
 //static routes init
 
@@ -24,17 +22,14 @@ app.use(express.static('views'));
 
 //Connect to DB
 
-var connection = mongoose.createConnection('mongodb://Bu1ly:danivolp89@ds049624.mlab.com:49624/ein_prat',function (req, res, error) {
-    res.writeHead(200,{"Content-Type": "text/plain"});
-    res.write("Trying to connect to the DB but problem accured");
-    res.end();
+var connection = mongoose.createConnection('mongodb://Bu1ly:danivolp89@ds049624.mlab.com:49624/ein_prat',function (error) {
+    console.log("Trying to connect to the Mlab DB....\n");
 
-    if(error)
-        res.status(500).end("Error");
+    if(error){
+        console.log("Warning! Error accured!\n")
+    }
     else
-        res.status(200).end("Added", seniorJason, "to Seniors DB");
-    console.log("App is now connected to Mlab DB");
-    connection.connect()
+        console.log("App is now connected to Mlab DB");
 });
 
 //Create schema
@@ -102,6 +97,10 @@ app.post('/delete', function (req,res) {
             res.status(200).end("Removed", seniorJason, "from Seniors DB");
     })
 });
+
+
+// exports
+var exports = module.exports = {};
 
 
 
