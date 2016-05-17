@@ -103,7 +103,7 @@ app.post('/delete', function (req,res) {
 
 
 // --Delete a specific Senior--
-app.find('delete:id', function (req,res) {
+app.delete('delete:id', function (req,res) {
    Senior.findOneAndRemove( {'_id':req.param.id}, function (err, updated){
        if(err)
            console.log("The user not found\n");
