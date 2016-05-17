@@ -3,6 +3,7 @@ var app = express();
 var path = require('path');// get the path
 var mongoose = require('mongoose');// DB connections
 var Schema = mongoose.Schema;//to create schemas
+// In order to do 'require' to no local modulejs, we need write e.g: ('./routes/index)
 
 //init for using POST calls
 var bodyParser = require('body-parser');
@@ -11,7 +12,6 @@ app.use(bodyParser.json()); //read json data
 
 
 //static routes init
-
 app.use('/javascripts', express.static('public/javascripts'));
 app.use('/css', express.static('public/css'));
 app.use('/images', express.static('public/images'));
@@ -20,26 +20,26 @@ app.use('/stylesheets', express.static('public/stylesheets'));
 app.use(express.static('views'));
 
 
-//Connect to DB
+//--Connect to DB--
 //mongodb://Bu1ly:danivolp89@ds049624.mlab.com:49624/ein_prat
 var connection = mongoose.createConnection('mongodb://localhost:27017/Database',function (error) {
-    console.log("Trying to connect to the Mlab DB....\n");
+    console.log("Trying to connect to the local DB....\n");
 
     if(error){
-        console.log("Warning! Error accured!\n");
+        console.log("Warning! Error occurred!\n");
     }
     else
-        console.log("App is now connected to Mlab DB");
+        console.log("App is now connected to local DB");
 });
 
-//Create schema
+// --Create schema--
 var seniors = new Schema({
     name: String,
-    identity: String,
-    lastName: String
+    lastName: String,
+    identity: String
 });
 
-// Connect collection to schema
+// --Connect collection to schema--
 var Senior = connection.model('Senior',seniors);
 
 // Main route
@@ -48,18 +48,18 @@ app.get('/', function (req,res,error) {
 });
 
 
-// -------- API CALLS --------
+// *********** API CALLS ***********
 
-//Register new Users
+// --Register new Users--
 app.post('/reg', function(req,res){
-   var jason = req.body; // get the user data
-    console.log(jason); //print for debug
+   var registerData = req.body; // get the user data
+    console.log(registerData); //print for debug
 
-   // create senior object
+   // create senior object and take the data according to Senior Schema
     var seniorJason = {
-        name : jason.name,
-        lastName : jason.lastName,
-        identity : jason.identity
+        name : registerData.name,
+        lastName : registerData.lastName,
+        identity : registerData.identity
     };
 
     // create new DB instance
@@ -74,23 +74,23 @@ app.post('/reg', function(req,res){
     })
 });
 
-// Delete User
+// --Delete User--
 app.post('/delete', function (req,res) {
-    var SeniorJason = req.body; // get the user data
-    console.log(SeniorJason); //print for debug
+    var registerData = req.body; // get the user data
+    console.log(registerData); //print for debug
 
-    // create senior object
+    // create senior object and take the data according to Senior Schema
     var seniorJason = {
-        name : jason.name,
-        lastName : jason.lastName,
-        identity : jason.identity
+        name : registerData.name,
+        lastName : registerData.lastName,
+        identity : registerData.identity
     };
 
     // create new DB instance
-    var newSenior = new Senior(seniorJason);
+    var deleteSenior = new Senior(seniorJason);
 
     // remove the newSenior to the DB
-    newSenior.remove(function(err){
+    deleteSenior.remove(function(err){
         if(err)
             res.status(500).end("Error");
         else
@@ -98,10 +98,33 @@ app.post('/delete', function (req,res) {
     })
 });
 
+// Get all the Seniors
+app.get('/users', function (req,res)
+{
+   Senior.find({}, function(err,users)
+   {
+       if(err)
+           res.status(500).end("Error");
+       else
+       {
+           var SeniorMap = {};  //return Senior object
+           // fill up the Senior object
+           users.forEach(function (user)
+           {
+                SeniorMap[user._id] = user;
+           });
+
+           res.end(JSON.stringify(SeniorMap,null, "\n"));
+       }
+   });
+});
+
+
+
 
 // exports
-module.exports =  app;  // to use app in other files, e.g: var Foo = function(){};  app.fooMethod = Foo;
-exports.Server = connection; // connection to the localhost Db if i want to use DB in other files
+module.exports =  app;  // to use app in other files,i need to do before 'require', e.g: var Foo = function(){};  app.fooMethod = Foo;
+exports.Server = connection; // connection to the local Db, if i want to use DB in other files;
 
 
 
