@@ -1,7 +1,4 @@
-/**
- * Created by GershonGraos on 06/05/2016.
- */
-var dataBase = require('mongodb');
+/*var dataBase = require('mongodb');
 var server = require('mongodb');
 
 var dPort = 27017;
@@ -34,4 +31,4 @@ subs.new = function(newData, callback){
             subs.subscriptors.insert(newData, callback(null))
         }
     }  );
-}
+}*/
