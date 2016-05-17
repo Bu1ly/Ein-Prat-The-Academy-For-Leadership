@@ -45,7 +45,7 @@ var seniors = new Schema({
 var Senior = connection.model('Senior',seniors);
 
 // Main route
-app.get('/', function (req,res,error) {
+app.get('/', function (req,res) {
     res.sendfile(path.join(__dirname + "/views/index.ejs"));
 });
 
@@ -99,6 +99,17 @@ app.post('/delete', function (req,res) {
         else
             res.status(200).end("Removed", seniorJason, "from Seniors DB");
     })
+});
+
+
+// --Delete a specific Senior--
+app.find('delete:id', function (req,res) {
+   Senior.findOneAndRemove( {'_id':req.param.id}, function (err, updated){
+       if(err)
+           console.log("The user not found\n");
+       else
+           res.json(updated);
+   });
 });
 
 
