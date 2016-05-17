@@ -20,16 +20,18 @@ app.use('/stylesheets', express.static('public/stylesheets'));
 app.use(express.static('views'));
 
 
-//--Connect to DB--
-//mongodb://Bu1ly:danivolp89@ds049624.mlab.com:49624/ein_prat
-var connection = mongoose.createConnection('mongodb://localhost:27017/Database',function (error) {
-    console.log("Trying to connect to the local DB....\n");
+// --Connect to DB--
+//'mongodb://localhost:27017/Database'
+var connection = mongoose.createConnection('mongodb://danny:danivolp89@ds049624.mlab.com:49624/ein_prat',function (error) {
+    console.log("Trying to connect to the Mlab DB....\n");
 
     if(error){
-        console.log("Warning! Error occurred!\n");
+        console.log("Warning! Error occurred!\n\n");
+        throw error;
+        //console.log(error.name, "<- Is the error name\n", error.message , "<- Is the error message");
     }
     else
-        console.log("App is now connected to local DB");
+        console.log("App is now connected to Mlab DB");
 });
 
 // --Create schema--
@@ -74,6 +76,7 @@ app.post('/reg', function(req,res){
     })
 });
 
+
 // --Delete User--
 app.post('/delete', function (req,res) {
     var registerData = req.body; // get the user data
@@ -98,15 +101,24 @@ app.post('/delete', function (req,res) {
     })
 });
 
+
+// --Give me a specific Senior--
+app.get('reg/:id', function(req,res) {
+   Senior.find( {'_id': req.params.id}, function(err, user) {
+        if(err)
+            console.log("The user not found\n");
+        else
+            res.json(user[0]);
+    });
+});
+
+
 // Get all the Seniors
-app.get('/users', function (req,res)
-{
-   Senior.find({}, function(err,users)
-   {
+app.get('/users', function (req,res) {
+   Senior.find({}, function(err,users) {
        if(err)
            res.status(500).end("Error");
-       else
-       {
+       else {
            var SeniorMap = {};  //return Senior object
            // fill up the Senior object
            users.forEach(function (user)
@@ -114,15 +126,20 @@ app.get('/users', function (req,res)
                 SeniorMap[user._id] = user;
            });
 
-           res.end(JSON.stringify(SeniorMap,null, "\n"));
+           res.end(JSON.stringify(SeniorMap, null, "\n"));
+           //e.g: JSON.stringify(new Date(2006, 0, 2, 15, 4, 5)) --> '"2006-01-02T15:04:05.000Z"'
        }
    });
 });
 
 
 
+//var foo = {foundation: "Mozilla", model: "box", week: 45, transport: "car", month: 7};
+//-->JSON.stringify(foo, ['week', 'month']);
+ //-->'{"week":45,"month":7}', only keep "week" and "month" properties
 
-// exports
+
+// --Exports--
 module.exports =  app;  // to use app in other files,i need to do before 'require', e.g: var Foo = function(){};  app.fooMethod = Foo;
 exports.Server = connection; // connection to the local Db, if i want to use DB in other files;
 
