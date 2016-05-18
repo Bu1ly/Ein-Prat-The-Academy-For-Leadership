@@ -27,8 +27,7 @@ var connection = mongoose.createConnection('mongodb://danny:danivolp89@ds049624.
 
     if(error){
         console.log("Warning! Error occurred!\n\n");
-        throw error;
-        //console.log(error.name, "<- Is the error name\n", error.message , "<- Is the error message");
+        console.log(error.name, "<- Is the error name\n", error.message , "<- Is the error message");
     }
     else
         console.log("App is now connected to Mlab DB");
@@ -43,6 +42,7 @@ var seniors = new Schema({
 
 // --Connect collection to schema--
 var Senior = connection.model('Senior',seniors);
+console.log(Senior.find());
 
 // Main route
 app.get('/', function (req,res) {
