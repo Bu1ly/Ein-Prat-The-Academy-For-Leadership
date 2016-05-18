@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="he">
+
+    <head>
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
+        <link rel="stylesheet" href="../css/bootstrap/bootstrap.min.css">
+        <link rel="stylesheet" href="../fonts/font-awesome/css/font-awesome.min.css">
+        <link rel="stylesheet" href="../css/css/login.css">
+
+    </head>
+
+    <body dir="rtl">
+
+    <script>
+        window.fbAsyncInit = function() {
+            FB.init({
+                appId      : '1747387218839587',
+                xfbml      : true,
+                version    : 'v2.6'
+            });
+        };
+
+        (function(d, s, id){
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) {return;}
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+
+
+    <!--include we need to active login button from facebook        -->
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.6&appId=1747387218839587";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+        
+
+<a href="#" data-toggle="modal" data-target="#login-modal">התחבר</a>
+
+<!--        MAIN LOGIN MODAL-->
+<div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    	  <div class="modal-dialog">
+				<div class="loginmodal-container">
+					<h1>התחבר לחשבונך</h1><br>
+				  <form>
+					<input type="text" name="user" placeholder="שם משתמש...">
+					<input type="password" name="pass" placeholder="ססמא...">
+					<input type="submit" name="login" class="login loginmodal-submit" value="התחבר">
+				  </form>
+
+                    <div class="fb-login-button" data-max-rows="1" data-size="large" data-show-faces="true" data-auto-logout-></div>
+					
+				  <div class="login-help">
+					<a class="useful_text" href="#" data-toggle="modal" data-target="#register-modal">הרשם</a> - <a class="useful_text"  href="#" data-toggle="modal" data-target="#forgot-modal">שכחת ססמא?</a>
+				  </div>
+				</div>
+			</div>
+		  </div>
+        
+<!--        FORGOT PASSWORD MODAL-->
+        <div class="modal fade" id="forgot-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    	  <div class="modal-dialog">
+				<div class="loginmodal-container">
+					<h1>שכחת את הססמא?</h1><br>
+                    <h5>..אנא הזן את כתובת האמיייל שלך</h5><br>
+				  <form>
+					<input type="text" name="email" placeholder="...האימייל שלך">
+
+<!--                      change functionality-->
+                        <input type="submit" name="login" class="login loginmodal-submit" value="שלח">
+<!--				  /////////-->
+                    </form>
+				</div>
+			</div>
+		  </div>
+        
+<!--        REGISTER MODAL-->
+        <div class="modal fade" id="register-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    	  <div class="modal-dialog">
+				<div class="loginmodal-container">
+					<h1>הרשמה לאתר</h1><br>
+				  <form>
+					<input type="text" placeholder="שם פרטי">
+                    <input type="text" placeholder="שם משפחה">
+                    <input type="text" name="email" placeholder="אימייל">
+                    <input type="text" placeholder="סיסמא">
+                    <input type="text" placeholder="שוב הסיסמא">
+                    <p>מחזור</p>
+                    <select class="select-style">
+                        <option value="a">א</option>
+                        <option value="b">ב</option>
+                        <option value="c">ג</option>
+                        <option value="d">ד</option>
+                    </select>
+                      
+<!--                      change functionality-->
+					<input type="submit" name="login" class="login loginmodal-submit" value="שלח">
+<!--////////////-->
+
+                    </form>
+				</div>
+			</div>
+		  </div>
+
+        
+<!--        FACEBOOK BUTTON-->
+        
+
+        
+<!--        CHECK VALIDATION OF EMAIL!!!-->
+        
+
+		
+
+        <!-- Javascript -->
+        <script src="../js/jquery/jquery-1.11.1.min.js"></script>
+        <script src="../js/bootstrap/bootstrap.min.js"></script>
+        <script src="../js/jquery/jquery.backstretch.min.js"></script>
+        <script src="../js/javascript/login_script.js"></script>
+
+    </body>
+
+</html>
