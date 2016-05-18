@@ -1,45 +1,203 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-  <title>HTML dynamic table using JavaScript</title>
-  <script type="text/javascript" src="app.js"></script>
+
+    <title>Ein-Prat Academic College</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="../public/css/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Core CSS RTL-->
+    <link href="../public/css/bootstrap/bootstrap-rtl.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="../public/css/css/sb-admin.css" rel="stylesheet">
+    <link href="../public/css/css/sb-admin-rtl.css" rel="stylesheet">
+
+    <!-- Morris Charts CSS -->
+    <link href="../public/css/plugins/morris.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="../public/fonts/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
 </head>
-<body onload="load()">
-<div id="myform">
-  </b>
-  <table>
-    <tr>
-      <td>Name:</td>
-      <td><input type="text" id="name"></td>
-    </tr>
 
-    <td>Last Name:</td>
-    <td><input type="text" id="last_name"></td>
+<body>
 
-    <tr>
-      <td>ID:</td>
-      <td><input type="text" id="id">
-        <input type="button" id="add" value="Add" onclick="Javascript:addRow()"></td>
-    </tr>
-    <tr>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-    </tr>
-  </table>
-</div>
-<div id="mydata">
+    <div id="wrapper">
 
-  <table id="myTableData"  border="1" cellpadding="2">
-    <tr>
+        <!-- Navigation -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">מכינת עין-פרת</a>
+            </div>
+            <!-- Top Menu Items -->
+            <ul class="nav navbar-right top-nav">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> <b class="caret"></b></a>
+                    <ul class="dropdown-menu message-dropdown">
+                        <li class="message-preview">
+                            <a href="#">
+                                <div class="media">
+                                    <span class="pull-left">
+                                        <img class="media-object" src="http://placehold.it/50x50" alt="">
+                                    </span>
+                                    <div class="media-body">
+                                        <h5 class="media-heading"><strong>יהושוע</strong>
+                                        </h5>
+                                        <p class="small text-muted"><i class="fa fa-clock-o"></i> אתמול ב 16:55</p>
+                                        <p>שאלה בקטנה בנושא...</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="message-preview">
+                            <a href="#">
+                                <div class="media">
+                                    <span class="pull-left">
+                                        <img class="media-object" src="http://placehold.it/50x50" alt="">
+                                    </span>
+                                    <div class="media-body">
+                                        <h5 class="media-heading"><strong>מושיקו</strong>
+                                        </h5>
+                                        <p class="small text-muted"><i class="fa fa-clock-o"></i> אתמול ב 16:32 </p>
+                                        <p>שכחתי לספר לך משהו..</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="message-footer">
+                            <a href="#">לכל ההודעות</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i> <b class="caret"></b></a>
+                    <ul class="dropdown-menu alert-dropdown">
+                        <li>
+                            <a href="#">התראה #1 <span class="label label-default">הודעה חדשה</span></a>
+                        </li>
+                        <li>
+                            <a href="#">התראה #2 <span class="label label-primary">אירוע חדש</span></a>
+                        </li>
+                        <li>
+                            <a href="#">התראה #3 <span class="label label-success">חסרים פרטים</span></a>
+                        </li>
+                        <li>
+                            <a href="#">התראה #4 <span class="label label-info">שלם לאירוע</span></a>
+                        </li>
+                        <li>
+                            <a href="#">התראה #5 <span class="label label-warning">חבר חדש</span></a>
+                        </li>
+                        <li>
+                            <a href="#">התראה #6 <span class="label label-danger">אזהרה</span></a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">הצג הכל</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> דודו זר <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="#"><i class="fa fa-fw fa-user"></i> פרופיל ושינוי פרטים</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-fw fa-envelope"></i> סנכרן עם פייסבוק</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-fw fa-gear"></i> הגדרות אפליקציה</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-fw fa-gear"></i> לאתר המכינה</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#"><i class="fa fa-fw fa-power-off"></i> התנתק</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav side-nav">
+                    <li>
+                        <a href="index.html"><i class="fa fa-fw fa-home"></i> בית</a>
+                    </li>
+                    <li>
+                        <a href="senior_search.html"><i class="fa fa-fw fa-search"></i> חפש בוגר</a>
+                    </li>
+                    <li>
+                        <a href="studies.html"><i class="fa fa-fw fa-book"></i> חומרי לימוד</a>
+                    </li>
+                    <li>
+                        <a href="sales.html"><i class="fa fa-fw fa-usd"></i> הנחות</a>
+                    </li>
+                    <li>
+                        <a href="job_offers.html"><i class="fa fa-fw fa-send"></i> הצעות עבודה</a>
+                    </li>
+                    <li>
+                        <a href="events.html"><i class="fa fa-fw fa-bullhorn"></i> פעילויות בוגרים</a>
+                    </li>
+                    <li>
+                        <a href="blank-page.html"><i class="fa fa-fw fa-file"></i> BLANK OPTION</a>
+                    </li>
+                    <li>
+                        <a href="blank-page.html"><i class="blank_divider"></i>  </a>
+                    </li>
+                     <li>
+                        <a href="blank-page.html"><i class="blank_divider"></i>  </a>
+                    </li>
+                    <li>
+                        <a href="blank-page.html"><i class="blank_divider"></i>  </a>
+                    </li>
+                    <li class="active">
+<!--                        <a href="index-rtl.html"><i class="fa fa-fw fa-dashboard"></i> מידע על הפלטפורמה</a>-->
+                        <a href="index.html"><i class="fa fa-fw fa-link"></i> מידע על הפלטפורמה</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </nav>
 
-      <td><b>Name</b></td>
-      <td><b>Last Name</b></td>
-      <td><b>ID</b></td>
-      <td>&nbsp;</td>
-    </tr>
-  </table>
-  &nbsp;<br/>
-</div>
+        <div id="page-wrapper">
+<!--            <div id="page-wrapper" ng-view>-->
+
+            
+            
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    
+    
+    <!-- jQuery -->
+    <script src="/public/js/jquery/jquery.js"></script>
+    
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/public/js/bootstrap/bootstrap.min.js"></script>
+    
+    <!-- Angular Core JavaScript -->
+    <script src="/public/js/angular/angular.min.js"></script>
+    <script src="/public/js/angular/angular-route.min.js"></script>
+    <script src="/public/js/angular/angular-messages.min.js"></script>
+
+    <!-- Morris Charts JavaScript -->
+    <script src="/public/js/plugins/morris/raphael.min.js"></script>
+    <script src="/public/js/plugins/morris/morris.min.js"></script>
+    <script src="/public/js/plugins/morris/morris-data.js"></script>
 
 </body>
+
 </html>
