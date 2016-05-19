@@ -2,35 +2,13 @@
 <html ng-app="dPages">
 <head>
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
     <title>Ein-Prat Academic College</title>
-
-    <!-- Bootstrap Core CSS -->
-    <link href="../../../../../Desktop/EinPrat/startbootstrap-sb-admin-1.0.4/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Bootstrap Core CSS RTL-->
-    <link href="../../../../../Desktop/EinPrat/startbootstrap-sb-admin-1.0.4/css/bootstrap-rtl.min.css" rel="stylesheet">
-
-    <!-- Custom CSS -->
-    <link href="../../../../../Desktop/EinPrat/startbootstrap-sb-admin-1.0.4/css/sb-admin.css" rel="stylesheet">
-    <link href="../../../../../Desktop/EinPrat/startbootstrap-sb-admin-1.0.4/css/sb-admin-rtl.css" rel="stylesheet">
-
-    <!-- Morris Charts CSS -->
-    <link href="../../../../../Desktop/EinPrat/startbootstrap-sb-admin-1.0.4/css/plugins/morris.css" rel="stylesheet">
-
-    <!-- Custom Fonts -->
-    <link href="../../../../../Desktop/EinPrat/startbootstrap-sb-admin-1.0.4/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
 </head>
 
 <body ng-controller="DailyPageController as dPage">
-    
-    <section class="daily-page" ng-repeat="page in dPage.pages"> 
+
+    <section class="daily-page" ng-repeat="page in dPage.pages">
 
         <div class="daily-image" ng-repeat="image in page.images">
             <img class="daily-image" ng-src="{{image.full}}"/>
@@ -56,26 +34,14 @@
                     <li class="horizontal-list-li">
                         <input ng-click="revCtrl.addReview(page)" type="submit" value="פרסם תגובה" class="new-review-btn" >
                     </li>
-                </ul>  
-            </div>           
+                </ul>
+            </div>
         </form>
     </section>
-    
-    <!-- Angular -->
-    <script type="text/javascript" src="../../../../../Desktop/EinPrat/startbootstrap-sb-admin-1.0.4/js/angular.min.js"></script>
-    <script type="text/javascript" src="../../../../../Desktop/EinPrat/startbootstrap-sb-admin-1.0.4/js/app.js"></script>
-    
-    <!-- jQuery -->
-    <script src="../../../../../Desktop/EinPrat/startbootstrap-sb-admin-1.0.4/js/jquery.js"></script>
 
-    <!-- Bootstrap Core JavaScript -->
-    <script src="../../../../../Desktop/EinPrat/startbootstrap-sb-admin-1.0.4/js/bootstrap.min.js"></script>
-
-    <!-- Morris Charts JavaScript -->
-    <script src="../../../../../Desktop/EinPrat/startbootstrap-sb-admin-1.0.4/js/plugins/morris/raphael.min.js"></script>
-    <script src="../../../../../Desktop/EinPrat/startbootstrap-sb-admin-1.0.4/js/plugins/morris/morris.min.js"></script>
-    <script src="../../../../../Desktop/EinPrat/startbootstrap-sb-admin-1.0.4/js/plugins/morris/morris-data.js"></script>
 
 </body>
 
 </html>
+
+<div>fucking home page</div>

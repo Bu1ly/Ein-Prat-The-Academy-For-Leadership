@@ -3,10 +3,10 @@ angular.module('mainApp')
 
     // RIGHT NAV
     $routeProvider.when('/home_page', {
-        templateUrl: '/views/home_page.html'
+        templateUrl: 'views/home_page.html'
     })
         .when('/senior_search', {
-            templateUrl: '/views/senior_search.html'
+            templateUrl: 'views/senior_search.html'
         })
         .when('/studies', {
             templateUrl: '/views/studies.html'
@@ -30,9 +30,9 @@ angular.module('mainApp')
         .when('/app_settings', {
             templateUrl: '/views/app_settings.html'
         })
-        // .when('/', {
-        //     templateUrl: '/views/home_page.html'
-        // })
+        .when('/', {
+            templateUrl: '/views/home_page.html'
+        })
         .otherwise({redirectTo: '/views/not_yet_exists.html'});
 
 

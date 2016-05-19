@@ -444,7 +444,7 @@
                 var sign = variation % 2 == 1 ? -1 : 1;
                 c.scale('rgb', 1 + sign * Math.ceil(variation / 2) * 0.2)
 
-                // FIXME: if we're getting to close to something else,
+                 // FIXME: if we're getting to close to something else,
                 // we should probably skip this one
                 colors.push(c);
                 
