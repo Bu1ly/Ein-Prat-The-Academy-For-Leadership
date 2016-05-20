@@ -2,6 +2,13 @@
 <html lang="en" ng-app="mainApp">
 
 <head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
     <base href="/">
     <title>Ein-Prat Academic College</title>
 
@@ -19,6 +26,10 @@
 
 </head>
 <body>
+
+
+
+
 
 <div id="wrapper">
 
@@ -127,25 +138,25 @@
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav side-nav">
                 <li>
-                    <a href="/home_page"><i class="fa fa-fw fa-home"></i> בית</a>
+                    <a href="/#/home_page"><i class="fa fa-fw fa-home"></i> בית</a>
                 </li>
                 <li>
-                    <a href="/senior_search"><i class="fa fa-fw fa-search"></i> חפש בוגר</a>
+                    <a href="/#/senior_search"><i class="fa fa-fw fa-search"></i> חפש בוגר</a>
                 </li>
                 <li>
-                    <a href="/studies"><i class="fa fa-fw fa-book"></i> חומרי לימוד</a>
+                    <a href="/#/studies"><i class="fa fa-fw fa-book"></i> חומרי לימוד</a>
                 </li>
                 <li>
-                    <a href="/sales"><i class="fa fa-fw fa-usd"></i> הנחות</a>
+                    <a href="/#/sales"><i class="fa fa-fw fa-usd"></i> הנחות</a>
                 </li>
                 <li>
-                    <a href="/job_offers"><i class="fa fa-fw fa-send"></i> הצעות עבודה</a>
+                    <a href="/#/job_offers"><i class="fa fa-fw fa-send"></i> הצעות עבודה</a>
                 </li>
                 <li>
-                    <a href="/events"><i class="fa fa-fw fa-bullhorn"></i> פעילויות בוגרים</a>
+                    <a href="/#/events"><i class="fa fa-fw fa-bullhorn"></i> פעילויות בוגרים</a>
                 </li>
                 <li>
-                    <a href="/blank_page"><i class="fa fa-fw fa-file"></i> BLANK OPTION</a>
+                    <a href="/#/blank_page"><i class="fa fa-fw fa-file"></i> BLANK OPTION</a>
                 </li>
                 <li>
                     <a href="#"><i class="blank_divider"></i>  </a>
@@ -165,8 +176,8 @@
         <!-- /.navbar-collapse -->
     </nav>
 
-    <div id="page-wrapper">
-        <div ng-view></div>
+    <div id="page-wrapper" ng-view>
+
 
     </div>
     <!-- /#page-wrapper -->
@@ -174,7 +185,7 @@
 </div>
 <!-- /#wrapper -->
 
-
+</body>
 
 <!-- jQuery -->
 <script src="js/jquery/jquery.js"></script>
@@ -191,8 +202,8 @@
 <!--<script src="js/angular/angular-messages.min.js.map"></script>-->
 
 <!--App-->
-<script src="js/javascript/routes.js"></script>
 <script src="js/javascript/app.js"></script>
+<script src="js/javascript/routes.js"></script>
 
 
 
@@ -201,5 +212,5 @@
 <script src="js/plugins/morris/morris.min.js"></script>
 <script src="js/plugins/morris/morris-data.js"></script>
 
-</body>
+
 </html>

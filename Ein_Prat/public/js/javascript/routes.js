@@ -31,7 +31,7 @@ angular.module('mainApp')
             templateUrl: '/views/app_settings.html'
         })
         .when('/', {
-            templateUrl: 'views/home_page.html'
+            templateUrl: 'views/bird.html'
         })
         .otherwise({redirectTo: '/views/not_yet_exists.html'});
 
