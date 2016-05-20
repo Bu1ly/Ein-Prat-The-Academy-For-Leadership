@@ -14,6 +14,9 @@ angular.module('mainApp')
         .when('/sales', {
             templateUrl: '/views/sales.html'
         })
+        .when('/job_offers', {
+            templateUrl: '/views/job_offers.html'
+        })
         .when('/events', {
             templateUrl: '/views/events.html'
         })
@@ -23,6 +26,7 @@ angular.module('mainApp')
         .when('/info', {
             templateUrl: '/views/info.html'
         })
+
         // UPPER NAV
         .when('/change_info', {
             templateUrl: '/views/blank_page.html'
@@ -33,7 +37,7 @@ angular.module('mainApp')
         .when('/', {
             templateUrl: 'views/bird.html'
         })
-        .otherwise({redirectTo: '/views/not_yet_exists.html'});
+        .otherwise({redirectTo: 'views/404.html'});
 
 
 });
