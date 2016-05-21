@@ -22,9 +22,13 @@ body {
 }
 
 #page-wrapper {
+    /*margin-top: 5%;*/
     width: 100%;
     padding: 0;
     background-color: #fff;
+}
+#view_area{
+    margin-top: 5%;
 }
 
 .huge {
@@ -230,7 +234,7 @@ ul.alert-dropdown {
 .basic_texts{
     color: aliceblue;
     font-family: fantasy;
-    background: null;
+    background: transparent;
     font-size: 50px;
     margin-right: 300px;
 }
@@ -248,7 +252,7 @@ ul.alert-dropdown {
 }
 
 .daily-image{
-    
+
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -263,8 +267,8 @@ ul.alert-dropdown {
 .daily-image-details{
     display: block;
     text-align: center;
-    
-    
+
+
 }
 
 .review-form {
@@ -298,7 +302,7 @@ ul.alert-dropdown {
     -webkit-box-shadow: inset 0 1px rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.2);
     box-shadow: inset 0 1px rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.2);
 
-  
+
 }
 
 .horizontal-list-ul{

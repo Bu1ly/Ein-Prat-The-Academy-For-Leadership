@@ -1,47 +1,47 @@
-<!DOCTYPE html>
-<html ng-app="dPages">
-<head>
+<!--<!DOCTYPE html>-->
+<!--<html ng-app="dPages">-->
+<!--<head>-->
 
-    <title>Ein-Prat Academic College</title>
+    <!--<title>Ein-Prat Academic College</title>-->
 
-</head>
+<!--</head>-->
 
-<body ng-controller="DailyPageController as dPage">
+<!--<body ng-controller="DailyPageController as dPage">-->
 
-    <section class="daily-page" ng-repeat="page in dPage.pages">
+    <!--<section class="daily-page" ng-repeat="page in dPage.pages">-->
 
-        <div class="daily-image" ng-repeat="image in page.images">
-            <img class="daily-image" ng-src="{{image.full}}"/>
-        </div>
-        <div class="daily-image-details">
-            <h4>{{page.description}}</h4>
-        </div>
-        <hr />
-        <form class="review-archive" >
-            <div class="review-archive-independent" ng-controller="ReviewController as revCtrl">
-                <blockquote ng-repeat="review in page.reviews">
-                    {{review.body}}
-                    <cite><h6>{{review.author}}</h6></cite>
-                </blockquote>
-                <blockquote>
-                    {{revCtrl.review.body}}
-                    <cite><h6>{{revCtrl.review.author}}</h6></cite>
-                </blockquote>
-                <ul class="horizontal-list-ul">
-                    <li class="horizontal-list-li">
-                        <textarea ng-model="revCtrl.review.body" class="review-form"></textarea>
-                    </li>
-                    <li class="horizontal-list-li">
-                        <input ng-click="revCtrl.addReview(page)" type="submit" value="פרסם תגובה" class="new-review-btn" >
-                    </li>
-                </ul>
-            </div>
-        </form>
-    </section>
+        <!--<div class="daily-image" ng-repeat="image in page.images">-->
+            <!--<img class="daily-image" ng-src="{{image.full}}"/>-->
+        <!--</div>-->
+        <!--<div class="daily-image-details">-->
+            <!--<h4>{{page.description}}</h4>-->
+        <!--</div>-->
+        <!--<hr />-->
+        <!--<form class="review-archive" >-->
+            <!--<div class="review-archive-independent" ng-controller="ReviewController as revCtrl">-->
+                <!--<blockquote ng-repeat="review in page.reviews">-->
+                    <!--{{review.body}}-->
+                    <!--<cite><h6>{{review.author}}</h6></cite>-->
+                <!--</blockquote>-->
+                <!--<blockquote>-->
+                    <!--{{revCtrl.review.body}}-->
+                    <!--<cite><h6>{{revCtrl.review.author}}</h6></cite>-->
+                <!--</blockquote>-->
+                <!--<ul class="horizontal-list-ul">-->
+                    <!--<li class="horizontal-list-li">-->
+                        <!--<textarea ng-model="revCtrl.review.body" class="review-form"></textarea>-->
+                    <!--</li>-->
+                    <!--<li class="horizontal-list-li">-->
+                        <!--<input ng-click="revCtrl.addReview(page)" type="submit" value="פרסם תגובה" class="new-review-btn" >-->
+                    <!--</li>-->
+                <!--</ul>-->
+            <!--</div>-->
+        <!--</form>-->
+    <!--</section>-->
 
 
-</body>
+<!--</body>-->
 
-</html>
+<!--</html>-->
 
 <div>fucking home page</div>
