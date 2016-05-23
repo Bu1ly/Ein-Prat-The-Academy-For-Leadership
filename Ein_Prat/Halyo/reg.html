@@ -5,13 +5,13 @@
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/reg.css">
+    <link rel="stylesheet" href="reg.css">
 
     <script src="reg.js"></script>
 </head>
 
 <body>
-<div ng-controler=""
+
 <div class="loginmodal-container">
     <div class="headLine"><b>הרשמה</b></div>
 
@@ -20,21 +20,25 @@
         <!--     //need to enter the server reg file downhere    -->
 
         <form action="demo_form.asp">
-            <p><input type="text" name="fname" placeholder="שם פרטי"><br></p>
-            <p><input type="text" name="lname" placeholder="שם משפחה"><br></p>
-            <p><input type="password" name="pass" placeholder="סיסמה"><br></p>
-            <p><input type="text" name="mail" placeholder="כתובת מייל"><br></p>
-            <P>:תאריך לידה</P>
-            <input type="date"><br>
+
+            <div>
+                <img src="https://upload.wikimedia.org/wikipedia/he/thumb/6/6c/Ein_Prat_Logo.jpg/220px-Ein_Prat_Logo.jpg" alt="Ein_Prat_logo" align="left">
+            </div>
+            <div align="right">
+                <p><input type="text" name="fname" placeholder="שם פרטי" class="textBox" required><br></p>
+                <p><input type="text" name="lname" placeholder="שם משפחה" class="textBox" required><br></p>
+                <p><input type="password" name="pass" placeholder="סיסמה" class="textBox" required><br></p>
+                <p><input type="text" name="mail" placeholder="כתובת מייל" class="textBox" required><br></p>
+                <P>:תאריך לידה</P>
+                <input type="date" class="textBox"><br>
 
 
-            <p><input type='radio' name="gender" value="male">זכר<br></p>
-            <p><input type='radio' name="gender" value="female">נקבה<br></p>
+                <p><input type='radio' name="gender" value="male">זכר<br></p>
+                <p><input type='radio' name="gender" value="female">נקבה<br></p>
 
-            <input type="submit" value="הרשמה" class="loginmodal-submit"><br>
-
+                <input type="submit" value="הירשם" class="loginmodal-submit"><br>
+            </div>
         </form>
-
 
 
 
@@ -44,4 +48,3 @@
     </div>
 </div>
 </body>
-</html>

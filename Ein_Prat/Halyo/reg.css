@@ -4,7 +4,7 @@
 /****** LOGIN MODAL ******/
 .loginmodal-container {
     padding: 100px;
-    max-width: 350px;
+    max-width: 700px;
     width: 100% !important;
     background-color: floralwhite;
     margin: 0 auto;
@@ -27,8 +27,18 @@
     border: 2px;
     color: #fff;
     text-shadow: 0 1px rgba(0,0,0,0.1);
-    background-color: darkblue;
-    padding: 35px 35px;
+    background-color: green;
+    padding: 20px 35px;
     font-family: roboto;
-    font-size: 30px;
+    font-size: 20px;
+    border-radius: 10px;
+
 }
+
+.textBox {
+    width: 300px;
+    height: 35px;
+    text-align: right;
+    border-radius: 10px;
+}
+
