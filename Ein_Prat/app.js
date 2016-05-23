@@ -4,10 +4,8 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var server  = require('./app');
+var server  = require('./server');// require the server connection to the mlab DB
 
-
-var connection = server.Server;
 var mongodb = require('mongodb');
 var routes = require('./routes/index');
 var users = require('./routes/users');
@@ -28,6 +26,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/users', users);
+
+var connection = server.Server;
 
 
 // catch 404 and forward to error handler
