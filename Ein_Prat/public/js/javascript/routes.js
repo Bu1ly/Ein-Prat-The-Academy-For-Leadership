@@ -38,6 +38,9 @@ angular.module('mainApp')
         //     templateUrl: 'views/home_page.html'
         // })
         .when('/', {
+            templateUrl: 'views/home_page.html'
+        })
+        .when('/register', {
             templateUrl: 'views/reg.html'
         })
         .when('/404', {
