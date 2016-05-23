@@ -40,7 +40,7 @@ angular.module('mainApp')
         .when('/', {
             templateUrl: 'views/home_page.html'
         })
-        .when('/register', {
+        .when('/reg', {
             templateUrl: 'views/reg.html',
             controller: 'RegisterCtrl',
             controllerAs: 'regCtrl'
