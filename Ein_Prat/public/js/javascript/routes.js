@@ -34,6 +34,9 @@ angular.module('mainApp')
         .when('/app_settings', {
             templateUrl: 'views/app_settings.html'
         })
+        // .when('/', {
+        //     templateUrl: 'views/home_page.html'
+        // })
         .when('/', {
             templateUrl: 'views/home_page.html'
         })
