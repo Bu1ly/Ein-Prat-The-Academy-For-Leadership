@@ -38,7 +38,7 @@ angular.module('mainApp')
         //     templateUrl: 'views/home_page.html'
         // })
         .when('/', {
-            templateUrl: 'views/home_page.html'
+            templateUrl: 'views/reg.html'
         })
         .when('/404', {
             templateUrl: 'views/404.html'
