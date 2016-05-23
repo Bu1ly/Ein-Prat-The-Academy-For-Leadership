@@ -41,7 +41,9 @@ angular.module('mainApp')
             templateUrl: 'views/home_page.html'
         })
         .when('/register', {
-            templateUrl: 'views/reg.html'
+            templateUrl: 'views/reg.html',
+            controller: 'RegisterCtrl',
+            controllerAs: 'regCtrl'
         })
         .when('/404', {
             templateUrl: 'views/404.html'
