@@ -13,9 +13,11 @@ app.post('/reg', function(req,res){
 
     // create senior object and take the data according to Senior Schema
     var seniorJason = {
-        name : registerData.name,
-        lastName : registerData.lastName,
-        identity : registerData.identity
+        // name : registerData.name,
+        // lastName : registerData.lastName,
+        // identity : registerData.identity
+        id: registerData.id,
+        password: registerData.password
     };
 
     // create new DB instance
