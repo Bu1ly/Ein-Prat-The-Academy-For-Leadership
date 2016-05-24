@@ -2,7 +2,7 @@ var HttpStatus = require('http-status-codes');
 
 //var mongoUtils = require('../utils/connectDB');
 var app = require('../../server');
-
+var Senior = require('../../Senior');
 
 //************ DataBase Functions ******************
 

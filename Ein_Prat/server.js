@@ -42,7 +42,7 @@ var seniors = new Schema({
 
 // --Connect collection to schema--
 var Senior = connection.model('Senior',seniors);
-console.log(Senior.find());
+console.log(Senior.find({}, 'Moshe'));
 
 // Main route
 app.get('/', function (req,res) {
@@ -59,7 +59,7 @@ app.get('/', function (req,res) {
 // --Exports--
 module.exports = app ;  // to use app in other files,i need to do before 'require', e.g: var Foo = function(){};  app.fooMethod = Foo;
 exports.connection = connection; // connection to the local Db, if i want to use DB in other files;
-
+exports.Senior = Senior;
 
 
 
