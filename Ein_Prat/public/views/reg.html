@@ -1,17 +1,17 @@
 <div dir="ltr">
 ID:
-    <textarea value="id"></textarea>
+    <textarea ng-model="regCtrl.user.id" value="id"></textarea>
 Password: 
-    <textarea value="password"></textarea>
+    <textarea ng-model="regCtrl.user.password" value="password"></textarea>
 </div>
-<input type="submit" name="login" value="save in db" style="align-content: center">
+<input ng-click="regCtrl.newUser()" name="login" value="save in db" style="align-content: center">
 
 
 <!--Display existing usernames:-->
-<div class="show-all-users" ng-repeat="username in user.name">
+<div class="show-all-users" ng-repeat="user in regCtrl.users">
     <blockquote>
         <ul>
-            <li>{{user.name}}</li>
+            <li>{{users.name}}</li>
         </ul>
     </blockquote>
 </div>
