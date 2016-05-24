@@ -7,9 +7,9 @@ Password:
 <input type="submit" name="login" value="save in db" style="align-content: center">
 
 
-<div class="show-all-users">
+<div class="show-all-users" ng-repeat="username in user.name">
 <ul>
-    <li> 1</li>
+    <li>{{user.name}} 1</li>
     <li> 2</li>
     <li> 3</li>
     <li> 4</li>
