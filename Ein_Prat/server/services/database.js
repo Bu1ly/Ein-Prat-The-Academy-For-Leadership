@@ -1,4 +1,4 @@
-//var HttpStatus = require('http-status-codes');
+var HttpStatus = require('http-status-codes');
 
 //var mongoUtils = require('../utils/connectDB');
 var app = require('../../server');

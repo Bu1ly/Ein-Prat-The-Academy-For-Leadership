@@ -1,5 +1,5 @@
-var express = require('express'); // get express for server init
-var app = express();
+var express = require('express');
+var app =  require('./server/app');
 var path = require('path');// get the path
 var mongoose = require('mongoose');// DB connections
 var Schema = mongoose.Schema;//to create schemas
@@ -57,8 +57,8 @@ app.get('/', function (req,res) {
 
 
 // --Exports--
-module.exports =  app;  // to use app in other files,i need to do before 'require', e.g: var Foo = function(){};  app.fooMethod = Foo;
-exports.Server = connection; // connection to the local Db, if i want to use DB in other files;
+module.exports = app ;  // to use app in other files,i need to do before 'require', e.g: var Foo = function(){};  app.fooMethod = Foo;
+exports.connection = connection; // connection to the local Db, if i want to use DB in other files;
 
 
 
