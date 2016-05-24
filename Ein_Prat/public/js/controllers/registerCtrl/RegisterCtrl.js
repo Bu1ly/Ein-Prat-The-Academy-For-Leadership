@@ -1,5 +1,5 @@
 angular.module('mainApp')
-    .controller('RegisterCtrl', [function($http) {
+    .controller('RegisterCtrl', ['$http', function($http) {
         this.user = {};
         this.users = [];
 

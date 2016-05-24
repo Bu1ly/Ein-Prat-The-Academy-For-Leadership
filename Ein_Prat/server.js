@@ -57,7 +57,7 @@ app.get('/', function (req,res) {
 
 
 // --Exports--
-module.exports = app ;  // to use app in other files,i need to do before 'require', e.g: var Foo = function(){};  app.fooMethod = Foo;
+module.exports = server ;  // to use app in other files,i need to do before 'require', e.g: var Foo = function(){};  app.fooMethod = Foo;
 exports.connection = connection; // connection to the local Db, if i want to use DB in other files;
 exports.Senior = Senior;
 
