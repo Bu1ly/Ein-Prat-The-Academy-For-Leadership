@@ -13,4 +13,5 @@ angular.module('mainApp')
                 })
             .catch(function() { console.log("Unsuccessful") });
         };
+        // return user;
     }]);
