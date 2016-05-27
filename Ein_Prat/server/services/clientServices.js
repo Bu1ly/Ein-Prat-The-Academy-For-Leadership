@@ -1,4 +1,4 @@
-var app = require('../../server');
+var app = require('../app');
 
 
 // *************** CLIENT FUNCTIONS *************
