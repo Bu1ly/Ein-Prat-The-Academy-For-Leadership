@@ -28,7 +28,7 @@ body {
     background-color: #fff;
 }
 #view_area{
-    margin-top: 5%;
+    margin-top: 6%;
 }
 
 .huge {
@@ -251,19 +251,19 @@ ul.alert-dropdown {
 /*    box-shadow: 3px 5px 3px #888888; */
 }
 
-.daily-image{
+/*.daily-image{*/
 
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    top: 10px;
-    border-color: darkslategrey;
-    background-color: White;
-    padding: 8px;
-    width: 50%px;
-    height:35%px;
+    /*display: block;*/
+    /*margin-left: auto;*/
+    /*margin-right: auto;*/
+    /*top: 10px;*/
+    /*border-color: darkslategrey;*/
+    /*background-color: White;*/
+    /*padding: 8px;*/
+    /*width: 50%px;*/
+    /*height:35%px;*/
 
-}
+/*}*/
 .daily-image-details{
     display: block;
     text-align: center;
