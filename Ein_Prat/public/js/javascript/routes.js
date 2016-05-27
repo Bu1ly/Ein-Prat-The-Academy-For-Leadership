@@ -45,6 +45,11 @@ angular.module('mainApp')
             controller: 'RegisterCtrl',
             controllerAs: 'regCtrl'
         })
+        .when('/log', {
+            templateUrl: 'views/log.html',
+            controller: 'LogInCtrl',
+            controllerAs: 'logCtrl'
+        })
         .when('/404', {
             templateUrl: 'views/404.html'
         })
