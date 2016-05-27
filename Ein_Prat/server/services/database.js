@@ -1,14 +1,16 @@
-var HttpStatus = require('http-status-codes');
-var mongoUtils = require('../utils/connectDB');
+//var HttpStatus = require('http-status-codes');
+//var mongoUtils = require('../utils/connectDB');
 
-var app = require('../app');
-var Senior = require('../../Senior');
+var express = require('express');
+var router = express.Router();
+//var app = require('../app');
+//var Senior = require('../../Senior');//need to require senior properly
 
 
 //************ DataBase Functions ******************
 
 // --Register new Users--
-app.post('/reg', function(req,res){
+router.post('/reg', function(req,res){
     var registerData = req.body; // get the user data
     console.log(registerData); //print for debug
 
@@ -22,7 +24,7 @@ app.post('/reg', function(req,res){
     };
 
     // create new DB instance
-    var newSenior = new Senior(seniorJason);
+    //var newSenior = new Senior(seniorJason);/remove from // after seniour added
 
     // save the newSenior to the DB
     newSenior.save(function(err){
@@ -36,7 +38,7 @@ app.post('/reg', function(req,res){
 
 
 // --Delete User--
-app.post('/delete', function (req,res) {
+router.post('/delete', function (req,res) {
     var registerData = req.body; // get the user data
     console.log(registerData); //print for debug
 
@@ -48,7 +50,7 @@ app.post('/delete', function (req,res) {
     };
 
     // create new DB instance
-    var deleteSenior = new Senior(seniorJason);
+    //var deleteSenior = new Senior(seniorJason);//add this line after require senior
 
     // remove the newSenior to the DB
     deleteSenior.remove(function(err){
@@ -61,17 +63,18 @@ app.post('/delete', function (req,res) {
 
 
 // --Delete a specific Senior--
-app.delete('delete:id', function (req,res) {
-    Senior.findOneAndRemove( {'_id':req.param.id}, function (err, updated){
+router.delete('delete:id', function (req,res) {
+    //Senior.findOneAndRemove( {'_id':req.param.id}, function (err, updated){//add this line after require senior
         if(err)
             console.log("The user not found\n");
         else
             res.json(updated);
     });
-});
+
 
 
 // Update Senior
 
 
-module.exports = app;
+module.exports = router;
+//module.exports = app;

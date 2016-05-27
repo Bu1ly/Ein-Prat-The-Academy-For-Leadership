@@ -1,6 +1,9 @@
 //include variables and exists libraries
+// var express = require('express');
+// var app =  express();
 var express = require('express');
-var app =  express();
+var app = express.Router();
+
 var path = require('path');// get the path
 
 //init for using POST calls

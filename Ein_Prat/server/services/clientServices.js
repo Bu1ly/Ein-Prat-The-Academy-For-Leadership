@@ -1,10 +1,11 @@
-var app = require('../app');
-
+//var app = require('../app');
+var express = require('express');
+var router = express.Router();
 
 // *************** CLIENT FUNCTIONS *************
 
 // -- Give me a specific Senior --
-app.get('reg/:id', function(req,res) {
+router.get('reg/:id', function(req,res) {
     Senior.find( {'_id': req.params.id}, function(err, user) {
         if(err)
             console.log("The user not found\n");
@@ -15,7 +16,7 @@ app.get('reg/:id', function(req,res) {
 
 
 // -- Get all the Seniors --
-app.get('/users', function (req,res) {
+router.get('/users', function (req,res) {
     Senior.find({}, function(err,users) {
         if(err)
             res.status(500).end("Error");
@@ -37,3 +38,5 @@ app.get('/users', function (req,res) {
 
 
 // -- Login Admin --
+
+exports.Router = router;

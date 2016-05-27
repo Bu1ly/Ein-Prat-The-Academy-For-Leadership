@@ -6,13 +6,13 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-var server  = require('./app');// require the server connection to the mlab DB
-var db = server.connection;
+//var server  = require('./services/router');// require the server connection to the mlab DB
+//var db = server.connection;
 
 var mongodb = require('mongodb');
 var routes = require('./../routes/index');
 var users = require('./../routes/users');
-
+var reg = require('./services/database');
 
 
 // view engine setup
@@ -29,6 +29,7 @@ app.use(express.static(path.join(__dirname, '../public')));
 
 app.use('/', routes);
 app.use('/users', users);
+app.use('/reg',reg);
 
 
 
