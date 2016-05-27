@@ -55,6 +55,7 @@ body {
 .top-nav>li {
     display: inline-block;
     float: left;
+
 }
 
 .top-nav>li>a {
@@ -317,3 +318,7 @@ ul.alert-dropdown {
 .review-archive{
     margin-right: 5%;
 }
+
+/*.show-all-users{*/
+     /*background-color: #0d6acf;*/
+/*}*/
