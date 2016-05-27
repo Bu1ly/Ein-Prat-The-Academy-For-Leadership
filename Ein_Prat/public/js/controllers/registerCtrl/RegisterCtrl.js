@@ -10,6 +10,7 @@ angular.module('mainApp')
                     this.users.push(this.user);
                     this.user = {};
 
-                });
+                })
+            .catch(function() { console.log("Unsuccessful") });
         };
     }]);
