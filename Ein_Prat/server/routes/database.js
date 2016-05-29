@@ -7,7 +7,7 @@ var router = express.Router();
 
 
 //var app = require('../app');
-var Senior = require('./../utils/schemas');
+var Senior = require('./../utils/schemas');//need to require senior properly
 
 
 //************ DataBase Functions ******************
@@ -68,12 +68,13 @@ router.post('/delete', function (req,res) {
 
 // --Delete a specific Senior--
 router.delete('delete:id', function (req,res) {
-    Senior.findOneAndRemove( {'_id':req.param.id}, function (err, updated){//add this line after require senior
-        if(err)
+    Senior.findOneAndRemove({'_id': req.param.id}, function (err, updated) {//add this line after require senior
+        if (err)
             console.log("The user not found\n");
         else
             res.json(updated);
     });
+});
 
 
 

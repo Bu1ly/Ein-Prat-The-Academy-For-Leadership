@@ -5,14 +5,14 @@ var connection = require('./connectDB');
 
 
 // -- Create schema --
-var seniors = new Schema({
+var senior = new Schema({
     name: String,
     lastName: String,
     identity: String
 });
 
 // -- Connect collection to schema --
-var Senior = connection.model('Senior',seniors);
+var Senior = connection.model('Senior',senior);
 
 
 
