@@ -33,6 +33,7 @@ app.use('/',reg);//trying to make /reg func work
 
 
 
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');

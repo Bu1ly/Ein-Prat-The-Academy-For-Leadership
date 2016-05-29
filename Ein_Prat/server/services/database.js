@@ -52,6 +52,7 @@ router.post('/delete', function (req,res) {
         identity : registerData.identity
     };
 
+    
     // create new DB instance
     //var deleteSenior = new Senior(seniorJason);//add this line after require senior
 
