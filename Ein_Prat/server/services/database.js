@@ -1,8 +1,11 @@
 //var HttpStatus = require('http-status-codes');
 //var mongoUtils = require('../utils/connectDB');
+var bodyParser = require('body-parser');
 
 var express = require('express');
 var router = express.Router();
+
+
 //var app = require('../app');
 //var Senior = require('../../Senior');//need to require senior properly
 
@@ -27,12 +30,12 @@ router.post('/reg', function(req,res){
     //var newSenior = new Senior(seniorJason);/remove from // after seniour added
 
     // save the newSenior to the DB
-    newSenior.save(function(err){
-        if(err)
-            res.status(500).end("Error");
-        else
-            res.status(200).end("Added", seniorJason, "to Seniors DB");
-    })
+    // newSenior.save(function(err){
+    //     if(err)
+    //         res.status(500).end("Error");
+    //     else
+    //         res.status(200).end("Added", seniorJason, "to Seniors DB");
+    // })
 });
 
 
@@ -77,4 +80,3 @@ router.delete('delete:id', function (req,res) {
 
 
 module.exports = router;
-//module.exports = app;

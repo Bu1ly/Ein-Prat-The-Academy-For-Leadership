@@ -12,7 +12,7 @@ var bodyParser = require('body-parser');
 var mongodb = require('mongodb');
 var routes = require('./../routes/index');
 var users = require('./../routes/users');
-//var reg = require('./services/database');//trying to make /reg func work
+var reg = require('./services/database');//trying to make /reg func work
 
 
 // view engine setup
@@ -29,9 +29,7 @@ app.use(express.static(path.join(__dirname, '../public')));
 
 app.use('/', routes);
 app.use('/users', users);
-//app.use('/reg',reg);//trying to make /reg func work
-
-app.route('/reg');
+app.use('/',reg);//trying to make /reg func work
 
 
 
