@@ -13,7 +13,7 @@ var seniors = new Schema({
 
 // -- Connect collection to schema --
 var Senior = connection.model('Senior',seniors);
-console.log(Senior.find({}, 'Moshe'));
+
 
 
 module.exports = Senior;   //if i want to use Senior in other files;

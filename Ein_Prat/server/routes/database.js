@@ -7,7 +7,7 @@ var router = express.Router();
 
 
 //var app = require('../app');
-//var Senior = require('../../Senior');//need to require senior properly
+var Senior = require('./../utils/schemas');
 
 
 //************ DataBase Functions ******************
@@ -19,23 +19,23 @@ router.post('/reg', function(req,res){
 
     // create senior object and take the data according to Senior Schema
     var seniorJason = {
-        // name : registerData.name,
-        // lastName : registerData.lastName,
-        // identity : registerData.identity
-        id: registerData.id,
-        password: registerData.password
+         name : registerData.name,
+         lastName : registerData.lastName,
+         identity : registerData.identity
+         //id: registerData.id,
+         //password: registerData.password
     };
 
     // create new DB instance
-    //var newSenior = new Senior(seniorJason);/remove from // after seniour added
+    var newSenior = new Senior(seniorJason);
 
     // save the newSenior to the DB
-    // newSenior.save(function(err){
-    //     if(err)
-    //         res.status(500).end("Error");
-    //     else
-    //         res.status(200).end("Added", seniorJason, "to Seniors DB");
-    // })
+     newSenior.save(function(err){
+         if(err)
+             res.status(500).end("Error");
+         else
+             res.status(200).end("Added", seniorJason, "to Seniors DB");
+     })
 });
 
 
@@ -54,7 +54,7 @@ router.post('/delete', function (req,res) {
 
     
     // create new DB instance
-    //var deleteSenior = new Senior(seniorJason);//add this line after require senior
+    var deleteSenior = new Senior(seniorJason);
 
     // remove the newSenior to the DB
     deleteSenior.remove(function(err){
@@ -68,7 +68,7 @@ router.post('/delete', function (req,res) {
 
 // --Delete a specific Senior--
 router.delete('delete:id', function (req,res) {
-    //Senior.findOneAndRemove( {'_id':req.param.id}, function (err, updated){//add this line after require senior
+    Senior.findOneAndRemove( {'_id':req.param.id}, function (err, updated){//add this line after require senior
         if(err)
             console.log("The user not found\n");
         else

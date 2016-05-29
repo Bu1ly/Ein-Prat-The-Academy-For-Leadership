@@ -6,13 +6,13 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-//var server  = require('./services/router');// require the server connection to the mlab DB
+//var server  = require('./routes/router');// require the server connection to the mlab DB
 //var db = server.connection;
 
 var mongodb = require('mongodb');
 var routes = require('./../routes/index');
 var users = require('./../routes/users');
-var reg = require('./services/database');//trying to make /reg func work
+var reg = require('./routes/database');//trying to make /reg func work
 
 
 // view engine setup
