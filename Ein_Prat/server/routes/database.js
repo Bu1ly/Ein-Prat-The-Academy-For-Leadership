@@ -1,13 +1,12 @@
 //var HttpStatus = require('http-status-codes');
 //var mongoUtils = require('../utils/connectDB');
-var bodyParser = require('body-parser');
 
 var express = require('express');
 var router = express.Router();
 
 
 //var app = require('../app');
-var Senior = require('./../utils/schemas');//need to require senior properly
+var Senior = require('./../utils/schemas');//to insert into senior db
 
 
 //************ DataBase Functions ******************
