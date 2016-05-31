@@ -3,7 +3,7 @@
 
 var express = require('express');
 var router = express.Router();
-
+//var Date = require('time');
 
 //var app = require('../app');
 var Senior = require('./../utils/schemas');//to insert into senior db
@@ -15,12 +15,12 @@ var Senior = require('./../utils/schemas');//to insert into senior db
 router.post('/reg', function(req,res){
     var registerData = req.body; // get the user data
     console.log(registerData); //print for debug
-
     // create senior object and take the data according to Senior Schema
     var seniorJason = {
-         name : registerData.name,
-         lastName : registerData.lastName,
-         identity : registerData.identity
+         name : registerData.id,
+         lastName : registerData.password
+         // identity : registerData.identity
+         //session : Date.now();
          //id: registerData.id,
          //password: registerData.password
     };
@@ -32,11 +32,23 @@ router.post('/reg', function(req,res){
      newSenior.save(function(err){
          if(err)
              res.status(500).end("Error");
-         else
+         else{
              res.status(200).end("Added", seniorJason, "to Seniors DB");
+         }
      })
 });
 
+//EXAMPLE FOR ASSAF//
+Senior.find({}, function (err, users) {
+    var userMap = {}; //return object
+
+    //fill up the object
+    users.forEach(function(user) {
+        userMap[user._id] = user;
+    });
+    //    return the users object
+    console.log(JSON.stringify(userMap));
+})
 
 
 // --Delete User--
@@ -49,6 +61,7 @@ router.post('/delete', function (req,res) {
         name : registerData.name,
         lastName : registerData.lastName,
         identity : registerData.identity
+        //session : Date.now();
     };
 
     

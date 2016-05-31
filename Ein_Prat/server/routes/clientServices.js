@@ -1,4 +1,4 @@
-//var app = require('../app');
+
 var express = require('express');
 var router = express.Router();
 
@@ -18,7 +18,7 @@ router.get('reg/:id', function(req,res) {
 // -- Get all the Seniors --
 router.get('/users', function (req,res) {
     Senior.find({}, function(err,users) {
-        if(err)
+        if(err) 
             res.status(500).end("Error");
         else {
             var SeniorMap = {};  //return Senior object
