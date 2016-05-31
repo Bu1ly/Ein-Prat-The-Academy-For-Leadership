@@ -1,19 +1,34 @@
-<div dir="ltr">
-    <h2>Log-In:</h2>
-    ID:
-    <textarea ng-model="logCtrl.user.id" value="id"></textarea>
-    Password:
-    <textarea ng-model="logCtrl.user.password" value="password"></textarea>
-</div>
-<input type="button" ng-click="logCtrl.checkUser()" name="login" value="check in db">
-
-
-<!--Display existing usernames:-->
-<!--<div class="show-all-users" ng-repeat="user in regCtrl.users" style="background-color: #0f0f0f">-->
-    <!--<div class="inner-users-list">-->
-        <!--<ul>-->
-            <!--<li><p>CHECK CHECK</p></li>-->
-            <!--<li>{{users.name}}</li>-->
-        <!--</ul>-->
-    <!--</div>-->
+<!--<div dir="ltr">-->
+<!--<div class="register_des">-->
+<!--<h2>Register:</h2>-->
+<!--ID:-->
+<!--<textarea ng-model="user.id" value="id"></textarea>-->
+<!--Password:-->
+<!--<textarea ng-model="user.password" value="password"></textarea>-->
 <!--</div>-->
+<!--<input type="button" ng-click="newUser()" name="register" value="save in db">-->
+<!--</div>-->
+
+
+<div class="register_page">
+    <h2>התחברות לפלטפורמה:</h2>
+    <form align="right">
+        <ul class="hor-ul">
+            <li class="hor-li"><p class="info_req">ת.ז:  </p><input type="text" name="id" placeholder="תעודת זהות" class="textBox" required></li>
+            <li class="hor-li"><p class="info_req">סיסמא:  </p><input type="password" name="pass" placeholder="סיסמה" class="textBox" required></li>
+        </ul>
+        <input type="submit" value="התחבר" class="loginmodal-submit"><br>
+    </form>
+</div>
+
+
+
+
+<!--<div dir="ltr">-->
+    <!--<h2>Log-In:</h2>-->
+    <!--ID:-->
+    <!--<textarea ng-model="logCtrl.user.id" value="id"></textarea>-->
+    <!--Password:-->
+    <!--<textarea ng-model="logCtrl.user.password" value="password"></textarea>-->
+<!--</div>-->
+<!--<input type="button" ng-click="logCtrl.checkUser()" name="login" value="check in db">-->
