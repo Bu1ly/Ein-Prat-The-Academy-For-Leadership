@@ -38,6 +38,7 @@ router.post('/reg', function(req,res){
      })
 });
 
+
 //EXAMPLE FOR ASSAF//
 Senior.find({}, function (err, users) {
     var userMap = {}; //return object
