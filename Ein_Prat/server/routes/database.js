@@ -5,7 +5,6 @@ var express = require('express');
 var router = express.Router();
 //var Date = require('time');
 
-//var app = require('../app');
 var Senior = require('./../utils/schemas');//to insert into senior db
 
 
@@ -17,12 +16,13 @@ router.post('/reg', function(req,res){
     console.log(registerData); //print for debug
     // create senior object and take the data according to Senior Schema
     var seniorJason = {
-         name : registerData.id,
-         lastName : registerData.password
-         // identity : registerData.identity
-         //session : Date.now();
-         //id: registerData.id,
-         //password: registerData.password
+         firstName : registerData.id,
+         lastName : registerData.password,
+         identity : registerData.identity,
+         sis: registerData.sis,
+         Email: registerData.Email
+        //session : register.Data.session
+
     };
 
     // create new DB instance
