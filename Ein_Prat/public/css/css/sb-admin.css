@@ -338,3 +338,24 @@ ul.alert-dropdown {
 }
 .centered-search-button{
 }
+
+
+.textBox {
+    width: 300px;
+    height: 35px;
+    text-align: right;
+    border-radius: 10px;
+}
+
+.hor-ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.hor-li{
+    float: right;
+    display: block;
+    padding: 8px;
+}

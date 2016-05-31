@@ -1,30 +1,35 @@
-<div dir="ltr">
-    <div class="register_des">
-        <h2>Register:</h2>
-        ID:
-        <textarea ng-model="user.id" value="id"></textarea>
-        Password:
-        <textarea ng-model="user.password" value="password"></textarea>
-    </div>
-    <input type="button" ng-click="newUser()" name="register" value="save in db">
-
-    <!--ng-repeat does problems and doesnt appear-->
-    <!--<div class="show-all-users">-->
-        <!--<p>Existing users are:</p>-->
-        <!--<ul ng-repeat="user in regCtrl.users">-->
-            <!--<li>-->
-                <!--{{user.id}}-->
-            <!--</li>-->
-        <!--</ul>-->
+<!--<div dir="ltr">-->
+    <!--<div class="register_des">-->
+        <!--<h2>Register:</h2>-->
+        <!--ID:-->
+        <!--<textarea ng-model="user.id" value="id"></textarea>-->
+        <!--Password:-->
+        <!--<textarea ng-model="user.password" value="password"></textarea>-->
     <!--</div>-->
-</div>
-<!--Display existing usernames:-->
-<!--<div class="show-all-users" ng-repeat="user in regCtrl.users" style="background-color: #0f0f0f">-->
-    <!--check-->
-    <!--<div class="inner-users-list">-->
-        <!--<ul>-->
-            <!--<li><p>CHECK CHECK</p></li>-->
-            <!--<li>{{users.name}}</li>-->
-        <!--</ul>-->
-    <!--</div>-->
+    <!--<input type="button" ng-click="newUser()" name="register" value="save in db">-->
 <!--</div>-->
+
+
+<div class="register_page">
+    <h2>הרשמה לפלטפורמה:</h2>
+    <form align="right">
+        <ul class="hor-ul">
+            <li class="hor-li"><p class="info_req">שם פרטי:  </p><input type="text" name="fname" placeholder="שם פרטי" class="textBox" required></li>
+            <li class="hor-li"><p class="info_req">שם משפחה:  </p><input type="text" name="lname" placeholder="שם משפחה" class="textBox" required></li>
+            <li class="hor-li"><p class="info_req">ת.ז:  </p><input type="text" name="id" placeholder="תעודת זהות" class="textBox" required></li>
+        </ul>
+        <ul class="hor-ul">
+            <li class="hor-li"><p class="info_req">סיסמא:  </p><input type="password" name="pass" placeholder="סיסמה" class="textBox" required></li>
+            <li class="hor-li"><p class="info_req">חזור על הסיסמא:  </p><input type="password" name="pass" placeholder="סיסמה חוזרת" class="textBox" required></li>
+            <li class="hor-li"><p class="info_req">אימייל:  </p><input type="text" name="mail" placeholder="כתובת האימייל" class="textBox" required></li>
+        </ul>
+        <!--<P>:תאריך לידה</P>-->
+        <!--<input type="date" class="textBox"><br>-->
+
+
+        <!--<p><input type='radio' name="gender" value="male">זכר<br></p>-->
+        <!--<p><input type='radio' name="gender" value="female">נקבה<br></p>-->
+
+        <input type="submit" value="הירשם" class="loginmodal-submit"><br>
+        </form>
+</div>

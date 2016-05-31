@@ -8,7 +8,7 @@ angular.module('mainApp')
         $scope.newUser = function(){
             $http({method: 'POST', url: '/reg', data: $scope.user})
                 .then(function(data){
-                    console.log("Success, the users inside db should be: ");
+                    console.log("Inserted to DB");
                 })
             .catch(function() { console.log("Unsuccessful") });
         };
