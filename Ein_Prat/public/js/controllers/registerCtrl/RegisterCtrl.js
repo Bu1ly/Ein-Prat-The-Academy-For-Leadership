@@ -1,20 +1,14 @@
 angular.module('mainApp')
-    .controller('RegisterCtrl', ['$http', function($http) {
-        this.user = {};
-        this.users = [];
-        var user = this.user;
-        var users_array = this.users;
+    .controller('RegisterCtrl', ['$http','$scope', function($http,$scope) {
+        $scope.user = {
+            id: "",
+            password: ""
+        };
 
-        this.newUser = function(){
-            console.log(this.user);
-            $http({method: 'POST', url: '/reg', data: this.user})
+        $scope.newUser = function(){
+            $http({method: 'POST', url: '/reg', data: $scope.user})
                 .then(function(data){
                     console.log("Success, the users inside db should be: ");
-                    users_array.push(user);
-                    console.log(users_array[0]);
-
-                    this.user = {};
-
                 })
             .catch(function() { console.log("Unsuccessful") });
         };

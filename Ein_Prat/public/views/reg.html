@@ -2,16 +2,21 @@
     <div class="register_des">
         <h2>Register:</h2>
         ID:
-        <textarea ng-model="regCtrl.user.id" value="id"></textarea>
+        <textarea ng-model="user.id" value="id"></textarea>
         Password:
-        <textarea ng-model="regCtrl.user.password" value="password"></textarea>
+        <textarea ng-model="user.password" value="password"></textarea>
     </div>
-    <input type="button" ng-click="regCtrl.newUser()" name="register" value="save in db">
+    <input type="button" ng-click="newUser()" name="register" value="save in db">
 
     <!--ng-repeat does problems and doesnt appear-->
-    <div ng-repeat="user in regCtrl.users">
-        Existing users are:  {{user.name}}
-    </div>
+    <!--<div class="show-all-users">-->
+        <!--<p>Existing users are:</p>-->
+        <!--<ul ng-repeat="user in regCtrl.users">-->
+            <!--<li>-->
+                <!--{{user.id}}-->
+            <!--</li>-->
+        <!--</ul>-->
+    <!--</div>-->
 </div>
 <!--Display existing usernames:-->
 <!--<div class="show-all-users" ng-repeat="user in regCtrl.users" style="background-color: #0f0f0f">-->
