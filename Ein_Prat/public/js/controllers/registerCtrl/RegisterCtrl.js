@@ -1,11 +1,11 @@
 angular.module('mainApp')
     .controller('RegisterCtrl', ['$http','$scope', function($http,$scope) {
         $scope.user = {
-            fname: "",
-            lname: "",
-            email: "",
-            id: "",
-            password: ""
+            firstName: "",
+            lastName: "",
+            Email: "",
+            identity: "",
+            sis: ""
         };
 
         $scope.newUser = function(){

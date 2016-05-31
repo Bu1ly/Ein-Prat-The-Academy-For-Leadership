@@ -16,8 +16,8 @@ router.post('/reg', function(req,res){
     console.log(registerData); //print for debug
     // create senior object and take the data according to Senior Schema
     var seniorJason = {
-         firstName : registerData.id,
-         lastName : registerData.password,
+         firstName : registerData.firstName,
+         lastName : registerData.lastName,
          identity : registerData.identity,
          sis: registerData.sis,
          Email: registerData.Email
