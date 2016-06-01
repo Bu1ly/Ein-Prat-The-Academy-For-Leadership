@@ -16,6 +16,7 @@ angular.module('mainApp')
         // $scope.find({}, function (err, users) {
         //     var userMap = {}; //return object
         //
+        
         //     //fill up the object
         //     users.forEach(function(user) {
         //         userMap[user._id] = user;
