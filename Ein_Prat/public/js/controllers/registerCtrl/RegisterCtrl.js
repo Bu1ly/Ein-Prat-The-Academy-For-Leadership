@@ -9,6 +9,29 @@ angular.module('mainApp')
             identity: "",
             sis: ""
         };
+        
+        //===============================
+
+
+        $scope.find({}, function (err, users) {
+            var userMap = {}; //return object
+
+            //fill up the object
+            users.forEach(function(user) {
+                userMap[user._id] = user;
+            });
+            //    return the users object
+            console.log(JSON.stringify(userMap));
+        });
+
+        $scope.findOne = function() {
+            $scope.income = Incomes.get({
+                incomeId: $stateParams.incomeId
+            });
+
+//===============================
+
+
 
         $scope.newUser = function(){
             console.log($scope.user);
