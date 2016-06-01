@@ -1,18 +1,25 @@
 <div>
     <head>
         <title>הצעות עבודה</title>
+        <link rel="stylesheet" href="job_offers.css">
+        <script src="jobctrl.js"></script>
+
     </head>
 
     <body>
-            <script src ="../js/controllers/JobCtrl/jobctrl.js"></script>
-            <div>
-                <button>Search in...</button>
-                <div id="myDropdown" class="dropdown-content">
-                    <a href="JobJer.html">Jerusalem</a>
-                    <a href="#about">About</a>
-                    <a href="#contact">Contact</a>
-                </div>
-            </div>
+    <div>
+        <button onclick="drop()" class="dropbtn">מחוז</button>
+        <div id="myDropdown" class="dropdown-content">
+            <a href="JobJer.html">ירושלים</a>
+            <a href="#about">המרכז</a>
+            <a href="#contact">השרון</a>
+            <a href="#contact">השפלה</a>
+            <a href="#contact">דרום</a>
+            <a href="#contact">הצפון</a>
+        </div>
+    </div>
+
+
 
 
 

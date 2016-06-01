@@ -1,3 +1,3 @@
-/**
- * Created by ori on 31/05/2016.
- */
+function drop() {
+    document.getElementById("myDropdown").classList.toggle("show");
+}    
