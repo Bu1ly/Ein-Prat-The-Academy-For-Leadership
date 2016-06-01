@@ -3,7 +3,7 @@
 
 var express = require('express');
 var router = express.Router();
-//var Date = require('time');
+
 
 var Senior = require('./../utils/schemas');//to insert into senior db
 
@@ -12,6 +12,7 @@ var Senior = require('./../utils/schemas');//to insert into senior db
 
 // --Register new Users--
 router.post('/reg', function(req,res){
+    time = new Date().toISOString().replace(/T/, ' ').replace(/\..+/, '');
     var registerData = req.body; // get the user data
     console.log(registerData); //print for debug
     // create senior object and take the data according to Senior Schema
@@ -20,8 +21,8 @@ router.post('/reg', function(req,res){
          lastName : registerData.lastName,
          identity : registerData.identity,
          sis: registerData.sis,
-         Email: registerData.Email
-        //session : register.Data.session
+         Email: registerData.Email,
+         session : time
 
     };
 
@@ -38,6 +39,7 @@ router.post('/reg', function(req,res){
      })
 });
 
+router.
 
 //EXAMPLE FOR ASSAF//
 Senior.find({}, function (err, users) {

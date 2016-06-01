@@ -6,9 +6,6 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-//var server  = require('./routes/router');// require the server connection to the mlab DB
-//var db = server.connection;
-
 var mongodb = require('mongodb');
 var routes = require('./../routes/index');
 var users = require('./../routes/users');
