@@ -18,9 +18,6 @@ angular.module('mainApp')
                 })
             .catch(function() { console.log("Unsuccessful") });
         };
-        $scope.confirmPass = function(){
-
-        }
 
 
     }]);
