@@ -12,17 +12,17 @@ var Senior = require('./../utils/schemas');//to insert into senior db
 
 // --Register new Users--
 router.post('/reg', function(req,res){
-    time = new Date().toISOString().replace(/T/, ' ').replace(/\..+/, '');
+    regTime = new Date().toISOString().replace(/T/, ' ').replace(/\..+/, '');//get register time
     var registerData = req.body; // get the user data
     console.log(registerData); //print for debug
-    // create senior object and take the data according to Senior Schema
-    var seniorJason = {
+
+    var seniorJason = {                     // create senior object and take the data according to Senior Schema
          firstName : registerData.firstName,
          lastName : registerData.lastName,
          identity : registerData.identity,
          sis: registerData.sis,
          Email: registerData.Email,
-         session : time
+         session : regTime
 
     };
 
@@ -39,7 +39,24 @@ router.post('/reg', function(req,res){
      })
 });
 
-router.
+router.get('/login', function (req, res) {
+    var loginIdentity = req.body.identity;
+
+    var loginTime = new Date().toISOString().replace(/T/, ' ').replace(/\..+/, '');// get login time
+    
+    var pickedOne = Senior.findOne({'identity': loginIdentity}, function (err) {
+        if (err){
+            console.log("The user not found\n");
+            res.status(500).end("Error, user not in DB");
+        }
+        else
+            res.status(200).end("Found", req.body.firstName, "@ Seniors DB");
+    });
+
+    if(loginTime - pickedOne.session)
+        res.render('index');
+
+});
 
 //EXAMPLE FOR ASSAF//
 Senior.find({}, function (err, users) {
@@ -51,7 +68,7 @@ Senior.find({}, function (err, users) {
     });
     //    return the users object
     console.log(JSON.stringify(userMap));
-})
+});
 
 
 // --Delete User--
@@ -63,8 +80,8 @@ router.post('/delete', function (req,res) {
     var seniorJason = {
         name : registerData.name,
         lastName : registerData.lastName,
-        identity : registerData.identity
-        //session : Date.now();
+        identity : registerData.identity,
+        session : registerData.session
     };
 
     
@@ -83,7 +100,7 @@ router.post('/delete', function (req,res) {
 
 // --Delete a specific Senior--
 router.delete('delete:id', function (req,res) {
-    Senior.findOneAndRemove({'_id': req.param.id}, function (err, updated) {//add this line after require senior
+    Senior.findOneAndRemove({'_id': req.param.id}, function (err, updated) {
         if (err)
             console.log("The user not found\n");
         else
