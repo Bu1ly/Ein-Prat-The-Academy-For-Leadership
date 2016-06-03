@@ -31,7 +31,9 @@ angular.module('mainApp')
 
         // UPPER NAV
         .when('/change_info', {
-            templateUrl: 'views/blank_page.html'
+            templateUrl: 'views/change_info.html',
+            controller: 'InfoCtrl',
+            controllerAs: 'InfoCtrl'
         })
         .when('/app_settings', {
             templateUrl: 'views/app_settings.html'
