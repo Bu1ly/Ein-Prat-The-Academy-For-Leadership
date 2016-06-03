@@ -8,9 +8,9 @@ angular.module('mainApp')
             // Email: "",
             // identity: "",
             // sis: ""
-            address: "",
             birthday: "",
             gender: "",
+            address: "",
             status: "",
             army_type: "",
             army_unit: "",
@@ -20,11 +20,24 @@ angular.module('mainApp')
             army_more: "",
             trip_place: "",
             trip_year: "",
-            trip_suggestions: "",
+            trip_more: "",
             courses: "",
+            courses_more: "",
+            knowledge_type: "",
             knowledge: "",
             knowledge_more: "",
         };
+
+        // add later to address string
+        $scope.homeAdd= "";
+        $scope.homeNum= "";
+        $scope.homeTown= "";
+        $scope.zipCode= "";
+
+        $scope.trip_else =  false;
+        $scope.knowledge_else = false;
+
+
 
         $scope.updateInfo = function(){
             console.log($scope.infoUser);

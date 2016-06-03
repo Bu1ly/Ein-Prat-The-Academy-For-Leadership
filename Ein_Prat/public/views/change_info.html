@@ -2,27 +2,105 @@
     <h2>עדכון פרטים אישיים:</h2>
     <form align="right">
         <ul class="hor-ul">
-            <li class="hor-li"><p class="info_req">שם פרטי:  </p><input ng-model="user.firstName" type="text" name="fname" placeholder="שם פרטי" class="textBox" disabled></li>
-            <li class="hor-li"><p class="info_req">שם משפחה:  </p><input ng-model="user.lastName"  type="text" name="lname" placeholder="שם משפחה" class="textBox" required></li>
-            <li class="hor-li"><p class="info_req">ת.ז:  </p><input ng-model="user.identity"  type="text" name="id" placeholder="תעודת זהות" class="textBox" required></li>
+            <!--exsiting data-->
+            <li class="hor-li"><p class="info_req">שם פרטי:  </p><input type="text" name="fname" placeholder="{{$scope.user.firstName}}" class="textBox" disabled></li>
+            <li class="hor-li"><p class="info_req">שם משפחה:  </p><input type="text" name="lname" placeholder="{{$scope.user.lastName}}" class="textBox" disabled></li>
+            <li class="hor-li"><p class="info_req">ת.ז:  </p><input type="text" name="id" placeholder="תעודת זהות" class="textBox" disabled></li>
+            <li class="hor-li"><p class="info_req">אימייל:  </p><input type="email" name="email" placeholder="כתובת האימייל" class="textBox" disabled></li>
+            <li class="hor-li"><p class="info_req">תאריך לידה:</p><input ng-model="infoUser.birthday" name="birthday" type="date" class="textBox"></li><br>
+            <li class="hor-li">
+                <p class="info_req">מין:</p>
+                <select ng-model="infoUser.gender">
+                    <option value="male">זכר</option>
+                    <option value="female">נקבה</option>
+                </select>
+            </li>
+        </ul>
+
+
+        <br><h4 class="info_req">מגורים:</h4>
+
+        <!--address - CHECK STRINGTOSTRING-->
+        <ul class="hor-ul">
+            <li class="hor-li"><p class="info_req">רחוב:  </p><input type="text" name="street" placeholder="רחוב" class="textBox"></li>
+            <li class="hor-li"><p class="info_req">מספר בית:  </p><input type="number" name="house_num" placeholder="מספר בית" class="textBox"></li>
+            <li class="hor-li"><p class="info_req">עיר:  </p><input type="text" name="city" placeholder="עיר" class="textBox"></li>
+            <li class="hor-li"><p class="info_req">מיקוד:  </p><input type="number" name="zip" placeholder="מיקוד" class="textBox"></li>
+        </ul>
+
+            <!--army-->
+        <br><h4 class="info_req">שירות צבאי:</h4>
+        <ul class="hor-ul">
+            <li class="hor-li"><p class="info_req">חיל:  </p><input ng-model="infoUser.army_type" type="text" name="army_type" placeholder="חיל" class="textBox"></li>
+            <li class="hor-li"><p class="info_req">יחידה:  </p><input ng-model="infoUser.army_unit" type="text" name="unit" placeholder="יחידה" class="textBox"></li>
+            <li class="hor-li">
+                <p class="info_req">המשך שירות:</p>
+                <select ng-model="infoUser.keva_ktsuna">
+                    <option value="keva">קבע</option>
+                    <option value="ktsuna">קצונה</option>
+                </select>
+            </li>
+        </ul>
+            <br>
+            <ul class="hor-ul">
+            <li class="hor-li"><p class="info_req">תאריך גיוס:</p><input ng-model="infoUser.recrue_date" name="recrue" type="date" class="textBox"><br></li>
+            <li class="hor-li"><p class="info_req">תאריך שחרור:</p><input ng-model="infoUser.release_date" name="release" type="date" class="textBox"><br></li>
+            <li class="hor-li"><p class="info_req">פירוט על השירות:</p><textarea ng-model="infoUser.army_more" class="textarea"></textarea></li>
+        </ul>
+
+            <!--big trip-->
+        <br><h4 class="info_req">הטיול הגדול:</h4>
+        <ul class="hor-ul">
+            <li class="hor-li">
+                <p class="info_req">ארץ:</p>
+                <select ng-model="infoUser.trip_place">
+                    <option value="east">המזרח הרחוק</option>
+                    <option value="sAmerica">דרום אמריקה</option>
+                    <option value="mAmerica">מרכז אמריקה</option>
+                </select>
+            </li>
+                <li class="hor-li"><button ng-click="trip_else = !trip_else" style="margin-top: 30%; border-radius: 5px 5px;">ארץ אחרת?</button></li>
+                <li class="hor-li" ng-show="trip_else"><p class="info_req">אחר.. </p><input ng-model="infoUser.trip_place" type="text" placeholder="כתוב כאן.." class="textBox"></li>
         </ul>
         <ul class="hor-ul">
-            <li class="hor-li"><p class="info_req">סיסמא:  </p><input ng-model="user.sis"  type="password" name="pass" placeholder="סיסמא" class="textBox" required></li>
-            <li class="hor-li"><p class="info_req">חזור על הסיסמא:  </p><input type="password" name="pass" placeholder="סיסמא חוזרת" class="textBox" required></li>
-            <li class="hor-li"><p class="info_req">אימייל:  </p><input ng-model="user.Email"  type="email" name="email" placeholder="כתובת האימייל" class="textBox" required></li>
+            <li class="hor-li"><p class="info_req">שנת טיסה: </p><input ng-model="infoUser.trip_year" type="number" name="trip_year" placeholder="שנת טיסה" class="textBox"></li>
+            <li class="hor-li"><p class="info_req">המלצות:</p><textarea ng-model="infoUser.trip_more" class="textarea"></textarea>
         </ul>
+
+        <!--courses-->
+        <br><h4 class="info_req">קורסים והסמכות:</h4>
         <ul class="hor-ul">
-            <li class="hor-li"><p class="info_req">סיסמא:  </p><input ng-model="user.sis"  type="password" name="pass" placeholder="סיסמא" class="textBox" required></li>
-            <li class="hor-li"><p class="info_req">חזור על הסיסמא:  </p><input type="password" name="pass" placeholder="סיסמא חוזרת" class="textBox" required></li>
-            <li class="hor-li"><p class="info_req">אימייל:  </p><input ng-model="user.Email"  type="email" name="email" placeholder="כתובת האימייל" class="textBox" required></li>
+            <li class="hor-li">
+                <p class="info_req">קורסים והסמכות:</p>
+                <select ng-model="infoUser.courses">
+                    <option value="gun">רשיון נשק</option>
+                    <option value="travel_guide">מדריך טיולים</option>
+                    <option value="medic">חובש</option>
+                    <option value="paramedic">פראמדיק</option>
+                    <option value="team_guide">הדרכת קבוצות</option>
+                </select>
+            </li>
+            <li class="hor-li"><p class="info_req">עוד הסמכות?</p><textarea ng-model="infoUser.courses_more"></textarea>
         </ul>
-        <!--<P>:תאריך לידה</P>-->
-        <!--<input type="date" class="textBox"><br>-->
 
+        <!--knowledge-->
+        <br><h4 class="info_req">השכלה:</h4>
+        <ul class="hor-ul">
+            <li class="hor-li"><p class="info_req">תחום לימודים:</p><input ng-model="infoUser.knowledge_type" type="text" name="knowledge" placeholder="תחום לימודים" class="textBox"></li>
+            <li class="hor-li">
+                <p class="info_req">השכלה אקדמית:</p>
+                <select ng-model="infoUser.knowledge">
+                <option value="gun">תואר ראשון</option>
+                <option value="travel_guide">תואר שני</option>
+                <option value="medic">דוקטורט</option>
+                <option value="paramedic">פרופסורה</option>
+            </select>
+            </li>
+            <li class="hor-li"><button ng-click="knowledge_else = !knowledge_else" style="margin-top: 30%; border-radius: 5px 5px;">השכלה אחרת?</button></li>
+            <li class="hor-li" ng-show="knowledge_else"><p class="info_req">אחר.. </p><input ng-model="infoUser.knowledge" type="text" placeholder="כתוב כאן.." class="textBox"></li>
+        </ul>
 
-        <!--<p><input type='radio' name="gender" value="male">זכר<br></p>-->
-        <!--<p><input type='radio' name="gender" value="female">נקבה<br></p>-->
-
-        <!--<input ng-click="newUser()" type="submit" value="הירשם">-->
+        <!--ADD HEADLINES!-->
+        <input ng-click="updateInfo()" type="submit" value="עדכן פרטים">
     </form>
 </div>
