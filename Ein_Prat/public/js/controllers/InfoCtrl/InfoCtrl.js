@@ -36,8 +36,7 @@ angular.module('mainApp')
 
         $scope.trip_else =  false;
         $scope.knowledge_else = false;
-
-
+        
 
         $scope.updateInfo = function(){
             console.log($scope.infoUser);

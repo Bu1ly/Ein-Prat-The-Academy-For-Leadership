@@ -1,15 +1,15 @@
 angular.module('mainApp')
-    .controller('LogInCtrl', ['$http', function($http) {
-        // this.user = {};
-        // this.users = [];
+    .controller('LogInCtrl', ['$http','$scope', function($http,$scope) {
+    $scope.user = {
+        firstName: "",
+        lastName: ""
+    };
 
         this.checkUser = function(){
             console.log(this.user);
-            $http({method: 'GET', url: '/log', data: this.user})
-                // .then(function(data){
-                    // this.users.push(this.user);
-                    // this.user = {};
+            $http({method: 'GET', url: '/log', data: $scope.user})
                 .then(function(data){
+                    $scope.user.firstName = data;
                     console.log("{{user.name}}" + "is exists!")
 
                 });
