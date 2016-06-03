@@ -328,12 +328,12 @@ ul.alert-dropdown {
      /*background-color: #0d6acf;*/
 /*}*/
 
-.view-wrapped{
-    padding-top: 4%;
-    left: 60%;
-    margin-right: 40%;
+/*.view-wrapped{*/
+    /*padding-top: 4%;*/
+    /*left: 60%;*/
+    /*margin-right: 40%;*/
 
-}
+/*}*/
 .centered-search-text-area{
     align-content: center;
     width: 50%
@@ -368,4 +368,8 @@ ul.alert-dropdown {
 
 .textarea{
     width: 170%;
+}
+
+.textarea-small{
+    width: 100%;
 }

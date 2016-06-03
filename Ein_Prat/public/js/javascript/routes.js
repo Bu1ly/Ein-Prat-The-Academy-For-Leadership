@@ -8,7 +8,9 @@ angular.module('mainApp')
         controllerAs: 'pageCtrl'
     })
         .when('/senior_search', {
-            templateUrl: 'views/senior_search.html'
+            templateUrl: 'views/senior_search.html',
+            controller: 'SeniorCtrl',
+            controllerAs: 'SeniorCtrl'
         })
         .when('/studies', {
             templateUrl: 'views/studies.html'
