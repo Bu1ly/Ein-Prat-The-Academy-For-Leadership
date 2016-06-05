@@ -14,9 +14,13 @@
     <h2>התחברות לפלטפורמה:</h2>
     <form align="right">
         <ul class="hor-ul">
-            <li class="hor-li"><p class="info_req">ת.ז:  </p><input type="text" name="id" placeholder="תעודת זהות" class="textBox" required></li>
-            <li class="hor-li"><p class="info_req">סיסמא:  </p><input type="password" name="pass" placeholder="סיסמא" class="textBox" required></li>
+
+
+
+            <li class="hor-li"><p class="info_req">ת.ז:  </p><input ng-model="user.identity" type="text" name="id" placeholder="תעודת זהות" class="textBox" required></li>
+            <li class="hor-li"><p class="info_req">סיסמא:  </p><input ng-model="user.sis" type="password" name="pass" placeholder="סיסמא" class="textBox" required></li>
         </ul>
-        <input type="submit" value="התחבר">
+        <input ng-click="checkUser()" type="submit" value="התחבר">
     </form>
 </div>
+

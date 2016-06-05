@@ -1,17 +1,18 @@
 angular.module('mainApp')
     .controller('LogInCtrl', ['$http','$scope', function($http,$scope) {
     $scope.user = {
-        firstName: "",
-        lastName: ""
+        identity: "",
+        sis: ""
     };
 
-        this.checkUser = function(){
+        $scope.checkUser = function(){
             console.log(this.user);
             $http({method: 'GET', url: '/log', data: $scope.user})
                 .then(function(data){
-                    $scope.user.firstName = data;
-                    console.log("{{user.name}}" + "is exists!")
+                   /// $scope.user.id = data;  ????? whay???
+                    console.log("id: "+ $scope.user.identity + " is exists!")
 
-                });
+                })
+                .catch(function() { console.log("Unsuccessful login") });
         };
     }]);

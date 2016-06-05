@@ -17,6 +17,8 @@ angular.module('mainApp')
             $scope.data = {};
         };
 
+
+
         //===============================
         //
         //
@@ -46,7 +48,7 @@ angular.module('mainApp')
             if($scope.user.sis  !==  $scope.data.confirmPassword) {
                 //here you need to send him back to fill signUP request(same page)
                 console.log('password does not match');
-                alert('password does not match');
+                alert('password does not match or too short');
                 clearData();
                 return;
             }
@@ -56,6 +58,7 @@ angular.module('mainApp')
             $http({method: 'POST', url: '/reg', data: $scope.user})
                 .then(function(data){
                     console.log("Inserted to DB");
+                    alert('הרשמה בוצעה בהצלחה');
                 })
             .catch(function() { console.log("Unsuccessful") });
         };

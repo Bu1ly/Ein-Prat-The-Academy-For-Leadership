@@ -39,22 +39,28 @@ router.post('/reg', function(req,res){
      })
 });
 
-router.get('/login', function (req, res) {
-    var loginIdentity = req.body.identity;
+// --login: find--
+router.get('/log', function (req, res) {
 
-    var loginTime = new Date().toISOString().replace(/T/, ' ').replace(/\..+/, '');// get login time
+    // var loginIdentity = req.body.identity;
+    // var loginSisentity = req.body.sis;
     
-    var pickedOne = Senior.findOne({'identity': loginIdentity}, function (err) {
+   // var loginTime = new Date().toISOString().replace(/T/, ' ').replace(/\..+/, '');// get login time
+
+
+    var pickedOne = Senior.find({'identity': req.body.identity, 'sis': req.body.sis}, function (err) {
         if (err){
             console.log("The user not found\n");
             res.status(500).end("Error, user not in DB");
         }
-        else
-            res.status(200).end("Found", req.body.firstName, "@ Seniors DB");
+        else {
+
+            res.status(200).end("User Found", req.body.firstName, "@ Seniors DB");
+        }
     });
 
-    if(loginTime - pickedOne.session)
-        res.render('index');
+    // if(loginTime - pickedOne.session)
+    //     res.render('index');
 
 });
 
