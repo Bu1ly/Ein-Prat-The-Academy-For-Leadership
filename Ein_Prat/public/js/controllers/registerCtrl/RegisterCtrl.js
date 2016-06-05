@@ -1,4 +1,3 @@
-
 angular.module('mainApp')
     .controller('RegisterCtrl', ['$http','$scope', function($http,$scope) {
 
