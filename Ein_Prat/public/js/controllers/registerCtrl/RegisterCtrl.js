@@ -48,7 +48,6 @@ angular.module('mainApp')
                 console.log('password does not match');
                 alert('password does not match');
                 clearData();
-
                 return;
             }
 
