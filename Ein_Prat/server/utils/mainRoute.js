@@ -11,6 +11,7 @@ var bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: false }));//read URL encoded
 app.use(bodyParser.json()); //read json data
 
+
 //static routes init
 app.use('/javascripts', express.static('public/javascripts'));
 app.use('/css', express.static('public/css'));

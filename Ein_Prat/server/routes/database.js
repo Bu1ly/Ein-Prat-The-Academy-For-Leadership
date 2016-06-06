@@ -42,20 +42,33 @@ router.post('/reg', function(req,res){
 // --login: find--
 router.get('/log', function (req, res) {
 
+    console.log("test4");
+    var loginData = req.body; // ?!?!@?!@??@?!?@?!?@ how to get data
+
+    console.log("req.body:  "+loginData); //print for debug
+    var seniorJason = {                     // create senior object and take the data according to Senior Schema
+        identity : loginData.identity,
+        sis: loginData.sis
+    };
+
+    var newSenior = new Senior(seniorJason);
     // var loginIdentity = req.body.identity;
     // var loginSisentity = req.body.sis;
-    
+
    // var loginTime = new Date().toISOString().replace(/T/, ' ').replace(/\..+/, '');// get login time
+    console.log("test4: id= " + newSenior)
 
-
-    var pickedOne = Senior.find({'identity': req.body.identity, 'sis': req.body.sis}, function (err) {
+    var pickedOne = Senior.findOne({'identity': req.body.identity, 'sis': req.body.sis}, function (err, userObj) {
         if (err){
-            console.log("The user not found\n");
-            res.status(500).end("Error, user not in DB");
+            console.log(err);
+        }
+        else if (userObj) {
+            console.log('Found:', userObj);
+            res.status(200).end("User Found", req.body.firstName, "@ Seniors DB");
         }
         else {
-
-            res.status(200).end("User Found", req.body.firstName, "@ Seniors DB");
+            console.log('User not found!');
+            res.status(500).end("Error, user not in DB");
         }
     });
 
