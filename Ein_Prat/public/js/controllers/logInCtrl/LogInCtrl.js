@@ -10,8 +10,8 @@ angular.module('mainApp')
             $http({method: 'GET', url: '/log', data: $scope.user})
                 .then(function(data){
                    /// $scope.user.id = data;  ????? whay???
-                    console.log("id: "+ $scope.user.identity + " is exists!")
-
+                    console.log("id exists!");
+                    alert("login success!!");
                 })
                 .catch(function() { console.log("Unsuccessful login") });
         };
