@@ -8,7 +8,7 @@ angular.module('mainApp')
 
         $scope.checkUser = function(){
             console.log($scope.user);
-            $http({method: 'GET', url: '/log', data: $scope.user})
+            $http({method: 'POST', url: '/log', data: $scope.user})
                 .then(function(data){
                    /// $scope.user.id = data;  ????? whay???
                     console.log("id exists!");
