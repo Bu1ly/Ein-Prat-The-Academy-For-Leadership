@@ -40,12 +40,12 @@ router.post('/reg', function(req,res){
 });
 
 // --login: find--
-router.get('/log', function (req, res) {
+router.post('/log', function (req, res) {
 
-    console.log("test4");
+
     var loginData = req.body; // ?!?!@?!@??@?!?@?!?@ how to get data
 
-    console.log("req.body:  "+loginData); //print for debug
+   //  console.log("req.body:  "+loginData); //print for debug
     var seniorJason = {                     // create senior object and take the data according to Senior Schema
         identity : loginData.identity,
         sis: loginData.sis
@@ -56,7 +56,7 @@ router.get('/log', function (req, res) {
     // var loginSisentity = req.body.sis;
 
    // var loginTime = new Date().toISOString().replace(/T/, ' ').replace(/\..+/, '');// get login time
-    console.log("test4: id= " + newSenior)
+   // console.log("test4: id= " + newSenior)
 
     var pickedOne = Senior.findOne({'identity': req.body.identity, 'sis': req.body.sis}, function (err, userObj) {
         if (err){
