@@ -77,6 +77,34 @@ router.post('/log', function (req, res) {
 
 });
 
+
+// --resgister: find and check id--
+router.get('/user/:identity', function (req, res) {
+var identity = req.params.identity;
+    console.log("identity:  "+identity);
+     Senior.findOne({'identity': identity}, function (err, userObj) {
+        if (err){
+            console.log(err);
+        }
+        else if (userObj) {
+            console.log('Found:', userObj);
+            res.status(200).end("User Found", req.body, "@ Seniors DB");
+            
+        }
+        else {
+            console.log('User not found!');
+            res.status(500).end(" user not in DB");
+        }
+    });
+
+    // if(loginTime - pickedOne.session)
+    //     res.render('index');
+
+});
+
+
+
+
 //EXAMPLE FOR ASSAF//
 Senior.find({}, function (err, users) {
     var userMap = {}; //return object

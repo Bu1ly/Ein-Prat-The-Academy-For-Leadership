@@ -12,7 +12,11 @@ angular.module('mainApp')
                 .then(function(data){
                    /// $scope.user.id = data;  ????? whay???
                     console.log("id exists!");
-                    alert("login success!!");
+                    $scope.modalText = {
+                        headline: "LogIn",
+                        text: "התחברת בהצלחה"
+                    };
+                    $('#modal').modal('show')
                 })
                 .catch(function() { console.log("Unsuccessful login") });
         };
