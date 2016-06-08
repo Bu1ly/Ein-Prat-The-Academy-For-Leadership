@@ -17,6 +17,7 @@ var mainApp = angular.module('mainApp', ['ngRoute', 'ngMessages'])
 
 
     mainApp.controller("mainController",function($scope){
-        $scope.name="גרשון גראוס";  //// we need to connect this with the log in controoler 
+        $scope.name="גרשון גראוס";  //// we need to connect this with the log in controoler
+        
 });
 
