@@ -1,0 +1,59 @@
+
+<html ng-app="job">
+<head>
+    <title>הצעות עבודה</title>
+    <link rel="stylesheet" href="job_offers.css">
+
+
+
+</head>
+
+<body ng-controller="jobCtrl">
+<div align="right">
+    <div>
+        <table>
+            <tr>
+                <th>תפקיד</th>
+                <th>קטגוריה</th>
+                <th>מיקום</th>
+                <th>קורות חיים</th>
+            </tr>
+            <tr ng-repeat="job in jobs">
+                <td>{{job.position}}</td>
+                <td>{{job.category}}</td>
+                <td>{{job.location}}</td>
+                <td>{{job.CVs}}</td>
+            </tr>
+        </table>
+    </div>
+
+</div>
+
+
+
+<form  ng-submit="addJob()">
+    <label>תפקיד</label>
+    <input type="text" name="position"
+           ng-model="position" />
+    <label>קטגוריה</label>
+    <input type="text" name="category"
+           ng-model="category" />
+    <label>מיקום</label>
+    <input type="text"  name="location"
+           ng-model="location" />
+    <label>קורות חיים</label>
+    <input type="text"  name="CVs"
+           ng-model="CVs" />
+
+    <input type="submit" value="Submit" class="btn btn-primary"/>
+
+</form>
+
+<script src="../js/controllers/JobCtrl/jobctrl.js"></script>
+
+
+</body>
+</html>
+
+
+
