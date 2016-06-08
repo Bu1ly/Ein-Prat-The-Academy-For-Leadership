@@ -1,5 +1,6 @@
 
-angular.module('mainApp', ['ngRoute', 'ngMessages'])
+var mainApp = angular.module('mainApp', ['ngRoute', 'ngMessages'])
+
     .directive('modal', function(){
         return {
             restrict: 'E',
@@ -8,6 +9,14 @@ angular.module('mainApp', ['ngRoute', 'ngMessages'])
                 modal: '='
             }
         }
-    });
+    }
 
-// h
+
+
+    )
+
+
+    mainApp.controller("mainController",function($scope){
+        $scope.name="גרשון גראוס";  //// we need to connect this with the log in controoler 
+});
+
