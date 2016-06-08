@@ -36,12 +36,13 @@ angular.module('mainApp')
                 return;
             }
 
+            ///check if the id exists in the db
             $http({method: 'GET', url: '/user/'+$scope.user.identity})
                 .then(function(params){
                     console.log("id exists in the DB");
                     $scope.modalText = {
                         headline: "Register",
-                        text: "ת״ז קיימת כבר"
+                        text: "המשתמש קיים כבר במערכת"
                     };
                     $('#modal').modal('show')
                 })
