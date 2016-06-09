@@ -1,9 +1,11 @@
 
-<html ng-app="job">
+<html ng-app="mainApp">
 <head>
-    <title>הצעות עבודה</title>
-    <link rel="stylesheet" href="job_offers.css">
+    <title>jobOffers</title>
+    <link rel="stylesheet" href="../css/css/job_offers.css">
 
+    <script src="../js/angular/angular.min.js"></script>
+    <script src="../js/controllers/JobCtrl/jobCtrl.js"></script>
 
 
 </head>
@@ -11,12 +13,12 @@
 <body ng-controller="jobCtrl">
 <div align="right">
     <div>
-        <table>
+        <table border="2px" style="width:50%">
             <tr>
-                <th>תפקיד</th>
-                <th>קטגוריה</th>
-                <th>מיקום</th>
-                <th>קורות חיים</th>
+                <th>position</th>
+                <th>category</th>
+                <th>Location</th>
+                <th>CVs</th>
             </tr>
             <tr ng-repeat="job in jobs">
                 <td>{{job.position}}</td>
@@ -30,26 +32,37 @@
 </div>
 
 
+<input type="button" class="button" value="הוסף עבודה חדשה" onclick="addnew()">
 
-<form  ng-submit="addJob()">
-    <label>תפקיד</label>
-    <input type="text" name="position"
-           ng-model="position" />
-    <label>קטגוריה</label>
-    <input type="text" name="category"
-           ng-model="category" />
-    <label>מיקום</label>
-    <input type="text"  name="location"
-           ng-model="location" />
-    <label>קורות חיים</label>
-    <input type="text"  name="CVs"
-           ng-model="CVs" />
+<div id="add" style="display: none">
 
-    <input type="submit" value="Submit" class="btn btn-primary"/>
+
+<div style="background-color: #EFF5FB ; max-width: 300px; border-radius: 5px">
+<form action="" method="post"  ng-submit="addJob()" >
+
+    <p><label>תפקיד</label></p>
+    <p><input type="text" class="text" name="position"
+           ng-model="position" /></p>
+
+    <p><label>קטגוריה</label></p>
+    <p><input type="text" class="text" name="category"
+           ng-model="category" /></p>
+
+    <p><label>מיקום</label></p>
+    <p><input type="text" class="text" name="location"
+           ng-model="location" /></p>
+
+    <p><label>קורות חיים</label></p>
+    <p><input type="text" class="text" name="CVs"
+           ng-model="CVs" /></p>
+
+    <input type="submit"   value="הוסף" class="button button1"/>
 
 </form>
+</div>
+</div>
 
-<script src="../js/controllers/JobCtrl/jobctrl.js"></script>
+
 
 
 </body>
