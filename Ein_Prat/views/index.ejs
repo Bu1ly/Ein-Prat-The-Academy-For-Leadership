@@ -25,20 +25,52 @@
     <!-- Custom Fonts -->
     <link href="fonts/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("#myModal").modal({show:'true',backdrop: 'static'});
+        });
 
-    <script>$('#modal').modal('show')</script>
+
+
+    </script>
 
 
 </head>
 <body>
 
+<modal modal="modalText"></modal>
 
 
+<div id="myModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <!--<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>-->
+                <h4 class="modal-title">מכינת עין פרת</h4>
+            </div>
+            <div class="modal-body">
+
+                <form>
+                    <div class="form-group">
+
+                        <input ng-model="user.identity" type="text" name="id" class="form-control" placeholder="תעודת זהות" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" class="form-control" placeholder="Email Address">
+                    </div>
 
 
-
-
-<!--/////////////////////////////////-->
+                    <button ng-click="checkUser()" type="submit" class="btn btn-primary">Log in</button>
+                    <button type="submit" class="btn btn-primary">Register</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 
 <div id="wrapper">
 
@@ -225,6 +257,7 @@
 <script src="js/controllers/InfoCtrl/InfoCtrl.js"></script>
 <script src="js/controllers/SeniorCtrl/SeniorCtrl.js"></script>
 <script src="js/controllers/JobCtrl/jobCtrl.js"></script>
+
 
 <!-- Morris Charts JavaScript -->
 <script src="js/plugins/morris/raphael.min.js"></script>

@@ -9,11 +9,9 @@ var mainApp = angular.module('mainApp', ['ngRoute', 'ngMessages'])
                 modal: '='
             }
         }
-    }
+    })
 
 
-
-    )
 
 
     mainApp.controller("mainController",function($scope){
