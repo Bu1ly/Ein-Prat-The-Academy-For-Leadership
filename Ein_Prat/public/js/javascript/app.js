@@ -15,6 +15,12 @@ var mainApp = angular.module('mainApp', ['ngRoute', 'ngMessages'])
 
     )
 
+    
+    $(window).load(function(){
+        $('#myModal').modal('show');
+    });
+
+
 
     mainApp.controller("mainController",function($scope){
         $scope.name="גרשון גראוס";  //// we need to connect this with the log in controoler
