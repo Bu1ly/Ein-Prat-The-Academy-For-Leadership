@@ -19,7 +19,14 @@ angular.module('mainApp')
             templateUrl: 'views/sales.html'
 })
         .when('/job_offers', {
-            templateUrl: 'views/job_offers.html'
+            templateUrl: 'views/job_offers.html',
+            controller: 'jobCtrl',
+            controllerAs: 'jobCtrl'
+        })
+        .when('/job_list', {
+            templateUrl: 'views/job_list.html',
+            controller: 'jobCtrl',
+           
         })
         .when('/events', {
             templateUrl: 'views/events.html'

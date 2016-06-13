@@ -17,7 +17,15 @@ angular.module('mainApp')
                         text: "התחברת בהצלחה"
                     };
                     $('#modal').modal('show')
+
+                   // <a href="#" data-toggle="modal" data-target="#login-modal">התחבר</a>
                 })
-                .catch(function() { console.log("Unsuccessful login") });
+                .catch(function() {
+                    $scope.modalText = {
+                        headline: "LogIn",
+                        text: "פרטים לא נכונים"
+                    };
+                    $('#modal').modal('show')
+                                    console.log("Unsuccessful login") });
         };
     }]);
