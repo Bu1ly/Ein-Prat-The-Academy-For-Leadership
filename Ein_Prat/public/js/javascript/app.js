@@ -38,6 +38,11 @@ $('#myModal2').click(function() {
 //      $('#myModal').modal('hide');
 // });
 
+$('#myModalexit').click(function() {
+    
+     $('#myModal').modal('hide');
+});
+
 // var mainApp = angular.module('mainApp', []);
 angular.module('mainApp').controller('igCtrl',['$http','$scope', function ($http,$scope) {
 
