@@ -4,8 +4,8 @@ angular.module('mainApp')
     // RIGHT NAV
     $routeProvider.when('/home_page', {
         templateUrl: 'views/daily_page.html',
-        controller: 'pageCtrl',
-        controllerAs: 'pageCtrl'
+        controller: 'PageCtrl',
+        controllerAs: 'PageCtrl'
     })
         .when('/senior_search', {
             templateUrl: 'views/senior_search.html',

@@ -1,48 +1,22 @@
-<!--<!DOCTYPE html>-->
-<!--<html ng-app="dPages">-->
-<!--<head>-->
 
-    <!--<title>Ein-Prat Academic College</title>-->
+<div class="home_page">
+    <form align="right">
+        <div class="page">
+            <img src="/images/page_exp.jpg" style="width:304px;height:228px;">
+            <!--<img ng-src="{{page.daily}}"/>-->
+        </div>
+        <div class="talkback">
+            <ul class="hor-ul">
+                <li class="hor-li"><input class="write-talkback" type="text" name="new_talkback" ng-model="page.talkback"></li>
+                <li class="hor-li"><input ng-click="post_talkback()" type="submit" value="לחץ לשליחה"></li>
+            </ul>
 
-<!--</head>-->
+        </div>
+        <div class="review-text-area" style="overflow:scroll; height:30%;">
+            <ul ng-repeat="review in page.reviews">
+                <!--<li></li>-->
+            </ul>
+        </div>
 
-<!--<body ng-controller="DailyPageController as dPage">-->
-
-    <!--<section class="daily-page" ng-repeat="page in dPage.pages">-->
-
-        <!--<div class="daily-image" ng-repeat="image in page.images">-->
-            <!--<img class="daily-image" ng-src="{{image.full}}"/>-->
-        <!--</div>-->
-        <!--<div class="daily-image-details">-->
-            <!--<h4>{{page.description}}</h4>-->
-        <!--</div>-->
-        <!--<hr />-->
-        <!--<form class="review-archive" >-->
-            <!--<div class="review-archive-independent" ng-controller="ReviewController as revCtrl">-->
-                <!--<blockquote ng-repeat="review in page.reviews">-->
-                    <!--{{review.body}}-->
-                    <!--<cite><h6>{{review.author}}</h6></cite>-->
-                <!--</blockquote>-->
-                <!--<blockquote>-->
-                    <!--{{revCtrl.review.body}}-->
-                    <!--<cite><h6>{{revCtrl.review.author}}</h6></cite>-->
-                <!--</blockquote>-->
-                <!--<ul class="horizontal-list-ul">-->
-                    <!--<li class="horizontal-list-li">-->
-                        <!--<textarea ng-model="revCtrl.review.body" class="review-form"></textarea>-->
-                    <!--</li>-->
-                    <!--<li class="horizontal-list-li">-->
-                        <!--<input ng-click="revCtrl.addReview(page)" type="submit" value="פרסם תגובה" class="new-review-btn" >-->
-                    <!--</li>-->
-                <!--</ul>-->
-            <!--</div>-->
-        <!--</form>-->
-    <!--</section>-->
-
-
-<!--</body>-->
-
-<!--</html>-->
-
-
-<iframe width="1100" height="1200" src="http://midrasha.einprat.org/" frameborder="0" allowfullscreen></iframe>
+    </form>
+</div>
