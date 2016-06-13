@@ -59,8 +59,8 @@ var infoSenior = new Schema({
 
 // -- Connect collections to schema --
 var Senior = connection.model('SeniorStudent',senior);
-var InfoSenior = connection.model('InfoSenior', infoSenior);
+//var InfoSenior = connection.model('InfoSenior', infoSenior);
 
 
 module.exports = Senior;   //if i want to use Senior in other files, i need to do before 'require'
-module.exports = InfoSenior; // if i want to use InfoSenior in other files, i need to do before 'require'
+//module.exports = InfoSenior; // if i want to use InfoSenior in other files, i need to do before 'require'

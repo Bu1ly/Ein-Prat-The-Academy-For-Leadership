@@ -70,6 +70,7 @@ angular.module('mainApp').controller('igCtrl',['$http','$scope', function ($http
                 // $('#modal').modal('show')
                 window.alert("פרטים לא נכונים");
                 console.log("Unsuccessful login") });
+       // $('#myModal').modal('hide');
     };
 
 }]);
