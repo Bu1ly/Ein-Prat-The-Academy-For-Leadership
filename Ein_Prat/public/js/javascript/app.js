@@ -67,7 +67,8 @@ angular.module('mainApp').controller('igCtrl',['$http','$scope', function ($http
                     headline: "LogIn",
                     text: "פרטים לא נכונים"
                 };
-                $('#modal').modal('show')
+                // $('#modal').modal('show')
+                window.alert("פרטים לא נכונים");
                 console.log("Unsuccessful login") });
     };
 
