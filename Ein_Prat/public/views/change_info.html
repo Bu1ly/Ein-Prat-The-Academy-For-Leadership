@@ -2,11 +2,14 @@
     <h2>עדכון פרטים אישיים:</h2>
     <form align="right">
         <ul class="hor-ul">
-            <!--exsiting data-->
-            <li class="hor-li"><p class="info_req">שם פרטי:  </p><input type="text" name="fname" placeholder="{{$scope.user.firstName}}" class="textBox" disabled></li>
-            <li class="hor-li"><p class="info_req">שם משפחה:  </p><input type="text" name="lname" placeholder="{{$scope.user.lastName}}" class="textBox" disabled></li>
-            <li class="hor-li"><p class="info_req">ת.ז:  </p><input type="text" name="id" placeholder="תעודת זהות" class="textBox" disabled></li>
-            <li class="hor-li"><p class="info_req">אימייל:  </p><input type="email" name="email" placeholder="כתובת האימייל" class="textBox" disabled></li>
+            <!--placeholder="{{$scope.user.lastName}}"-->
+            <!--existing data-->
+            <li class="hor-li"><p class="info_req">שם פרטי:  </p><input type="text" name="fname" ng-model="infoUser.firstName" class="textBox" disabled></li>
+            <li class="hor-li"><p class="info_req">שם משפחה:  </p><input type="text" name="lname" ng-model="infoUser.lastName" class="textBox" disabled></li>
+            <li class="hor-li"><p class="info_req">ת.ז:  </p><input type="text" name="identity" ng-model="infoUser.identity" class="textBox" disabled></li>
+            <li class="hor-li"><p class="info_req">אימייל:  </p><input type="email" name="email" ng-model="infoUser.Email" class="textBox" disabled></li>
+            <!- ------------ -->
+
             <li class="hor-li"><p class="info_req">תאריך לידה:</p><input ng-model="infoUser.birthday" name="birthday" type="date" class="textBox"></li><br>
             <li class="hor-li">
                 <p class="info_req">מין:</p>
@@ -31,10 +34,10 @@
 
         <!--address - CHECK STRINGTOSTRING-->
         <ul class="hor-ul">
-            <li class="hor-li"><p class="info_req">רחוב:  </p><input type="text" name="street" placeholder="רחוב" class="textBox"></li>
-            <li class="hor-li"><p class="info_req">מספר בית:  </p><input type="number" name="house_num" placeholder="מספר בית" class="textBox"></li>
-            <li class="hor-li"><p class="info_req">עיר:  </p><input type="text" name="city" placeholder="עיר" class="textBox"></li>
-            <li class="hor-li"><p class="info_req">מיקוד:  </p><input type="number" name="zip" placeholder="מיקוד" class="textBox"></li>
+            <li class="hor-li"><p class="info_req">רחוב:  </p><input ng-model="infoUser.homeAdd" type="text" name="street" placeholder="רחוב" class="textBox"></li>
+            <li class="hor-li"><p class="info_req">מספר בית:  </p><input ng-model="infoUser.homeNum" type="number" name="house_num" placeholder="מספר בית" class="textBox"></li>
+            <li class="hor-li"><p class="info_req">עיר:  </p><input ng-model="infoUser.homeTown" type="text" name="city" placeholder="עיר" class="textBox"></li>
+            <li class="hor-li"><p class="info_req">מיקוד:  </p><input ng-model="infoUser.zipCode" type="number" name="zip" placeholder="מיקוד" class="textBox"></li>
         </ul>
 
             <!--army-->
@@ -61,19 +64,19 @@
         <br><h4 class="info_req">הטיול הגדול:</h4>
         <ul class="hor-ul">
             <li class="hor-li">
-                <p class="info_req">ארץ:</p>
-                <select ng-model="infoUser.trip_place">
+                <p class="info_req">יבשת:</p>
+                <select ng-model="infoUser.trip_continent">
                     <option value="east">המזרח הרחוק</option>
                     <option value="sAmerica">דרום אמריקה</option>
                     <option value="mAmerica">מרכז אמריקה</option>
                 </select>
             </li>
-                <li class="hor-li"><button ng-click="trip_else = !trip_else" style="margin-top: 30%; border-radius: 5px 5px;">ארץ אחרת?</button></li>
-                <li class="hor-li" ng-show="trip_else"><p class="info_req">אחר.. </p><input ng-model="infoUser.trip_place" type="text" placeholder="כתוב כאן.." class="textBox"></li>
+                <li class="hor-li"><button ng-click="trip_else = !trip_else" style="margin-top: 30%; border-radius: 5px 5px;">ארץ?</button></li>
+                <li class="hor-li" ng-show="trip_else"><p class="info_req">אחר.. </p><input ng-model="infoUser.trip_country" type="text" placeholder="כתוב כאן.." class="textBox"></li>
         </ul>
         <ul class="hor-ul">
             <li class="hor-li"><p class="info_req">שנת טיסה: </p><input ng-model="infoUser.trip_year" type="number" name="trip_year" placeholder="שנת טיסה" class="textBox"></li>
-            <li class="hor-li"><p class="info_req">המלצות:</p><textarea ng-model="infoUser.trip_more" class="textarea"></textarea>
+            <li class="hor-li"><p class="info_req">המלצות:</p><textarea ng-model="infoUser.trip_recommendation" class="textarea"></textarea>
         </ul>
 
         <!--courses-->
@@ -106,7 +109,7 @@
             </select>
             </li>
             <li class="hor-li"><button ng-click="knowledge_else = !knowledge_else" style="margin-top: 30%; border-radius: 5px 5px;">השכלה אחרת?</button></li>
-            <li class="hor-li" ng-show="knowledge_else"><p class="info_req">אחר.. </p><input ng-model="infoUser.knowledge_more" type="text" placeholder="כתוב כאן.." class="textBox"></li>
+            <li class="hor-li" ng-show="knowledge_else"><p class="info_req">אחר.. </p><input ng-model="infoUser.knowledge_diff" type="text" placeholder="כתוב כאן.." class="textBox"></li>
         </ul>
 
         <!--ADD HEADLINES!-->

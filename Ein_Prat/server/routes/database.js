@@ -1,11 +1,14 @@
 //var HttpStatus = require('http-status-codes');
 //var mongoUtils = require('../utils/connectDB');
+// all the routes
+// POST = taking information from the client
 
 var express = require('express');
 var router = express.Router();
 
 
-var Senior = require('./../utils/schemas');//to insert into senior db
+var Senior = require('./../utils/schemas_and_connectDB');// to insert into senior db
+var InfoSenior = require('./../utils/schemas_and_connectDB');// to insert into InfoSenior db
 
 
 //************ DataBase Functions ******************
@@ -23,9 +26,7 @@ router.post('/reg', function(req,res){
          sis: registerData.sis,
          Email: registerData.Email,
          session : regTime
-
     };
-
     // create new DB instance
     var newSenior = new Senior(seniorJason);
 
@@ -39,10 +40,58 @@ router.post('/reg', function(req,res){
      })
 });
 
+
+// --Add information of the Senior to the DB--
+router.post('/change_info', function(req,res){
+    regTime = new Date().toISOString().replace(/T/, ' ').replace(/\..+/, '');//get register time
+    var updateData = req.body; // get the user data
+    console.log(updateData); //print for debug
+
+    var updateJason = {                     // create senior object and take the data according to Senior Schema
+        birthday:  updateData.birthday,
+        gender:  updateData.gender,
+        status: updateData.status,
+        homeAdd:  updateData.homeAdd,
+        homeNum:  updateData.homeNum,
+        homeTown:  updateData.homeTown,
+        zipCode:  updateData.zipCode,
+        army_type:  updateData.army_type,
+        army_unit:  updateData.army_unit,
+        keva_ktsuna:  updateData.keva_ktsuna,
+        recrue_date:  updateData.recrue_date,
+        release_date:  updateData.release_date,
+        army_more:  updateData.army_more,
+        trip_continent:  updateData.trip_continent,
+        trip_country:  updateData.trip_country,
+        trip_year:  updateData.trip_year,
+        trip_recommendation:  updateData.trip_recommendation,
+        courses:  updateData.courses,
+        courses_more:  updateData.courses_more,
+        knowledge_type:  updateData.knowledge_type,
+        knowledge: updateData.knowledge,
+        knowledge_diff:  updateData.knowledge_diff,
+        trip_else: updateData.trip_else,
+        knowledge_else:  updateData.knowledge_else,
+        session : regTime
+    };
+    // create new DB instance
+    var upSenior = new InfoSenior(updateJason);
+
+    // save the newSenior to the DB
+    upSenior.save(function(err){
+        if(err)
+            res.status(500).end("Error");
+        else{
+            console.log("jhsdhjsdjhsd");
+            res.status(200).end("Update", updateJason, "to Seniors DB");
+        }
+    })
+});
+
+
+
 // --login: find--
 router.post('/log', function (req, res) {
-
-
     var loginData = req.body; // ?!?!@?!@??@?!?@?!?@ how to get data
 
    //  console.log("req.body:  "+loginData); //print for debug
@@ -78,7 +127,7 @@ router.post('/log', function (req, res) {
 });
 
 
-// --resgister: find and check id--
+// --register: find and check id--
 router.get('/user/:identity', function (req, res) {
 var identity = req.params.identity;
     console.log("identity:  "+identity);

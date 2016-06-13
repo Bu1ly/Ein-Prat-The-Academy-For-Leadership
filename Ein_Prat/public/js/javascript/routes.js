@@ -17,7 +17,7 @@ angular.module('mainApp')
         })
         .when('/sales', {
             templateUrl: 'views/sales.html'
-        })
+})
         .when('/job_offers', {
             templateUrl: 'views/job_offers.html'
         })

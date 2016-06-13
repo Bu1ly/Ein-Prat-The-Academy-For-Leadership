@@ -21,7 +21,7 @@ angular.module('mainApp')
 
 
 
-
+        //newUser is the bottom!
         $scope.newUser = function(){
 
             if($scope.user.sis  !==  $scope.data.confirmPassword) {
@@ -49,6 +49,7 @@ angular.module('mainApp')
 
 
             console.log($scope.user);
+                    
             $http({method: 'POST', url: '/reg', data: $scope.user})
                 .then(function(data){
                     console.log("Inserted to DB");
