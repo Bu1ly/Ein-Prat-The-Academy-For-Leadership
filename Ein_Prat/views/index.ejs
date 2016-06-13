@@ -37,6 +37,8 @@
 
 
 
+
+
     </script>
 
 
@@ -44,6 +46,10 @@
 <body>
 
 <modal modal="modalText"></modal>
+
+
+
+
 
 
 <div id="myModal" class="modal fade">
@@ -59,7 +65,11 @@
                 <p> האפשרות לצאת מהחלון הזה לא תיהיה שזה יעבוד- כרגע צריך לסדר את הcontroller שיחבר את השם משתמש וגם לסדר הרשמה</p>
 
 
-
+                <div ng-controller="igCtrl">
+                    <a href="#" ng-hide="loggedIn" ng-click="showLogin()">login</a>
+                    <a href="#" ng-show="loggedIn"ng-click="logout()">logout</a>
+                    <ig-login></ig-login>
+                </div>
 
                 <form>
                     <div class="form-group">
