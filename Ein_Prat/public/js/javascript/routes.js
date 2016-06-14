@@ -25,7 +25,7 @@ angular.module('mainApp')
         })
         .when('/job_list', {
             templateUrl: 'views/job_list.html',
-            controller: 'jobCtrl',
+            controller: 'jobCtrl'
            
         })
         .when('/events', {
