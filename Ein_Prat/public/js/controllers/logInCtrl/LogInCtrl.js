@@ -1,8 +1,8 @@
 angular.module('mainApp')
     .controller('LogInCtrl', ['$http','$scope', function($http,$scope) {
 
-        var temp = $("#myModal").modal({show:'true',backdrop: 'static'});
-        console.log(temp);
+        // var temp = $("#myModal").modal({show:'true',backdrop: 'static'});
+        // console.log(temp);
     $scope.user = {
         identity: "",
         sis: ""
