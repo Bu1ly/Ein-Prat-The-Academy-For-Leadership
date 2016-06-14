@@ -9,8 +9,9 @@ var mongoose = require('mongoose');
 
 
 var Senior = require('./../utils/schemas_and_connectDB');// to insert into senior db
-//var InfoSenior = require('./../utils/schemas_and_connectDB');// to insert into InfoSenior db
 
+// var Senior = db.Senior;
+// var Jobs = db.Jobs;
 
 //************ DataBase Functions ******************
 
@@ -43,131 +44,120 @@ router.post('/reg', function(req,res){
 });
 
 
-/*
-
- // ----------updateInfo--------------
-var ChoiceModel = mongoose.model('choices',Senior);
-
-router.put('/change_info', function(req,res){
-    var id = req.params.identity;
-    ChoiceModel.findOne({_id: id}, function(err,foundSenior){
-    if(err){
-        console.log(err);
-        res.status(500).send();
-    } else {
-        if(!foundSenior){
-            res.status(404).send();
-        } else {
-            if(req.body){
-                foundSenior.homeAdd = req.body.homeAdd;
-            }
-            if(req.body){
-                foundSenior.army_type = req.body. army_type;
-            }
-
-            foundSenior.save(function(err, updateSenior){
-                if(err){
-                    console.log(err);
-                    res.status(500).send();
-                } else {
-                    res.send(updateSenior);
-                }
-
-            });
-        }
-
-    }
-
-    });
-
-});*/
-
-
-
-
-// --Add information of the Senior to the DB--
-router.post('/change_info', function(req,res){
-    regTime = new Date().toISOString().replace(/T/, ' ').replace(/\..+/, '');//get register time
-    var updateData = req.body; // get the user data
-    console.log(updateData); //print for debug
-
-    var updateJason = {                     // create senior object and take the data according to Senior Schema
-        birthday:  updateData.birthday,
-        gender:  updateData.gender,
-        status: updateData.status,
-        homeAdd:  updateData.homeAdd,
-        homeNum:  updateData.homeNum,
-        homeTown:  updateData.homeTown,
-        zipCode:  updateData.zipCode,
-        army_type:  updateData.army_type,
-        army_unit:  updateData.army_unit,
-        keva_ktsuna:  updateData.keva_ktsuna,
-        recrue_date:  updateData.recrue_date,
-        release_date:  updateData.release_date,
-        army_more:  updateData.army_more,
-        trip_continent:  updateData.trip_continent,
-        trip_country:  updateData.trip_country,
-        trip_year:  updateData.trip_year,
-        trip_recommendation:  updateData.trip_recommendation,
-        courses:  updateData.courses,
-        courses_more:  updateData.courses_more,
-        knowledge_type:  updateData.knowledge_type,
-        knowledge: updateData.knowledge,
-        knowledge_diff:  updateData.knowledge_diff,
-        trip_else: updateData.trip_else,
-        knowledge_else:  updateData.knowledge_else,
-        session : regTime
-    };
-    // create new DB instance
-    var upSenior = new Senior(updateJason);
-
-    // save the newSenior to the DB
-    upSenior.save(function(err){
-        if(err)
-            res.status(500).end("Error");
-        else{
-            res.status(200).end("Update", updateJason, "to Seniors DB");
-        }
-    });
-});
-
-
-
-// --login: find--
+// --login
 router.post('/log', function (req, res) {
-    var loginData = req.body; // ?!?!@?!@??@?!?@?!?@ how to get data
+    var loginData = req.body;
+    var loginTime = new Date().toISOString().replace(/T/, ' ').replace(/\..+/, '');// get login time
 
-   //  console.log("req.body:  "+loginData); //print for debug
-    var seniorJason = {                     // create senior object and take the data according to Senior Schema
-        identity : loginData.identity,
-        sis: loginData.sis
-    };
-
-    var newSenior = new Senior(seniorJason);
-    // var loginIdentity = req.body.identity;
-    // var loginSisentity = req.body.sis;
-
-   // var loginTime = new Date().toISOString().replace(/T/, ' ').replace(/\..+/, '');// get login time
-   // console.log("test4: id= " + newSenior)
-
-    var pickedOne = Senior.findOne({'identity': req.body.identity, 'sis': req.body.sis}, function (err, userObj) {
-        if (err){
-            console.log(err);
-        }
-        else if (userObj) {
-            console.log('Found:', userObj);
-            res.status(200).end("User Found", req.body.firstName, "@ Seniors DB");
-        }
-        else {
+    var pickedOne = Senior.findOne({'identity': req.body.identity, 'sis': req.body.sis}, function (err) {
+        if (err) {
             console.log('User not found!');
             res.status(500).end("Error, user not in DB");
         }
+        else {
+            console.log('Found:', pickedOne.firstName);
+            res.status(200).end("User Found", req.body.firstName, "@ Seniors DB");
+        }
+
+        console.log("req.body:  "+loginData); //print for debug
+
     });
 
-    // if(loginTime - pickedOne.session)
-    //     res.render('index');
 
-});
+
+    // --Add information of the Senior to the DB--
+    router.post('/change_info', function(req,res){
+
+
+        var updateData = req.body; // get the user data
+        console.log(updateData); //print for debug
+
+        var updateJason = {                     // create senior object and take the data according to Senior Schema
+            identity: updateData.identity,
+            birthday:  updateData.birthday,
+            gender:  updateData.gender,
+            status: updateData.status,
+            homeAdd:  updateData.homeAdd,
+            homeNum:  updateData.homeNum,
+            homeTown:  updateData.homeTown,
+            zipCode:  updateData.zipCode,
+            army_type:  updateData.army_type,
+            army_unit:  updateData.army_unit,
+            keva_ktsuna:  updateData.keva_ktsuna,
+            recrue_date:  updateData.recrue_date,
+            release_date:  updateData.release_date,
+            army_more:  updateData.army_more,
+            trip_continent:  updateData.trip_continent,
+            trip_country:  updateData.trip_country,
+            trip_year:  updateData.trip_year,
+            trip_recommendation:  updateData.trip_recommendation,
+            courses:  updateData.courses,
+            courses_more:  updateData.courses_more,
+            knowledge_type:  updateData.knowledge_type,
+            knowledge: updateData.knowledge,
+            knowledge_diff:  updateData.knowledge_diff,
+            trip_else: updateData.trip_else,
+            knowledge_else:  updateData.knowledge_else,
+
+        };
+        // create new DB instance
+        var upSenior = new Senior(updateJason);
+
+        // save the newSenior to the DB
+        upSenior.findandmodify({'identity': identity}
+            ,update
+            ,(function(err){
+            if(err)
+                res.status(500).end("Error");
+            else{
+                res.status(200).end("Update", updateJason, "to Seniors DB");
+            }
+        });
+    });
+
+    /*
+
+     // ----------updateInfo--------------
+    var ChoiceModel = mongoose.model('choices',Senior);
+
+    router.put('/change_info', function(req,res){
+        var id = req.params.identity;
+        ChoiceModel.findOne({_id: id}, function(err,foundSenior){
+        if(err){
+            console.log(err);
+            res.status(500).send();
+        } else {
+            if(!foundSenior){
+                res.status(404).send();
+            } else {
+                if(req.body){
+                    foundSenior.homeAdd = req.body.homeAdd;
+                }
+                if(req.body){
+                    foundSenior.army_type = req.body. army_type;
+                }
+
+                foundSenior.save(function(err, updateSenior){
+                    if(err){
+                        console.log(err);
+                        res.status(500).send();
+                    } else {
+                        res.send(updateSenior);
+                    }
+
+                });
+            }
+
+        }
+
+        });
+
+    });*/
+
+
+
+
+
 
 
 // --register: find and check id--
@@ -189,64 +179,62 @@ var identity = req.params.identity;
         }
     });
 
-    // if(loginTime - pickedOne.session)
-    //     res.render('index');
-
-});
-
-
-
-
-//EXAMPLE FOR ASSAF//
-Senior.find({}, function (err, users) {
-    var userMap = {}; //return object
-
-    //fill up the object
-    users.forEach(function(user) {
-        userMap[user._id] = user;
     });
-    //    return the users object
-    console.log(JSON.stringify(userMap));
 });
+
+
+
+//
+// //EXAMPLE FOR ASSAF//
+// Senior.find({}, function (err, users) {
+//     var userMap = {}; //return object
+//
+//     //fill up the object
+//     users.forEach(function(user) {
+//         userMap[user._id] = user;
+//     });
+//     //    return the users object
+//     console.log(JSON.stringify(userMap));
+// });
 
 
 // --Delete User--
-router.post('/delete', function (req,res) {
-    var registerData = req.body; // get the user data
-    console.log(registerData); //print for debug
-
-    // create senior object and take the data according to Senior Schema
-    var seniorJason = {
-        name : registerData.name,
-        lastName : registerData.lastName,
-        identity : registerData.identity,
-        session : registerData.session
-    };
-
-    
-    // create new DB instance
-    var deleteSenior = new Senior(seniorJason);
-
-    // remove the newSenior to the DB
-    deleteSenior.remove(function(err){
-        if(err)
-            res.status(500).end("Error");
-        else
-            res.status(200).end("Removed", seniorJason, "from Seniors DB");
-    })
-});
-
-
-// --Delete a specific Senior--
-router.delete('delete:id', function (req,res) {
-    Senior.findOneAndRemove({'_id': req.param.id}, function (err, updated) {
-        if (err)
-            console.log("The user not found\n");
-        else
-            res.json(updated);
-    });
-});
-
+// router.post('/delete', function (req,res) {
+//     var registerData = req.body; // get the user data
+//     console.log(registerData); //print for debug
+//
+//     // create senior object and take the data according to Senior Schema
+//     var seniorJason = {
+//         name : registerData.name,
+//         lastName : registerData.lastName,
+//         identity : registerData.identity,
+//         session : registerData.session
+//     };
+//
+//
+//     // create new DB instance
+//     var deleteSenior = new Senior(seniorJason);
+//
+//     // remove the newSenior to the DB
+//     deleteSenior.remove(function(err){
+//         if(err)
+//             res.status(500).end("Error");
+//         else
+//             res.status(200).end("Removed", seniorJason, "from Seniors DB");
+//     })
+// });
+//
+//
+// // --Delete a specific Senior--
+// router.delete('delete:id', function (req,res) {
+//     Senior.findOneAndRemove({'_id': req.param.id}, function (err, updated) {
+//         if (err)
+//             console.log("The user not found\n");
+//         else
+//             res.json(updated);
+//     })
+// });
+//
 
 
 // Update Senior
