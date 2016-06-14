@@ -13,6 +13,7 @@ var InfoSenior = require('./../utils/schemas_and_connectDB');// to insert into I
 
 //************ DataBase Functions ******************
 
+
 // --Register new Users--
 router.post('/reg', function(req,res){
     regTime = new Date().toISOString().replace(/T/, ' ').replace(/\..+/, '');//get register time
