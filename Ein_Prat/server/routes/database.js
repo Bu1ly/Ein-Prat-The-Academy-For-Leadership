@@ -82,7 +82,6 @@ router.post('/change_info', function(req,res){
         if(err)
             res.status(500).end("Error");
         else{
-            console.log("jhsdhjsdjhsd");
             res.status(200).end("Update", updateJason, "to Seniors DB");
         }
     })
