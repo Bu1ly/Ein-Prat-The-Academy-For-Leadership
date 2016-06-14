@@ -5,10 +5,11 @@
 
 var express = require('express');
 var router = express.Router();
+var mongoose = require('mongoose');
 
 
 var Senior = require('./../utils/schemas_and_connectDB');// to insert into senior db
-var InfoSenior = require('./../utils/schemas_and_connectDB');// to insert into InfoSenior db
+//var InfoSenior = require('./../utils/schemas_and_connectDB');// to insert into InfoSenior db
 
 
 //************ DataBase Functions ******************
@@ -40,6 +41,48 @@ router.post('/reg', function(req,res){
          }
      })
 });
+
+
+/*
+
+ // ----------updateInfo--------------
+var ChoiceModel = mongoose.model('choices',Senior);
+
+router.put('/change_info', function(req,res){
+    var id = req.params.identity;
+    ChoiceModel.findOne({_id: id}, function(err,foundSenior){
+    if(err){
+        console.log(err);
+        res.status(500).send();
+    } else {
+        if(!foundSenior){
+            res.status(404).send();
+        } else {
+            if(req.body){
+                foundSenior.homeAdd = req.body.homeAdd;
+            }
+            if(req.body){
+                foundSenior.army_type = req.body. army_type;
+            }
+
+            foundSenior.save(function(err, updateSenior){
+                if(err){
+                    console.log(err);
+                    res.status(500).send();
+                } else {
+                    res.send(updateSenior);
+                }
+
+            });
+        }
+
+    }
+
+    });
+
+});*/
+
+
 
 
 // --Add information of the Senior to the DB--
@@ -76,7 +119,7 @@ router.post('/change_info', function(req,res){
         session : regTime
     };
     // create new DB instance
-    var upSenior = new InfoSenior(updateJason);
+    var upSenior = new Senior(updateJason);
 
     // save the newSenior to the DB
     upSenior.save(function(err){
@@ -85,7 +128,7 @@ router.post('/change_info', function(req,res){
         else{
             res.status(200).end("Update", updateJason, "to Seniors DB");
         }
-    })
+    });
 });
 
 
