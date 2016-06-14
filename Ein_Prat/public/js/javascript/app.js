@@ -1,4 +1,3 @@
-
 var mainApp = angular.module('mainApp', ['ngRoute', 'ngMessages'])
 
     .directive('modal', function(){
@@ -10,6 +9,23 @@ var mainApp = angular.module('mainApp', ['ngRoute', 'ngMessages'])
             }
         }
     })
+
+    .directive('ex', function(){
+        return {
+            restrict: 'EA',
+            templateUrl: 'views/modal-template.html',
+            scope:{
+                password: '=',
+                email : '=',
+                submitData : '&'
+            },
+            controller :
+
+                scope.submitData(scope.password, scope.email),
+        }
+
+
+    });
 
 
 
@@ -46,7 +62,6 @@ $('#myModalexit').click(function() {
 // var mainApp = angular.module('mainApp', []);
 angular.module('mainApp').controller('igCtrl',['$http','$scope', function ($http,$scope) {
 
-    console.log("test6");
     $scope.user = {
         identity: "",
         sis: ""
