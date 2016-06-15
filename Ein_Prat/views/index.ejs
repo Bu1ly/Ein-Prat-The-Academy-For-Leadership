@@ -16,6 +16,7 @@
     <!-- Custom CSS -->
     <link href="css/css/sb-admin.css" rel="stylesheet">
     <link href="css/css/sb-admin-rtl.css" rel="stylesheet">
+    <link href="css/css/modal_new.css" rel="stylesheet">
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet">
     <!-- Bootstrap Core CSS RTL-->
@@ -51,44 +52,150 @@
 
 <div ng-controller="igCtrl">
 
-<div id="myModal" class="modal fade">
 
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
 
-                <h4 class="modal-title"> מכינת עין פרת</h4>   <img src="images/abc.jpg" float="left" >
+    <div id="myModal" class="modal fade" style="margin-top: 7%">
+
+        <modal modal="modalText"></modal>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 col-md-offset-3">
+                        <div class="panel panel-login">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-xs-6">
+                                        <a href="#" class="active" id="login-form-link">התחבר</a>
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <a href="#" id="register-form-link">הרשמה</a>
+                                    </div>
+                                </div>
+                                <hr>
+                            </div>
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <form id="login-form"  method="post" role="form" style="display: block;">
+                                            <div class="form-group">
+
+                                                <input ng-model="user.identity" type="text" name="id"  tabindex="1" class="form-control" placeholder="תעודת זהות" required>
+                                            </div>
+                                            <div class="form-group">
+
+                                                <input ng-model="user.sis" type="password" name="pass" tabindex="2"  class="form-control" placeholder="סיסמא" required>
+                                            </div>
+                                            <div class="form-group text-center">
+                                                <input type="checkbox" tabindex="3" class="" name="remember" id="remember">
+                                                <label for="remember"> זכור אותי</label>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="row">
+                                                    <div class="col-sm-6 col-sm-offset-3">
+                                                        <!--<input  button ng-click="checkUser()" id="myModalSave" type="button" class="btn btn-primary">התחבר</button>-->
+
+                                                        <input ng-click="checkUser()" id="myModalSave" type="button"  id="login-submit" tabindex="4" class="form-control btn btn-login" value="התחבר">
+                                                        <input  id="myModalexit" type="button"  id="login-submit" tabindex="4" class="form-control btn btn-login" value="יציאה (זמני)">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="row">
+                                                    <div class="col-lg-12">
+                                                        <div class="text-center">
+                                                            <!--<a href="http://phpoll.com/recover" tabindex="5" class="forgot-password">שכחת את הסיסמא?</a>-->
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                        <form id="register-form" action="http://phpoll.com/register/process" method="post" role="form" style="display: none;">
+                                            <div class="form-group">
+
+
+                                                <input ng-model="user_reg.firstName" type="text" name="fname" id="username" tabindex="1" class="form-control" placeholder="שם פרטי" value="" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <input ng-model="user_reg.lastName" type="text" name="lname" id="username" tabindex="2" class="form-control" placeholder="שם משפחה" value="" required>
+
+                                            </div>
+                                            <div class="form-group">
+                                                <input ng-model="user_reg.identity" type="text" name="id" id="username" tabindex="3" class="form-control" placeholder="תעודת זהות" value="" required>
+
+                                            </div>
+                                            <div class="form-group">
+
+                                                <input ng-minlength="5" ng-maxlength="15" ng-model="user_reg.sis"  type="password" name="pass" placeholder="סיסמא" class="form-control" tabindex="4" required>
+                                            </div>
+                                            <div class="form-group">
+
+                                                <input ng-minlength="5" ng-maxlength="15" ng-model="data.confirmPassword"  type="password" name="pass" placeholder="חזור על הסיסמא" class="form-control" tabindex="5" required>
+
+                                            </div>
+                                            <div class="form-group">
+
+                                               <input ng-model="user_reg.Email"  type="email" name="email" tabindex="6" placeholder="כתובת האימייל" class="form-control" value="" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="row">
+                                                    <div class="col-sm-6 col-sm-offset-3">
+                                                        <!--<input ng-click="checkUser()" id="myModalSave" type="button"  id="login-submit" tabindex="4" class="form-control btn btn-login" value="התחבר">-->
+                                                        <input ng-click="newUser()" type="button" tabindex="7" class="form-control btn btn-register" value="הרשם עכשיו">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <temp-modal item="item"></temp-modal>
-
-            <div class="modal-body">
-                <p> האפשרות לצאת מהחלון הזה לא תיהיה שזה יעבוד- כרגע צריך לסדר את הcontroller שיחבר את השם משתמש וגם לסדר הרשמה</p>
 
 
-
-
-                <form>
-                    <div class="form-group">
-
-                        <input ng-model="user.identity" type="text" name="id" class="form-control" placeholder="תעודת זהות" required>
-                    </div>
-                    <div class="form-group">
-                        <input ng-model="user.sis" type="password" class="form-control" name="pass" placeholder="סיסמא" class="textBox" required>
-                    </div>
-
-                    <button ng-click="checkUser()" id="myModalSave" type="button" class="btn btn-primary">התחבר</button>
-
-                    <button id="myModal2" type="submit" class="btn btn-primary">הרשמה</button>
-                    <button  id="myModalexit" type="button" class="btn btn-primary">יציאה (זמני)</button>
-
-                </form>
-            </div>
-        </div>
     </div>
+</div>
 
-</div>
-</div>
+    <!---->
+<!--<div id="myModal" class="modal fade">-->
+
+    <!--<div class="modal-dialog">-->
+        <!--<div class="modal-content">-->
+            <!--<div class="modal-header">-->
+
+                <!--<h4 class="modal-title"> מכינת עין פרת</h4>   <img src="images/abc.jpg" float="left" >-->
+            <!--</div>-->
+
+            <!--<temp-modal item="item"></temp-modal>-->
+
+            <!--<div class="modal-body">-->
+                <!--<p> האפשרות לצאת מהחלון הזה לא תיהיה שזה יעבוד- כרגע צריך לסדר את הcontroller שיחבר את השם משתמש וגם לסדר הרשמה</p>-->
+
+
+
+
+                <!--<form>-->
+                    <!--<div class="form-group">-->
+
+                        <!--<input ng-model="user.identity" type="text" name="id" class="form-control" placeholder="תעודת זהות" required>-->
+                    <!--</div>-->
+                    <!--<div class="form-group">-->
+                        <!--<input ng-model="user.sis" type="password" class="form-control" name="pass" placeholder="סיסמא" class="textBox" required>-->
+                    <!--</div>-->
+
+                    <!--<button ng-click="checkUser()" id="myModalSave" type="button" class="btn btn-primary">התחבר</button>-->
+
+                    <!--<button id="myModal2" type="submit" class="btn btn-primary">הרשמה</button>-->
+                    <!--<button  id="myModalexit" type="button" class="btn btn-primary">יציאה (זמני)</button>-->
+
+                <!--</form>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+
+<!--</div>-->
+<!--</div>-->
 
 
 
