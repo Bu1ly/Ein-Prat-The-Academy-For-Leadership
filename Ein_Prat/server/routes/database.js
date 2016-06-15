@@ -54,8 +54,8 @@ router.post('/log', function (req, res) {
             console.log(err);
         }
         else if (userObj) {
-            console.log('Found:', userObj.firstName);
-            res.status(200).end("User Found @ Seniors DB");
+            console.log('Found:', userObj);
+            res.status(200).end("User Found", req.body.firstName, "@ Seniors DB");
         }
         else {
             console.log('User not found!');
@@ -73,10 +73,39 @@ var updateInfo = req.body;//User data
 var updateID = req.body.identity; // get the user ID
 console.log(updateID); //print for debug
 
+var updateJason = {                     // create senior object and take the data according to Senior Schema
+    identity: updateData.identity,
+    birthday:  updateData.birthday,
+    gender:  updateData.gender,
+    status: updateData.status,
+    homeAdd:  updateData.homeAdd,
+    homeNum:  updateData.homeNum,
+    homeTown:  updateData.homeTown,
+    zipCode:  updateData.zipCode,
+    army_type:  updateData.army_type,
+    army_unit:  updateData.army_unit,
+    keva_ktsuna:  updateData.keva_ktsuna,
+    recrue_date:  updateData.recrue_date,
+    release_date:  updateData.release_date,
+    army_more:  updateData.army_more,
+    trip_continent:  updateData.trip_continent,
+    trip_country:  updateData.trip_country,
+    trip_year:  updateData.trip_year,
+    trip_recommendation:  updateData.trip_recommendation,
+    courses:  updateData.courses,
+    courses_more:  updateData.courses_more,
+    knowledge_type:  updateData.knowledge_type,
+    knowledge: updateData.knowledge,
+    knowledge_diff:  updateData.knowledge_diff,
+    trip_else: updateData.trip_else,
+    knowledge_else:  updateData.knowledge_else,
+
+};
+
+
 Senior.findOneAndUpdate({'identity': updateID},
                      { $setOnInsert: { 'homeAdd' : updateInfo.homeAdd , 'homeTown' : updateInfo.homeTown}},
-                     { upsert: true },
-                     function(err) {
+                     { new: false, upsert: true },function(err) {
                         if (err) {
                             console.log(error.name, "<- Is the error name\n", error.message , "<- Is the error message");
                             res.status(500).end("Error, couldn't update Senior info!");
@@ -141,7 +170,7 @@ var identity = req.params.identity;
             console.log(err);
         }
         else if (userObj) {
-            console.log('id check-Found:', userObj);
+            console.log('Found:', userObj);
             res.status(200).end("User Found", req.body, "@ Seniors DB");
             
         }
