@@ -46,21 +46,21 @@ router.post('/reg', function(req,res){
 
 // --login
 router.post('/log', function (req, res) {
-    var loginData = req.body;
+    //var loginData = req.body;
     var loginTime = new Date().toISOString().replace(/T/, ' ').replace(/\..+/, '');// get login time
 
-    var pickedOne = Senior.findOne({'identity': req.body.identity, 'sis': req.body.sis}, function (err) {
-        if (err) {
+    var pickedOne = Senior.findOne({'identity': req.body.identity, 'sis': req.body.sis}, function (err, userObj) {
+        if (err){
+            console.log(err);
+        }
+        else if (userObj) {
+            console.log('Found:', userObj);
+            res.status(200).end("User Found", req.body.firstName, "@ Seniors DB");
+        }
+        else {
             console.log('User not found!');
             res.status(500).end("Error, user not in DB");
         }
-        else {
-            console.log('Found:', pickedOne.firstName);
-            res.status(200).end("User Found", req.body.firstName, "@ Seniors DB");
-        }
-
-        console.log("req.body:  "+loginData); //print for debug
-
     });
 
 
@@ -106,13 +106,15 @@ router.post('/log', function (req, res) {
         // save the newSenior to the DB
         upSenior.findandmodify({'identity': identity}
             ,update
-            ,(function(err){
-            if(err)
-                res.status(500).end("Error");
-            else{
-                res.status(200).end("Update", updateJason, "to Seniors DB");
-            }
-        });
+            ,(function(err) {
+                if (err)
+                    res.status(500).end("Error");
+                else
+                    res.status(200).end("Update", updateJason, "to Seniors DB");
+
+
+            }));
+
     });
 
     /*
