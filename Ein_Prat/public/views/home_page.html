@@ -1,22 +1,62 @@
-
 <div class="home_page">
-    <form align="right">
-        <div class="page">
-            <img src="/images/page_exp.jpg" style="width:304px;height:228px;">
-            <!--<img ng-src="{{page.daily}}"/>-->
-        </div>
-        <div class="talkback">
-            <ul class="hor-ul">
-                <li class="hor-li"><input class="write-talkback" type="text" name="new_talkback" ng-model="page.talkback"></li>
-                <li class="hor-li"><input ng-click="post_talkback()" type="submit" value="לחץ לשליחה"></li>
-            </ul>
 
-        </div>
-        <div class="review-text-area" style="overflow:scroll; height:30%;">
-            <ul ng-repeat="review in page.reviews">
-                <!--<li></li>-->
-            </ul>
-        </div>
+    <ul class="hor-ul" style="list-style-type:none">
+        <li class="hor-li">
+            <h2>לוח מודעות:</h2>
+                <ul class="users-notes">
+                    <li ng-repeat="note in notes">
+                        <blockquote>
+                            {{note}}
+                        </blockquote>
+                    </li>
+                </ul>
 
-    </form>
+
+            </blockquote>
+        </li>
+        <li class="hor-li">
+            <ul>
+                <li>
+                    <h2>הדף היומי:</h2>
+                    <input class="write-talkback" type="text" ng-model="review"></li>
+                    <input ng-click="postReview()" type="submit" value="לחץ לשליחה">
+                </li>
+                <li>
+                    <h2>תגובות:</h2>
+                    <ul>
+                        <li ng-repeat="rev in reviews">
+                            {{rev}}
+                        </li>
+                    </ul>
+                </li>
+
+            </ul>
+        </li>
+    </ul>
+
 </div>
+
+
+
+
+<!--<div class="home_page">-->
+    <!--<form align="right">-->
+        <!--<div class="page">-->
+            <!--<img src="/images/page_exp.jpg" style="width:304px;height:228px;">-->
+            <!--&lt;!&ndash;<img ng-src="{{page.daily}}"/>&ndash;&gt;-->
+        <!--</div>-->
+        <!--<div class="talkback">-->
+            <!--<ul class="hor-ul">-->
+                <!--<li class="hor-li">-->
+                <!--<li class="hor-li"></li>-->
+            <!--</ul>-->
+
+        <!--</div>-->
+        <!--<div class="review-text-area" style="overflow:scroll; height:30%;">-->
+            <!--<ul ng-repeat="review in page.reviews">-->
+                <!--&lt;!&ndash;<li></li>&ndash;&gt;-->
+            <!--</ul>-->
+        <!--</div>-->
+
+    <!--</form>-->
+<!--</div>-->

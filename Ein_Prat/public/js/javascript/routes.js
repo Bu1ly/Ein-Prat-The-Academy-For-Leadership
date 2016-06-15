@@ -3,7 +3,7 @@ angular.module('mainApp')
 
     // RIGHT NAV
     $routeProvider.when('/home_page', {
-        templateUrl: 'views/daily_page.html',
+        templateUrl: 'views/home_page.html',
         controller: 'PageCtrl',
         controllerAs: 'PageCtrl'
     })
