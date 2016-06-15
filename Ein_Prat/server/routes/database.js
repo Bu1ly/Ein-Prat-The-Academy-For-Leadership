@@ -112,7 +112,7 @@ router.post('/log', function (req, res) {
             else{
                 res.status(200).end("Update", updateJason, "to Seniors DB");
             }
-        });
+        }));
     });
 
     /*
