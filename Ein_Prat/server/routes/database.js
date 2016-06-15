@@ -102,79 +102,34 @@ router.post('/log', function (req, res) {
                                     console.log('Not succeed the update Data!');
                                     res.status(500).end("Error, user not in DB");
                                 }
-                                console.log(upObj);
+                                else
+                                    res.status(200).end("Here is updated senior: ",upObj);
                             }
         );
 
     });
 
-
-/*
-
-     // ----------updateInfo--------------
-    var ChoiceModel = mongoose.model('choices',Senior);
-
-    router.put('/change_info', function(req,res){
-        var id = req.params.identity;
-        ChoiceModel.findOne({_id: id}, function(err,foundSenior){
-        if(err){
-            console.log(err);
-            res.status(500).send();
-        } else {
-            if(!foundSenior){
-                res.status(404).send();
-            } else {
-                if(req.body){
-                    foundSenior.homeAdd = req.body.homeAdd;
-                }
-                if(req.body){
-                    foundSenior.army_type = req.body. army_type;
-                }
-
-                foundSenior.save(function(err, updateSenior){
-                    if(err){
-                        console.log(err);
-                        res.status(500).send();
-                    } else {
-                        res.send(updateSenior);
-                    }
-
-                });
-            }
-
-        }
-
-        });
-
-    });*/
-
-
-
-
-
-
-
-// --register: find and check id--
-router.get('/user/:identity', function (req, res) {
-var identity = req.params.identity;
-    console.log("identity:  "+identity);
-     Senior.findOne({'identity': identity}, function (err, userObj) {
-        if (err){
-            console.log(err);
-        }
-        else if (userObj) {
-            console.log('Found:', userObj);
-            res.status(200).end("User Found", req.body, "@ Seniors DB");
-            
-        }
-        else {
-            console.log('User not found!');
-            res.status(500).end(" user not in DB");
-        }
-    });
-
-    });
-});
+//// --register: find and check id--
+// router.post('/user/:identity', function (req, res) {
+// var identity = req.params.identity;
+//     console.log("identity:  "+identity);
+//      Senior.findOne({'identity': identity}, function (err, userObj) {
+//         if (err){
+//             console.log(err);
+//         }
+//         else if (userObj) {
+//             console.log('Found:', userObj);
+//             res.status(200).end("User Found", req.body, "@ Seniors DB");
+//            
+//         }
+//         else {
+//             console.log('User not found!');
+//             res.status(500).end(" user not in DB");
+//         }
+//     });
+//
+//     });
+// });
 
 
 
