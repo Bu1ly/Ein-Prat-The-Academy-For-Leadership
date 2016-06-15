@@ -141,7 +141,7 @@ var identity = req.params.identity;
             console.log(err);
         }
         else if (userObj) {
-            console.log('Found:', userObj);
+            console.log('id check-Found:', userObj);
             res.status(200).end("User Found", req.body, "@ Seniors DB");
             
         }
