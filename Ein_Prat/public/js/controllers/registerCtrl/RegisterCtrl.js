@@ -1,7 +1,7 @@
 angular.module('mainApp')
-    .controller('RegisterCtrl', ['$http','$scope', function($http,$scope) {
+    .controller('RegisterCtrl', ['$http','$scope','$rootScope', function($http,$scope,$rootScope) {
 
-        $scope.user = {
+        $rootScope.user = {
             firstName: "",
             lastName: "",
             Email: "",

@@ -81,11 +81,14 @@ $('#myModalexit').click(function() {
 });
 
 // var mainApp = angular.module('mainApp', []);
-angular.module('mainApp').controller('igCtrl',['$http','$scope', function ($http,$scope) {
+angular.module('mainApp').controller('igCtrl',['$http','$scope','$rootScope', function ($http,$scope,$rootScope) {
 
-    $scope.user = {
+    $rootScope.user = {
         identity: "",
-        sis: ""
+        sis: "",
+        firstName: "",
+        lastName: "",
+        Email: ""
     };
 
     $scope.checkUser = function(){
@@ -93,6 +96,8 @@ angular.module('mainApp').controller('igCtrl',['$http','$scope', function ($http
         $http({method: 'POST', url: '/log', data: $scope.user})
             .then(function(data){
                 /// $scope.user.id = data;  ????? whay???
+                $rootScope.infoUser = data;
+                
                 console.log("id exists!");
                 $scope.modalText = {
                     headline: "LogIn",
@@ -174,6 +179,7 @@ angular.module('mainApp').controller('igCtrl',['$http','$scope', function ($http
 
                 $http({method: 'POST', url: '/reg', data: $scope.user_reg})
                     .then(function(data){
+                        $rootScope.user_information = $scope.user_reg;
                         console.log("Inserted to DB");
                         $scope.modalText = {
                             headline: "Register",
@@ -185,7 +191,6 @@ angular.module('mainApp').controller('igCtrl',['$http','$scope', function ($http
                     .catch(function() { console.log("Unsuccessful") });
             });
     };
-
 
 
     /////////////////////////////
