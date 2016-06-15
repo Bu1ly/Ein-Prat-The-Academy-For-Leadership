@@ -65,59 +65,58 @@ router.post('/log', function (req, res) {
 
 
 
-    // --Add information of the Senior to the DB--
-    router.post('/change_info', function(req,res){
+// --Add information of the Senior to the DB--
+router.post('/change_info', function(req,res){
+
+var updateInfo = req.body;//User data
+
+var updateID = req.body.identity; // get the user ID
+console.log(updateID); //print for debug
+
+var updateJason = {                     // create senior object and take the data according to Senior Schema
+    identity: updateData.identity,
+    birthday:  updateData.birthday,
+    gender:  updateData.gender,
+    status: updateData.status,
+    homeAdd:  updateData.homeAdd,
+    homeNum:  updateData.homeNum,
+    homeTown:  updateData.homeTown,
+    zipCode:  updateData.zipCode,
+    army_type:  updateData.army_type,
+    army_unit:  updateData.army_unit,
+    keva_ktsuna:  updateData.keva_ktsuna,
+    recrue_date:  updateData.recrue_date,
+    release_date:  updateData.release_date,
+    army_more:  updateData.army_more,
+    trip_continent:  updateData.trip_continent,
+    trip_country:  updateData.trip_country,
+    trip_year:  updateData.trip_year,
+    trip_recommendation:  updateData.trip_recommendation,
+    courses:  updateData.courses,
+    courses_more:  updateData.courses_more,
+    knowledge_type:  updateData.knowledge_type,
+    knowledge: updateData.knowledge,
+    knowledge_diff:  updateData.knowledge_diff,
+    trip_else: updateData.trip_else,
+    knowledge_else:  updateData.knowledge_else,
+
+};
 
 
-        var updateData = req.body; // get the user data
-        console.log(updateData); //print for debug
+Senior.findOneAndUpdate({'identity': updateID},
+                     { $setOnInsert: { 'homeAdd' : updateInfo.homeAdd , 'homeTown' : updateInfo.homeTown}},
+                     { new: false, upsert: true },function(err) {
+                        if (err) {
+                            console.log(error.name, "<- Is the error name\n", error.message , "<- Is the error message");
+                            res.status(500).end("Error, couldn't update Senior info!");
+                        }
+                        else
+                            res.status(200).end("Updated", updateInfo.firstName, "to Seniors DB");
 
-        var updateJason = {                     // create senior object and take the data according to Senior Schema
-            identity: updateData.identity,
-            birthday:  updateData.birthday,
-            gender:  updateData.gender,
-            status: updateData.status,
-            homeAdd:  updateData.homeAdd,
-            homeNum:  updateData.homeNum,
-            homeTown:  updateData.homeTown,
-            zipCode:  updateData.zipCode,
-            army_type:  updateData.army_type,
-            army_unit:  updateData.army_unit,
-            keva_ktsuna:  updateData.keva_ktsuna,
-            recrue_date:  updateData.recrue_date,
-            release_date:  updateData.release_date,
-            army_more:  updateData.army_more,
-            trip_continent:  updateData.trip_continent,
-            trip_country:  updateData.trip_country,
-            trip_year:  updateData.trip_year,
-            trip_recommendation:  updateData.trip_recommendation,
-            courses:  updateData.courses,
-            courses_more:  updateData.courses_more,
-            knowledge_type:  updateData.knowledge_type,
-            knowledge: updateData.knowledge,
-            knowledge_diff:  updateData.knowledge_diff,
-            trip_else: updateData.trip_else,
-            knowledge_else:  updateData.knowledge_else,
+                    });
+});
 
-        };
-        // create new DB instance
-        var upSenior = new Senior(updateJason);
-
-        // save the newSenior to the DB
-        upSenior.findandmodify({'identity': identity}
-            ,update
-            ,(function(err) {
-                if (err)
-                    res.status(500).end("Error");
-                else
-                    res.status(200).end("Update", updateJason, "to Seniors DB");
-
-
-            }));
-
-    });
-
-    /*
+/*
 
      // ----------updateInfo--------------
     var ChoiceModel = mongoose.model('choices',Senior);
