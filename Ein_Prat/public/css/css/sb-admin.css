@@ -373,3 +373,10 @@ ul.alert-dropdown {
 .textarea-small{
     width: 100%;
 }
+
+.users-notes{
+    height: 90%;
+    background-color: #00B7FF;
+    box-shadow: 3px 5px 3px #888888;
+
+}
