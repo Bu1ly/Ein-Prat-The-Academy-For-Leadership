@@ -78,7 +78,7 @@
                                         <form id="login-form"  method="post" role="form" style="display: block;">
                                             <div class="form-group">
 
-                                                <input ng-model="user.identity" type="text" name="id"  tabindex="1" class="form-control" placeholder="תעודת זהות" required>
+                                                <input ng-model="user.identity" type="text" name="id"  tabindex="1" class="form-control" placeholder="תעודת זהות" required="required">
                                             </div>
                                             <div class="form-group">
 
@@ -139,7 +139,7 @@
                                                 <div class="row">
                                                     <div class="col-sm-6 col-sm-offset-3">
                                                         <!--<input ng-click="checkUser()" id="myModalSave" type="button"  id="login-submit" tabindex="4" class="form-control btn btn-login" value="התחבר">-->
-                                                        <input ng-click="newUser()" type="button" tabindex="7" class="form-control btn btn-register" value="הרשם עכשיו">
+                                                        <a href="/#/change_info"><input ng-click="newUser()" type="button" tabindex="7" class="form-control btn btn-register" value="הרשם עכשיו"> </a>
                                                     </div>
                                                 </div>
                                             </div>

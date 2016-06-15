@@ -59,6 +59,7 @@ var jobs = new Schema({
 // -- Connect collections to schema --
 var Senior = connection.model('SeniorStudent',seniors);
 
+
 var Job = connection.model('JobInfo', jobs);
 
 

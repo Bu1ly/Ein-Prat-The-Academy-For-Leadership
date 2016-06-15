@@ -187,6 +187,7 @@ angular.module('mainApp').controller('igCtrl',['$http','$scope','$rootScope', fu
                         };
                       //  $('#modal').modal('show')
                         window.alert("הרשמה בוצעה בהצלחה, ניתן כעת להתחבר למערכת");
+                        $('#myModal').modal('hide');
                     })
                     .catch(function() { console.log("Unsuccessful") });
             });

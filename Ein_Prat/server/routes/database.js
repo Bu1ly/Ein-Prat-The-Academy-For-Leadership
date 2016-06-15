@@ -13,8 +13,6 @@ var Senior = require('./../utils/schemas_and_connectDB');// to insert into senio
 // var Senior = db.Senior;
 // var Jobs = db.Jobs;
 
-
-
 //************ DataBase Functions ******************
 
 
@@ -36,86 +34,133 @@ router.post('/reg', function(req,res){
     var newSenior = new Senior(seniorJason);
 
     // save the newSenior to the DB
-     newSenior.save(function(err,user){
+     newSenior.save(function(err){
          if(err)
              res.status(500).end("Error");
          else{
-             res.status(200).end(JSON.stringify(user));
+             res.status(200).end("Added", seniorJason, "to Seniors DB");
          }
      })
 });
 
 
-// --Login--
+// --login
 router.post('/log', function (req, res) {
-    var loginData = req.body;
+    //var loginData = req.body;
     var loginTime = new Date().toISOString().replace(/T/, ' ').replace(/\..+/, '');// get login time
 
-    Senior.findOne({'identity': req.body.identity, 'sis': req.body.sis}, function (err, user) {
-        if (err) {
+    var pickedOne = Senior.findOne({'identity': req.body.identity, 'sis': req.body.sis}, function (err, userObj) {
+        if (err){
+            console.log(err);
+        }
+        else if (userObj) {
+            console.log('Found:', userObj);
+            res.status(200).end("User Found", req.body.firstName, "@ Seniors DB");
+        }
+        else {
             console.log('User not found!');
             res.status(500).end("Error, user not in DB");
         }
-        else {
-            console.log('Found:', user.firstName);
-            res.status(200).end(JSON.stringify(user)); // get the senior, to use in the findSenior
-        }
-
-        console.log("req.body:  " + loginData); //print for debug
-
     });
 
-});
 
 
 // --Add information of the Senior to the DB--
 router.post('/change_info', function(req,res){
 
-    // get the _objId form the user
-        var updateID = req.body.identity; // get the user data
-        var updateInfo = req.body;
-        console.log(updateID); //print for debug
+var updateInfo = req.body;//User data
 
-        Senior.findOneAndUpdate({identity:updateID}, {$set:{
-                                                    birthday: updateInfo.birthday,
-                                                    gender: updateInfo.gender,
-                                                    status: updateInfo.status,
-                                                    homeAdd: updateInfo.homeAdd,
-                                                    homeNum: updateInfo.homeNum,
-                                                    homeTown: updateInfo.homeTown,
-                                                    zipCode: updateInfo.zipCode,
-                                                    army_type: updateInfo.army_type,
-                                                    army_unit: updateInfo.army_unit,
-                                                    keva_ktzuna: updateInfo.keva_ktzuna,
-                                                    recrue_date: updateInfo.recrue_date,
-                                                    release_date: updateInfo.release_date,
-                                                    army_more: updateInfo.army_more,
-                                                    trip_continent: updateInfo.trip_continent,
-                                                    trip_country: updateInfo.trip_country,
-                                                    trip_year: updateInfo.trip_year,
-                                                    trip_recommendation: updateInfo.trip_recommendation,
-                                                    courses: updateInfo.courses,
-                                                    courses_more: updateInfo.courses_more,
-                                                    knowledge_type: updateInfo.knowledge_type,
-                                                    knowledge: updateInfo.knowledge,
-                                                    knowledge_diff: updateInfo.knowledge_diff
-                                }}, function(err,upObj){
-                                    if (err) {
-                                        console.log('Not succeed the update Data!');
-                                        res.status(500).end("Error, user not in DB");
-                                    }
-                                    console.log(upObj);
-                                }
-        );
+var updateID = req.body.identity; // get the user ID
+console.log(updateID); //print for debug
 
+var updateJason = {                     // create senior object and take the data according to Senior Schema
+    identity: updateData.identity,
+    birthday:  updateData.birthday,
+    gender:  updateData.gender,
+    status: updateData.status,
+    homeAdd:  updateData.homeAdd,
+    homeNum:  updateData.homeNum,
+    homeTown:  updateData.homeTown,
+    zipCode:  updateData.zipCode,
+    army_type:  updateData.army_type,
+    army_unit:  updateData.army_unit,
+    keva_ktsuna:  updateData.keva_ktsuna,
+    recrue_date:  updateData.recrue_date,
+    release_date:  updateData.release_date,
+    army_more:  updateData.army_more,
+    trip_continent:  updateData.trip_continent,
+    trip_country:  updateData.trip_country,
+    trip_year:  updateData.trip_year,
+    trip_recommendation:  updateData.trip_recommendation,
+    courses:  updateData.courses,
+    courses_more:  updateData.courses_more,
+    knowledge_type:  updateData.knowledge_type,
+    knowledge: updateData.knowledge,
+    knowledge_diff:  updateData.knowledge_diff,
+    trip_else: updateData.trip_else,
+    knowledge_else:  updateData.knowledge_else,
+
+};
+
+
+Senior.findOneAndUpdate({'identity': updateID},
+                     { $setOnInsert: { 'homeAdd' : updateInfo.homeAdd , 'homeTown' : updateInfo.homeTown}},
+                     { new: false, upsert: true },function(err) {
+                        if (err) {
+                            console.log(error.name, "<- Is the error name\n", error.message , "<- Is the error message");
+                            res.status(500).end("Error, couldn't update Senior info!");
+                        }
+                        else
+                            res.status(200).end("Updated", updateInfo.firstName, "to Seniors DB");
+
+                    });
 });
 
-
-
-
-
-
 /*
+
+     // ----------updateInfo--------------
+    var ChoiceModel = mongoose.model('choices',Senior);
+
+    router.put('/change_info', function(req,res){
+        var id = req.params.identity;
+        ChoiceModel.findOne({_id: id}, function(err,foundSenior){
+        if(err){
+            console.log(err);
+            res.status(500).send();
+        } else {
+            if(!foundSenior){
+                res.status(404).send();
+            } else {
+                if(req.body){
+                    foundSenior.homeAdd = req.body.homeAdd;
+                }
+                if(req.body){
+                    foundSenior.army_type = req.body. army_type;
+                }
+
+                foundSenior.save(function(err, updateSenior){
+                    if(err){
+                        console.log(err);
+                        res.status(500).send();
+                    } else {
+                        res.send(updateSenior);
+                    }
+
+                });
+            }
+
+        }
+
+        });
+
+    });*/
+
+
+
+
+
+
+
 // --register: find and check id--
 router.get('/user/:identity', function (req, res) {
 var identity = req.params.identity;
@@ -127,7 +172,7 @@ var identity = req.params.identity;
         else if (userObj) {
             console.log('Found:', userObj);
             res.status(200).end("User Found", req.body, "@ Seniors DB");
-
+            
         }
         else {
             console.log('User not found!');
@@ -136,7 +181,7 @@ var identity = req.params.identity;
     });
 
     });
-});*/
+});
 
 
 
