@@ -57,7 +57,7 @@ angular.module('mainApp')
         // updateInfo is the bottom!  //////////////////
         $scope.updateInfo = function(){
 
-        $http({method: 'POST', url: '/change_info', data: $rootScope.infoUser})
+        $http({method: 'POST', url: '/change_info', data: $scope.infoUser})
             .then(function(data){
                 console.log("Inserted to DB");
                 $scope.modalText = {
@@ -70,7 +70,7 @@ angular.module('mainApp')
 
         };
 
-        console.log($scope.infoUser);
+        //console.log($scope.infoUser);
 
 
 

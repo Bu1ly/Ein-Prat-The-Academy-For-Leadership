@@ -66,55 +66,48 @@ router.post('/log', function (req, res) {
 
 
 // --Add information of the Senior to the DB--
-router.post('/change_info', function(req,res){
+// --Add information of the Senior to the DB--
+    router.post('/change_info', function(req,res){
 
-var updateInfo = req.body;//User data
+        // get the _objId form the user
+        var updateID = req.body.identity; // get the user data
+        var updateInfo = req.body;
+        console.log(updateID); //print for debug
 
-var updateID = req.body.identity; // get the user ID
-console.log(updateID); //print for debug
+        Senior.findOneAndUpdate({identity:updateID}, {$set:{
+                                birthday: updateInfo.birthday,
+                                gender: updateInfo.gender,
+                                status: updateInfo.status,
+                                homeAdd: updateInfo.homeAdd,
+                                homeNum: updateInfo.homeNum,
+                                homeTown: updateInfo.homeTown,
+                                zipCode: updateInfo.zipCode,
+                                army_type: updateInfo.army_type,
+                                army_unit: updateInfo.army_unit,
+                                keva_ktzuna: updateInfo.keva_ktzuna,
+                                recrue_date: updateInfo.recrue_date,
+                                release_date: updateInfo.release_date,
+                                army_more: updateInfo.army_more,
+                                trip_continent: updateInfo.trip_continent,
+                                trip_country: updateInfo.trip_country,
+                                trip_year: updateInfo.trip_year,
+                                trip_recommendation: updateInfo.trip_recommendation,
+                                courses: updateInfo.courses,
+                                courses_more: updateInfo.courses_more,
+                                knowledge_type: updateInfo.knowledge_type,
+                                knowledge: updateInfo.knowledge,
+                                knowledge_diff: updateInfo.knowledge_diff
+                            }}, function(err,upObj){
+                                if (err) {
+                                    console.log('Not succeed the update Data!');
+                                    res.status(500).end("Error, user not in DB");
+                                }
+                                console.log(upObj);
+                            }
+        );
 
-var updateJason = {                     // create senior object and take the data according to Senior Schema
-    identity: updateData.identity,
-    birthday:  updateData.birthday,
-    gender:  updateData.gender,
-    status: updateData.status,
-    homeAdd:  updateData.homeAdd,
-    homeNum:  updateData.homeNum,
-    homeTown:  updateData.homeTown,
-    zipCode:  updateData.zipCode,
-    army_type:  updateData.army_type,
-    army_unit:  updateData.army_unit,
-    keva_ktsuna:  updateData.keva_ktsuna,
-    recrue_date:  updateData.recrue_date,
-    release_date:  updateData.release_date,
-    army_more:  updateData.army_more,
-    trip_continent:  updateData.trip_continent,
-    trip_country:  updateData.trip_country,
-    trip_year:  updateData.trip_year,
-    trip_recommendation:  updateData.trip_recommendation,
-    courses:  updateData.courses,
-    courses_more:  updateData.courses_more,
-    knowledge_type:  updateData.knowledge_type,
-    knowledge: updateData.knowledge,
-    knowledge_diff:  updateData.knowledge_diff,
-    trip_else: updateData.trip_else,
-    knowledge_else:  updateData.knowledge_else,
+    });
 
-};
-
-
-Senior.findOneAndUpdate({'identity': updateID},
-                     { $setOnInsert: { 'homeAdd' : updateInfo.homeAdd , 'homeTown' : updateInfo.homeTown}},
-                     { new: false, upsert: true },function(err) {
-                        if (err) {
-                            console.log(error.name, "<- Is the error name\n", error.message , "<- Is the error message");
-                            res.status(500).end("Error, couldn't update Senior info!");
-                        }
-                        else
-                            res.status(200).end("Updated", updateInfo.firstName, "to Seniors DB");
-
-                    });
-});
 
 /*
 
