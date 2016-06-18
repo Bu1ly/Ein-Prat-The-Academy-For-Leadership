@@ -1,19 +1,27 @@
 angular.module('mainApp')
-    .controller('pageCtrl', ['$http', function($http) {
-        this.page = {};
-        this.review = {};
-        this.reviews = [];
+    .controller('PageCtrl', ['$http','$scope', function($http,$scope) {
+        $scope.page = {};
+        $scope.review = "";
+        $scope.reviews = [];
 
-        this.getPage = function(){
-            $http({method: 'GET', url: '/page', data: this.page})
-                .then(function(data){
-                    return this.page;
-                });
+        $scope.note = "";
+        $scope.notes = [];
+
+        $scope.postReview = function(){
+            console.log("postReview activated");
+            console.log($scope.review);
         };
-         this.newReview = function(){
-             $http({method: 'POST', url: '/rev', data: this.review})
-             this.reviews.push(this.review);
-             this.review = {};
 
-         };
+        // this.getPage = function(){
+        //     $http({method: 'GET', url: '/page', data: this.page})
+        //         .then(function(data){
+        //             return this.page;
+        //         });
+        // };
+        //  this.newReview = function(){
+        //      $http({method: 'POST', url: '/rev', data: this.review})
+        //      this.reviews.push(this.review);
+        //      this.review = {};
+        //
+        //  };
     }]);
