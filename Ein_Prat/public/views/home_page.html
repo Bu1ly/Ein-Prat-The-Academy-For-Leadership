@@ -11,10 +11,11 @@
         <div class="page-pic">
             <header>תמונת היום:</header>
             <img src="images/YOUR_IMAGE.jpg" style="height: 400px; width: 400px"><br>
-            <li class="hor-li"><button ng-click="addRev = !addRev" style="border-radius: 5px 5px;">הוסף תגובה</button></li>
             <div class="rev-more-det">
-                <textarea ng-if="addRev" ng-model="review"></textarea>
-
+                <ul class="hor-ul">
+                    <li class="hor-li"><button ng-click="addRev = !addRev" style="border-radius: 5px 5px;">הוסף תגובה</button></li>
+                    <li class="hor-li"><input type="text" ng-show="addRev" ng-model="review" value="הזן תגובתך כאן"></li>
+                </ul>
             </div>
         </div>
 
@@ -23,9 +24,12 @@
     <div class="notes hm-con">
         <div class="notes-header">
             <header>לוח מודעות:</header>
-            <li class="hor-li"><button ng-click="knowledge_else = !knowledge_else" style="margin-top: 30%; border-radius: 5px 5px;">הוסף מודעה</button></li>
+            <div class="note-more-det">
+                    <button ng-click="addNote = !addNote" style="border-radius: 5px 5px;">הוסף הודעה</button>
+                    <input type="text" ng-show="addNote" ng-model="note" value="הזן תגובתך כאן">
+                    <input type="submit" ng-click="postNote()">
+            </div>
         </div>
-
     </div>
 
 </div>

@@ -386,7 +386,7 @@ ul.alert-dropdown {
 
     width: 200px;
     height: 550px;
-    border: 5px solid yellow;
+    border: 1px solid lightslategrey;
     float: left;
     overflow: hidden;
 }
@@ -394,14 +394,14 @@ ul.alert-dropdown {
 .notes{
     width: 200px;
     height: 550px;
-    border: 5px solid purple;
+    border: 1px solid lightslategrey;
     float: left;
 }
 
 .page{
     width: 550px;
     height: 550px;
-    border: 5px solid green;
+    border: 1px solid lightslategrey;
     float: left;
     overflow: hidden;
 
