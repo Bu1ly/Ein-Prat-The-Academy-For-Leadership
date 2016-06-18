@@ -10,7 +10,7 @@ body {
     background-image: url("/images/ein_background.jpg");
     background-size: cover;
     background-repeat: no-repeat;
-    margin-top: 100px;
+    margin-top: 20px;
     background-color: #222;
 }
 
@@ -19,11 +19,15 @@ body {
         margin-top: 50px;
     }
 }
+#wrapper{
+    padding-left: 0;
+}
 
 #page-wrapper {
     width: 100%;
     padding: 0;
 }
+
 #view_area{
     margin-top: 1%;
 }
@@ -46,13 +50,13 @@ body {
 /* Top Navigation */
 
 .top-nav {
-    padding: 0 15px;
+    height: 5px;
+    padding: 0 50px;
 }
 
 .top-nav>li {
     display: inline-block;
     float: left;
-    height: 10%;
 
 }
 
@@ -86,7 +90,7 @@ body {
 
 .top-nav>.open>.dropdown-menu>li>a {
     white-space: normal;
-    padding: 10px; 
+    padding: 10px;
 /*    CHANGED!--------------------------------------------*/
 }
 
@@ -374,24 +378,14 @@ ul.alert-dropdown {
 
 }
 
-/*.home-page{*/
-    /*!*position:fixed;*!*/
-    /*width:100%;*/
-    /*height:100%;*/
-    /*top:0px;*/
-    /*left:0px;*/
-    /*z-index:1000;*/
-/*}*/
-
 .home-page{
-    margin-right: 10%;
-    margin-left: auto;
-    margin-right: auto;
+    margin-left: 5%;
 }
 
 .revs{
+
     width: 200px;
-    height: 400px;
+    height: 550px;
     border: 5px solid yellow;
     float: left;
     overflow: hidden;
@@ -399,17 +393,22 @@ ul.alert-dropdown {
 
 .notes{
     width: 200px;
-    height: 400px;
+    height: 550px;
     border: 5px solid purple;
     float: left;
 }
 
 .page{
-    width: 500px;
-    height: 400px;
+    width: 550px;
+    height: 550px;
     border: 5px solid green;
     float: left;
     overflow: hidden;
 
-
+}
+.hm-con{
+    text-align: center;
+    background-color: rgba(255,255,255,.8);
+    /*background-color: White;*/
+    box-shadow: 3px 5px 3px #888888;
 }
