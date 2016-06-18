@@ -36,10 +36,6 @@
             $("#myModal").modal({show:'true',backdrop: 'static'});
         });
 
-
-
-
-
     </script>
 
 
@@ -51,8 +47,6 @@
 
 
 <div ng-controller="igCtrl">
-
-
 
     <div id="myModal" class="modal fade" style="margin-top: 7%">
 
@@ -151,9 +145,6 @@
                     </div>
                 </div>
             </div>
-
-
-
     </div>
 </div>
 
@@ -215,6 +206,7 @@
         </div>
         <!-- Top Menu Items -->
         <ul class="nav navbar-right top-nav">
+
             <li class="dropdown">
                 <a  class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> <b class="caret"></b></a>
                 <ul class="dropdown-menu message-dropdown">
@@ -289,7 +281,7 @@
             <li class="dropdown">
                 <a  class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i>
                     <div ng-controller="mainController">
-                        {{name}}
+                        {{mainController.name}}
                     </div>
                     <b class="caret"></b></a>
                 <ul class="dropdown-menu">
@@ -297,10 +289,7 @@
                         <a href="/#/change_info"><i class="fa fa-fw fa-user"></i> פרופיל ושינוי פרטים</a>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-fw fa-envelope"></i> סנכרן עם פייסבוק</a>
-                    </li>
-                    <li>
-                        <a href="app_settings"><i class="fa fa-fw fa-gear"></i> הגדרות אפליקציה</a>
+                        <a href="/#/app_settings"><i class="fa fa-fw fa-gear"></i> הגדרות אפליקציה</a>
                     </li>
                     <li>
                         <a href="http://www.mechina.einprat.org/"><i class="fa fa-fw fa-share-alt"></i> לאתר המכינה</a>
@@ -334,14 +323,20 @@
                     <a href="/#/events"><i class="fa fa-fw fa-bullhorn"></i> פעילויות בוגרים</a>
                 </li>
                 <li>
-                    <a href="/#/reg"><i class="fa fa-fw fa-magnet"></i>REGISTER</a>
-                </li>
-                <li>
-                    <a href="/#/log"><i class="fa fa-fw fa-play"></i>LOG-IN</a>
-                </li>
-                <li>
                     <a href="/#/blank_page"><i class="fa fa-fw fa-wrench"></i> פאנל מנהל</a>
                 </li>
+                <li>
+                    <a href="#"></a>
+                    <a href="#"></a>
+                    <a href="#"></a>
+                </li>
+                <!--<li>-->
+                    <!--<a href="/#/reg"><i class="fa fa-fw fa-magnet"></i>REGISTER</a>-->
+                <!--</li>-->
+
+                <!--<li>-->
+                <!--<a href="/#/log"><i class="fa fa-fw fa-play"></i>LOG-IN</a>-->
+                <!--</li>-->
                 <li class="active">
                     <!--                        <a href="index-rtl.html"><i class="fa fa-fw fa-dashboard"></i> מידע על הפלטפורמה</a>-->
                     <a href="/#/info"><i class="fa fa-fw fa-link"></i> מידע על הפלטפורמה</a>

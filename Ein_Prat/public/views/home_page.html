@@ -1,25 +1,37 @@
-<div class="home-page">
-    <div class="notes">
-        <div class="notes-header">
+<div class="home-page" dir="rtl">
 
+    <div class="revs hm-con">
+        <header>תגובות:</header>
 
-        </div>
 
     </div>
 
-    <div class="page">
+
+    <div class="page hm-con">
         <div class="page-pic">
-
-
+            <header>תמונת היום:</header>
+            <img src="images/YOUR_IMAGE.jpg" style="height: 400px; width: 400px"><br>
+            <div class="rev-more-det">
+                <ul class="hor-ul">
+                    <li class="hor-li"><button ng-click="addRev = !addRev" style="border-radius: 5px 5px;">הוסף תגובה</button></li>
+                    <li class="hor-li"><input type="text" ng-show="addRev" ng-model="review" value="הזן תגובתך כאן"></li>
+                </ul>
+            </div>
         </div>
 
     </div>
 
-    <div class="revs">
-
-
-
+    <div class="notes hm-con">
+        <div class="notes-header">
+            <header>לוח מודעות:</header>
+            <div class="note-more-det">
+                    <button ng-click="addNote = !addNote" style="border-radius: 5px 5px;">הוסף הודעה</button>
+                    <input type="text" ng-show="addNote" ng-model="note" value="הזן תגובתך כאן">
+                    <input type="submit" ng-click="postNote()">
+            </div>
+        </div>
     </div>
+
 </div>
 
 
