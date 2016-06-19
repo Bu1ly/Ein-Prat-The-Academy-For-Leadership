@@ -147,9 +147,9 @@ angular.module('mainApp').controller('igCtrl',['$http','$scope','$rootScope', fu
     //newUser is the bottom!
     $scope.newUser = function(){
 
-        if($scope.user_reg.firstName.localeCompare("")==0)
+        if($scope.user_reg.identity.localeCompare("")==0)
         {
-            $scope.user_reg.firstName = "ערך חסר";
+            alert("אנא הכנס תעודת זהות");
             return;
         }
 
@@ -195,7 +195,7 @@ angular.module('mainApp').controller('igCtrl',['$http','$scope','$rootScope', fu
                       //  $('#modal').modal('show')
                         window.alert("הרשמה בוצעה בהצלחה, ניתן כעת להתחבר למערכת");
                         $('#myModal').modal('hide');
-                        
+                        window.location.href = "/#/change_info";
                     })
                     .catch(function() { console.log("Unsuccessful") });
             });
