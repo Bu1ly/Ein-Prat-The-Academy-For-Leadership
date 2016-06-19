@@ -1,0 +1,88 @@
+<div class="supervisor hm-con">
+    <h2>פאנל מנהל</h2>
+
+    <ul class="hor-ul">
+        <li class="hor-li"><button ng-click="show_delete = !show_delete" value="מחק משתמש?">מחק משתמש?</button></li>
+        <li class="hor-li"><button ng-click="show_event = !show_event" value="הוסף אירוע?">הוסף אירוע?</button></li></li>
+        <li class="hor-li"><button ng-click="show_messages = !show_messages" value="נהל הודעות?">נהל הודעות?</button></li></li>
+        <li class="hor-li"><button ng-click="show_page = !show_page" value="הוסף דף יומי?">הוסף דף יומי?</button></li></li>
+    </ul>
+    <br><br><br><br><br><br>
+
+
+    <!--deletion option:-->
+    <form align="right">
+
+        <ul class="hor-ul" ng-show="show_delete">
+            <p>אנא בחר משתמש ע"י אחד מהפרטים הבאים:</p>
+            <li class="hor-li"><p class="info_req">שם פרטי:  </p><input ng-model="user.firstName" type="text" name="fname" placeholder="שם פרטי" class="textBox"></li>
+            <li class="hor-li"><p class="info_req">שם משפחה:  </p><input ng-model="user.lastName"  type="text" name="lname" placeholder="שם משפחה" class="textBox"></li>
+            <li class="hor-li"><p class="info_req">ת.ז:  </p><input ng-model="user.identity"  type="text" name="id" placeholder="תעודת זהות" class="textBox"></li>
+            <li class="hor-li"><p class="info_req">ת.ז:  </p><input ng-model="user.year"  type="text" name="year" placeholder="מחזור" class="textBox"></li>
+            <li class="hor-li"><button ng-click="searchUser()" value="חפש">חפש</button></li>
+
+        </ul>
+
+        <div class="users_table" ng-show="show_delete">
+            <h6>משתמשים:</h6>
+            <table class="rwd-table">
+                <tr>
+                    <th>שם פרטי:</th>
+                    <th>שם משפחה:</th>
+                    <th>תעודת זהות:</th>
+                    <th>מחזור:</th>
+                </tr>
+                <tr ng-repeat="user in users">
+                    <td data-th="fname">{{user.firstName}}</td>
+                    <td data-th="lname">{{user.lastName}}</td>
+                    <td data-th="id">{{user.identity}}</td>
+                    <td data-th="year">{{user.year}}</td>
+                    <td data-th="year">למחוק?</td>
+                </tr>
+
+            </table>
+        </div>
+
+
+        <!--<button ng-click="deleteUser()" value="מחק">מחק</button>-->
+    </form>
+
+    <!--event option:-->
+    <form align="right">
+
+        <ul class="hor-ul" ng-show="show_event">
+            <p>אנא הוסף אירוע ע"י הזנת פרטיו:</p>
+            <li class="hor-li"><p class="info_req">שם האירוע:  </p><input ng-model="event.name" type="text" name="ename" placeholder="שם האירוע" class="textBox" required></li>
+            <li class="hor-li"><p class="info_req">תאריך:  </p><input ng-model="event.date"  type="date" name="edate" placeholder="תאריך" class="textBox" required></li>
+            <li class="hor-li"><p class="info_req">מקום:  </p><input ng-model="event.place"  type="text" name="eplace" placeholder="מקום" class="textBox" required></li>
+            <li class="hor-li"><p class="info_req">מחיר:  </p><input ng-model="event.price"  type="text" name="eprice" placeholder="מחיר" class="textBox" required></li>
+            <input type="file" name="epicture" ng-model="event.picture"><p>בחר תמונת אירוע:</p>
+            <li class="hor-li"><button ng-click="makeEvent()" value="שלח">שלח</button></li>
+        </ul>
+
+    </form>
+
+    <!--messages option:-->
+    <form align="right">
+
+        <ul class="hor-ul" ng-show="show_messages">
+            <p>שלח הודעה גלובלית לכלל המשתמשים:</p>
+
+            <p>הזן הודעתך:</p>
+            <li class="hor-li"><textarea ng-model="message" placeholder="הודעתך כאן" required></textarea></li>
+            <li class="hor-li"><button ng-click="sendMessage()" value="שלח">שלח</button></li>
+        </ul>
+
+    </form>
+
+    <!--page option:-->
+    <form align="right">
+
+        <ul class="hor-ul" ng-show="show_page">
+            <p>אנא בחר משתמש ע"י אחד מהפרטים הבאים:</p>
+            <input type="file" name="page" ng-model="event.picture"><p>העלה עמוד חדש:</p>
+            <li class="hor-li"><button ng-click="makeEvent()" value="שלח">שלח</button></li>
+        </ul>
+
+    </form>
+</div>

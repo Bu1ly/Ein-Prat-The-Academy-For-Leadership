@@ -412,3 +412,27 @@ ul.alert-dropdown {
     /*background-color: White;*/
     box-shadow: 3px 5px 3px #888888;
 }
+
+.supervisor{
+    align-content: center;
+    text-align: center;
+}
+
+.rwd-table {
+    background: #34495E;
+    color: #fff;
+    border-radius: .4em;
+    overflow: hidden;
+}
+tr {
+    border-color: #34495E;
+}
+th, td {
+    margin: .5em 1em;
+/*@media (min-width: $breakpoint-alpha) {*/
+    /*padding: 1em !important;*/
+}
+
+th, td:before {
+    color: #dd5;
+}
