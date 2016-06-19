@@ -158,7 +158,7 @@ module.exports = router;
 
 
 
-/*
+
 // --register: find and check id--
 router.get('/user/:identity', function (req, res) {
 var identity = req.params.identity;
@@ -181,7 +181,6 @@ var identity = req.params.identity;
     });
 
 
-});*/
 
 
 
