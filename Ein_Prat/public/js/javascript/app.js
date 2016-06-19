@@ -51,7 +51,7 @@ $(function() {
 
 
 
-mainApp.controller("mainController",function($scope){
+mainApp.controller("usernameController",function($scope){
         $scope.name="גרשון גראוס";
 });
 
