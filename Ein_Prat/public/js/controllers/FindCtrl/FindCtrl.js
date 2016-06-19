@@ -3,24 +3,24 @@
  */
 
 angular.module('mainApp')
-    .controller('FindCtrl', ['$http','$scope','$rootScope', function($http,$scope, $rootScope) {
+    .controller('FindCtrl', ['$http','$scope', function($http,$scope) {
 
         $scope.searchUser = {
-            name : "",
-            last_name : "",
-            city: "",
-            armyType: "",
-            armyUnit: "",
-            kevaOrKtzuna: "",
+            firstName : "",
+            lastName : "",
+            homeTown: "",
+            army_type: "",
+            army_unit: "",
+            keva_ktsuna: "",
             trip_continent: "",
-            knowledgeType: "",
-            academicEducation: "",
+            knowledge_type: "",
+            knowledge: "",
             courses: ""
         };
 
         $scope.searchSenior = function(){
 
-            $http({method: 'GET', url: '/senior_search', data: $scope.searchUser})
+            $http({method: 'POST', url: '/senior_search', data: $scope.searchUser})
                 .then(function(data){
                     console.log("SEARCH.....");
                     $scope.modalText = {

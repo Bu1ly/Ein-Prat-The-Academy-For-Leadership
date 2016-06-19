@@ -6,6 +6,7 @@
 var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
+var userLogin;
 
 
 var Senior = require('./../utils/schemas_and_connectDB');// to insert into senior db
@@ -14,7 +15,6 @@ var Senior = require('./../utils/schemas_and_connectDB');// to insert into senio
 // var Jobs = db.Jobs;
 
 //************ DataBase Functions ******************
-
 
 // --Register new Users--
 router.post('/reg', function(req,res){
@@ -54,6 +54,7 @@ router.post('/log', function (req, res) {
             console.log(err);
         }
         else if (userObj) {
+            userLogin = userObj;
             console.log('Found:', userObj);   /// need to return the userObj to put the data into the seniorInfo
             res.status(200).end("User Found", req.body.firstName, "@ Seniors DB");
         }
@@ -62,7 +63,7 @@ router.post('/log', function (req, res) {
             res.status(500).end("Error, user not in DB");
         }
     });
-});  // be havana samtem et a sgira a functzia be sof a shita aaharona?????
+});
 
 
 
@@ -72,7 +73,7 @@ router.post('/change_info', function(req,res){
     // get the _objId form the user
     var updateID = req.body.identity; // get the user data
     var updateInfo = req.body;
-    console.log('ID:', updateID); //print for debug
+    console.log('ID:', updateID); // print for debug
 
     Senior.findOneAndUpdate({identity:updateID}, {$set:{
                             birthday: updateInfo.birthday,
@@ -102,7 +103,9 @@ router.post('/change_info', function(req,res){
                                 console.log('Not succeed the update Data!');
                                 res.status(500).end("Error, user not in DB");
                                 }
-                            console.log('the data is updated: ',upObj);
+                                console.log('the data is updated: ',upObj);
+                                res.status(200).end("OK, changed info");
+
                             }
     );
 
@@ -110,20 +113,24 @@ router.post('/change_info', function(req,res){
 
 
 // -- Find Senior --
-router.get('/find', function(req,res){
+router.post('/senior_search', function(req,res){
     var searchSenior = req.body;
     console.log('The dataSenior to search: ', searchSenior);  // for debug
     
-    Senior.find( { firstName: searchSenior.name, lastName: searchSenior.lastName, homeTown: searchSenior.city,
-                   army_type: searchSenior.armyType, army_unit: searchSenior.armyUnit, keva_ktzuna: searchSenior.kevaOrKtzuna,
-                   trip_continent: searchSenior.trip_continent, knowledge_type: searchSenior.knowledgeType,
-                   knowledge: searchSenior.academicEducation, courses: searchSenior.courses
+    Senior.find( { firstName: req.body.firstName
                  }, function(err, resultSeniors){
                         if (err) {
                             console.log('Not found Senior :(');
                             res.status(500).end("Error, user not found");
                         } else {
-                            console.log('Result of the seacrh: ', resultSeniors);
+                            /*var userMap = {};
+                            resultSeniors.forEach(function(user){
+                               userMap[user.firstName];
+                            });*/
+                            console.log('Result of the search: ', resultSeniors);
+
+                           //res.status(200).end(JSON.stringify(userMap,null,"\t"));
+                            res.status(200).end("Result User");
                           }
 
                      }
@@ -131,13 +138,18 @@ router.get('/find', function(req,res){
 });
 
 
-
 module.exports = router;
 
 
 
+/*
 
+ , lastName: searchSenior.lastName, homeTown: searchSenior.homeTown,
+ army_type: searchSenior.armyType, army_unit: searchSenior.armyUnit, keva_ktzuna: searchSenior.kevaOrKtzuna,
+ trip_continent: searchSenior.trip_continent, knowledge_type: searchSenior.knowledgeType,
+ knowledge: searchSenior.academicEducation, courses: searchSenior.courses
 
+*/
 
 
 
