@@ -2,32 +2,45 @@
 
     <div class="revs hm-con">
         <header>תגובות:</header>
+        <section>
+            <ul>
+                <li ng-repeat="rev in reviews">
+                    <blockquote>{{rev}}</blockquote>
+                </li>
+            </ul>
 
-
+        </section>
     </div>
 
 
     <div class="page hm-con">
         <div class="page-pic">
             <header>תמונת היום:</header>
-            <img src="images/gershon1.jpg" style="height: 225px; width: 400px"><br>
+            <img src="images/YOUR_IMAGE.jpg" style="height: 370px; width: 400px"><br>
             <div class="rev-more-det">
                 <ul class="hor-ul">
-                    <li class="hor-li"><button ng-click="addRev = !addRev" style="border-radius: 5px 5px;">הוסף תגובה</button></li>
-                    <li class="hor-li"><input type="text" ng-show="addRev" ng-model="review" value="הזן תגובתך כאן"></li>
+                    <li class="hor-li"><button ng-click="addRev = !addRev" style=":2%; border-radius: 5px 5px;">הוסף תגובה</button></li>
+                    <li class="hor-li">
+                        <input type="text" ng-show="addRev" ng-model="review" value="הזן תגובתך כאן">
+                        <input type="submit" ng-show="addRev" ng-click="postReview()">
+                    </li>
                 </ul>
             </div>
         </div>
-
     </div>
 
     <div class="notes hm-con">
         <div class="notes-header">
             <header>לוח מודעות:</header>
+            <section>
+                <ul ng-repeat="note in notes">
+                    <li>{{note}}</li>
+                </ul>
+            </section>
             <div class="note-more-det">
-                    <button ng-click="addNote = !addNote" style="border-radius: 5px 5px;">הוסף הודעה</button>
+                    <button ng-click="addNote = !addNote" style="border-radius: 5px 5px;">הוסף הודעה</button><br>
                     <input type="text" ng-show="addNote" ng-model="note" value="הזן תגובתך כאן">
-                    <input type="submit" ng-click="postNote()">
+                    <input type="submit" ng-show="addNote" ng-click="postNote()">
             </div>
         </div>
     </div>
