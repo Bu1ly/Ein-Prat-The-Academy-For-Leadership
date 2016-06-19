@@ -10,12 +10,9 @@ angular.module('mainApp')
             lastName : "",
             homeTown: "",
             army_type: "",
-            army_unit: "",
-            keva_ktsuna: "",
             trip_continent: "",
             knowledge_type: "",
-            knowledge: "",
-            courses: ""
+            knowledge: ""
         };
 
         $scope.searchSenior = function(){

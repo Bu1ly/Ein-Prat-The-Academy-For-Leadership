@@ -117,20 +117,17 @@ router.post('/senior_search', function(req,res){
     var searchSenior = req.body;
     console.log('The dataSenior to search: ', searchSenior);  // for debug
     
-    Senior.find( { firstName: req.body.firstName
+    Senior.find( { 'firstName': req.body.firstName , 'lastName': req.body.lastName, 'homeTown': req.body.homeTown,
+                    'army_type': req.body.army_type, 'trip_continent': req.body.trip_continent, 'knowledge_type': req.body.knowledge_type,
+                     'knowledge': req.body.knowledge
                  }, function(err, resultSeniors){
                         if (err) {
                             console.log('Not found Senior :(');
                             res.status(500).end("Error, user not found");
                         } else {
-                            /*var userMap = {};
-                            resultSeniors.forEach(function(user){
-                               userMap[user.firstName];
-                            });*/
                             console.log('Result of the search: ', resultSeniors);
-
-                           //res.status(200).end(JSON.stringify(userMap,null,"\t"));
                             res.status(200).end("Result User");
+                            //res.status(200).end(JSON.stringify(userMap,null,"\t"));
                           }
 
                      }
@@ -144,10 +141,7 @@ module.exports = router;
 
 /*
 
- , lastName: searchSenior.lastName, homeTown: searchSenior.homeTown,
- army_type: searchSenior.armyType, army_unit: searchSenior.armyUnit, keva_ktzuna: searchSenior.kevaOrKtzuna,
- trip_continent: searchSenior.trip_continent, knowledge_type: searchSenior.knowledgeType,
- knowledge: searchSenior.academicEducation, courses: searchSenior.courses
+
 
 */
 

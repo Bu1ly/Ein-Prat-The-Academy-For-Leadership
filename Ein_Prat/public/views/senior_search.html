@@ -10,16 +10,16 @@
 
         <!--TOP HORIZONTAL LINE-->
         <ul class="hor-ul">
-            <li class="hor-li"><p class="info_req">שם פרטי:  </p><input type="text" name="fname" ng-model="searchUser.firstName" placeholder="שם פרטי" class="textBox-small"></li>
-            <li class="hor-li"><p class="info_req">שם משפחה:  </p><input type="text" name="lname" ng-model="searchUser.lastName" placeholder="שם משפחה" class="textBox-small"></li>
-            <li class="hor-li"><p class="info_req">עיר:  </p><input type="text" name="city" ng-model="searchUser.homeTown" placeholder="עיר" class="textBox-small"></li>
+            <li class="hor-li"><p class="info_req">שם פרטי:  </p><input type="text" name="fname" ng-model="searchUser.firstName" placeholder="שם פרטי" class="textBox-small" required></li>
+            <li class="hor-li"><p class="info_req">שם משפחה:  </p><input type="text" name="lname" ng-model="searchUser.lastName" placeholder="שם משפחה" class="textBox-small" required></li>
+            <li class="hor-li"><p class="info_req">עיר:  </p><input type="text" name="city" ng-model="searchUser.homeTown" placeholder="עיר" class="textBox-small" required></li>
         </ul>
 
         <!--MIDDLE HORIZONTAL LINE-->
         <ul class="hor-ul">
             <li class="hor-li">
                 <p class="info_req">חיל:</p>
-                <select ng-model="searchUser.army_type"> //FILL OPTIONS & CHANGE IN 'CHANGE INFO' PAGE
+                <select ng-model="searchUser.army_type" required> //FILL OPTIONS & CHANGE IN 'CHANGE INFO' PAGE
                     <option value="shirion">שירון</option>
                     <option value="tzanhanim">צנחנים</option>
                     <option value="golani">גולני</option>
@@ -28,7 +28,7 @@
             </li>
 
 
-            <li class="hor-li">
+            <!-- <li class="hor-li">
                 <p class="info_req">יחידה:  </p>
                 <input ng-model="searchUser.army_unit" type="text" name="unit" placeholder="יחידה" class="textBox"></li>
 
@@ -39,11 +39,11 @@
                     <option value="keva">קבע</option>
                     <option value="ktsuna">קצונה</option>
                 </select>
-            </li>
+            </li> -->
 
             <li class="hor-li">
                 <p class="info_req">טיול?</p>
-                <select ng-model="searchUser.trip_continent">
+                <select ng-model="searchUser.trip_continent" required>
                     <option value="east">המזרח הרחוק</option>
                     <option value="sAmerica">דרום אמריקה</option>
                     <option value="mAmerica">מרכז אמריקה</option>
@@ -53,17 +53,17 @@
 
         <!--BOTTOM HORIZONTAL LINE-->
         <ul class="hor-ul">
-            <li class="hor-li"><p class="info_req">תחום לימודים:</p><input ng-model="searchUser.knowledge_type" type="text" name="knowledge" placeholder="תחום לימודים" class="textBox-small"></li>
+            <li class="hor-li"><p class="info_req">תחום לימודים:</p><input ng-model="searchUser.knowledge_type" type="text" name="knowledge" placeholder="תחום לימודים" class="textBox-small" required></li>
             <li class="hor-li">
                 <p class="info_req">השכלה אקדמית:</p>
-                <select ng-model="searchUser.knowledge">
+                <select ng-model="searchUser.knowledge" required>
                     <option value="BA">תואר ראשון</option>
                     <option value="MA">תואר שני</option>
                     <option value="Doctorate">דוקטורט</option>
-                    <option value="Professor">פרופסורה</option>
+                    <option value="Professor">פרופסור</option>
                 </select>
             </li>
-            <li class="hor-li">
+           <!-- <li class="hor-li">
                 <p class="info_req">קורסים והסמכות:</p>
                 <select ng-model="searchUser.courses">
                     <option value="gun">רשיון נשק</option>
@@ -72,7 +72,7 @@
                     <option value="paramedic">פראמדיק</option>
                     <option value="team_guide">הדרכת קבוצות</option>
                 </select>
-            </li>
+            </li> -->
         </ul>
 
         <a href="/#/"> <input ng-click= "searchSenior()" type="submit" value="חפש"> </a>
