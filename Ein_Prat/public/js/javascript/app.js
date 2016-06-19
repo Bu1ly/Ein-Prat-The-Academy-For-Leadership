@@ -147,6 +147,13 @@ angular.module('mainApp').controller('igCtrl',['$http','$scope','$rootScope', fu
     //newUser is the bottom!
     $scope.newUser = function(){
 
+        if($scope.user_reg.firstName.localeCompare("")==0)
+        {
+            $scope.user_reg.firstName = "ערך חסר";
+            return;
+        }
+
+
         if($scope.user_reg.sis  !==  $scope.data.confirmPassword) {
             //here you need to send him back to fill signUP request(same page)
             console.log('password does not match');
@@ -188,6 +195,7 @@ angular.module('mainApp').controller('igCtrl',['$http','$scope','$rootScope', fu
                       //  $('#modal').modal('show')
                         window.alert("הרשמה בוצעה בהצלחה, ניתן כעת להתחבר למערכת");
                         $('#myModal').modal('hide');
+                        
                     })
                     .catch(function() { console.log("Unsuccessful") });
             });

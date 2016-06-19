@@ -10,8 +10,7 @@ var userLogin;
 
 
 var Senior = require('./../utils/schemas_and_connectDB');// to insert into senior db
-//var Note = require('./../utils/schemas_and_connectDB');
-//var Review = require('./../utils/schemas_and_connectDB');
+
 // var Senior = db.Senior;
 // var Jobs = db.Jobs;
 
@@ -146,58 +145,43 @@ router.post('/senior_search', function(req,res){
 });
 
 
-// -- Save the Reviews --
-router.post('/review', function (req,res) {
-    var nReview = req.body;
-    console.log('The Review: ', nReview); // for debug
-
-    var SeniorReview = {
-        descriptionReview : nReview.descriptionReview
-    };
-
-    //create new DB
-    var newReview = new Review(SeniorReview);
-
-    // save the review to the DB
-    newReview.save(function(err){
-        if(err)
-            res.status(500).end("Error");
-        else{
-            res.status(200).end("Added", SeniorReview, "to Seniors DB");
-        }
-    })
-
-});
-
-
-
-// -- Save the Notes --
-router.post('/note', function (req,res) {
-    var nNote = req.body;
-    console.log('The Review: ', nNote); // for debug
-
-    var SeniorNote = {
-        descriptionNote : nNote.descriptionNote
-    };
-
-    //create new DB
-    var newNote = new Note(SeniorNote);
-
-    // save the review to the DB
-    newNote.save(function(err){
-        if(err)
-            res.status(500).end("Error");
-        else{
-            res.status(200).end("Added", SeniorNote, "to Seniors DB");
-        }
-    })
-
-});
-
-
-
 module.exports = router;
 
+
+
+/*
+
+
+
+*/
+
+
+
+
+/*
+// --register: find and check id--
+router.get('/user/:identity', function (req, res) {
+var identity = req.params.identity;
+    console.log("identity:  "+identity);
+     Senior.findOne({'identity': identity}, function (err, userObj) {
+        if (err){
+            console.log(err);
+        }
+        else if (userObj) {
+            console.log('Found:', userObj);
+            res.status(200).end("User Found", req.body, "@ Seniors DB");
+            
+        }
+        else {
+            console.log('User not found!');
+            res.status(500).end(" user not in DB");
+        }
+    });
+
+    });
+
+
+});*/
 
 
 
