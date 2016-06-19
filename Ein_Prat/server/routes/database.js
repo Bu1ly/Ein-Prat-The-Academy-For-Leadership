@@ -44,17 +44,17 @@ router.post('/reg', function(req,res){
 });
 
 
-// --login
+// --login--
 router.post('/log', function (req, res) {
     //var loginData = req.body;
     var loginTime = new Date().toISOString().replace(/T/, ' ').replace(/\..+/, '');// get login time
 
     var pickedOne = Senior.findOne({'identity': req.body.identity, 'sis': req.body.sis}, function (err, userObj) {
-        if (err){
+        if (err) {
             console.log(err);
         }
         else if (userObj) {
-            console.log('Found:', userObj);
+            console.log('Found:', userObj);   /// need to return the userObj to put the data into the seniorInfo
             res.status(200).end("User Found", req.body.firstName, "@ Seniors DB");
         }
         else {
@@ -62,74 +62,110 @@ router.post('/log', function (req, res) {
             res.status(500).end("Error, user not in DB");
         }
     });
+});  // be havana samtem et a sgira a functzia be sof a shita aaharona?????
 
 
 
 // --Add information of the Senior to the DB--
-// --Add information of the Senior to the DB--
-    router.post('/change_info', function(req,res){
+router.post('/change_info', function(req,res){
 
-        // get the _objId form the user
-        var updateID = req.body.identity; // get the user data
-        var updateInfo = req.body;
-        console.log(updateID); //print for debug
+    // get the _objId form the user
+    var updateID = req.body.identity; // get the user data
+    var updateInfo = req.body;
+    console.log('ID:', updateID); //print for debug
 
-        Senior.findOneAndUpdate({identity:updateID}, {$set:{
-                                birthday: updateInfo.birthday,
-                                gender: updateInfo.gender,
-                                status: updateInfo.status,
-                                homeAdd: updateInfo.homeAdd,
-                                homeNum: updateInfo.homeNum,
-                                homeTown: updateInfo.homeTown,
-                                zipCode: updateInfo.zipCode,
-                                army_type: updateInfo.army_type,
-                                army_unit: updateInfo.army_unit,
-                                keva_ktzuna: updateInfo.keva_ktzuna,
-                                recrue_date: updateInfo.recrue_date,
-                                release_date: updateInfo.release_date,
-                                army_more: updateInfo.army_more,
-                                trip_continent: updateInfo.trip_continent,
-                                trip_country: updateInfo.trip_country,
-                                trip_year: updateInfo.trip_year,
-                                trip_recommendation: updateInfo.trip_recommendation,
-                                courses: updateInfo.courses,
-                                courses_more: updateInfo.courses_more,
-                                knowledge_type: updateInfo.knowledge_type,
-                                knowledge: updateInfo.knowledge,
-                                knowledge_diff: updateInfo.knowledge_diff
-                            }}, function(err,upObj){
-                                if (err) {
-                                    console.log('Not succeed the update Data!');
-                                    res.status(500).end("Error, user not in DB");
+    Senior.findOneAndUpdate({identity:updateID}, {$set:{
+                            birthday: updateInfo.birthday,
+                            gender: updateInfo.gender,
+                            status: updateInfo.status,
+                            homeAdd: updateInfo.homeAdd,
+                            homeNum: updateInfo.homeNum,
+                            homeTown: updateInfo.homeTown,
+                            zipCode: updateInfo.zipCode,
+                            army_type: updateInfo.army_type,
+                            army_unit: updateInfo.army_unit,
+                            keva_ktzuna: updateInfo.keva_ktzuna,
+                            recrue_date: updateInfo.recrue_date,
+                            release_date: updateInfo.release_date,
+                            army_more: updateInfo.army_more,
+                            trip_continent: updateInfo.trip_continent,
+                            trip_country: updateInfo.trip_country,
+                            trip_year: updateInfo.trip_year,
+                            trip_recommendation: updateInfo.trip_recommendation,
+                            courses: updateInfo.courses,
+                            courses_more: updateInfo.courses_more,
+                            knowledge_type: updateInfo.knowledge_type,
+                            knowledge: updateInfo.knowledge,
+                            knowledge_diff: updateInfo.knowledge_diff
+                        }}, function(err,upObj){
+                            if (err) {
+                                console.log('Not succeed the update Data!');
+                                res.status(500).end("Error, user not in DB");
                                 }
-                                else
-                                    res.status(200).end("Here is updated senior: ",upObj);
+                            console.log('the data is updated: ',upObj);
                             }
-        );
+    );
+
+});
+
+
+// -- Find Senior --
+router.get('/find', function(req,res){
+    var searchSenior = req.body;
+    console.log('The dataSenior to search: ', searchSenior);  // for debug
+    
+    Senior.find( { firstName: searchSenior.name, lastName: searchSenior.lastName, homeTown: searchSenior.city,
+                   army_type: searchSenior.armyType, army_unit: searchSenior.armyUnit, keva_ktzuna: searchSenior.kevaOrKtzuna,
+                   trip_continent: searchSenior.trip_continent, knowledge_type: searchSenior.knowledgeType,
+                   knowledge: searchSenior.academicEducation, courses: searchSenior.courses
+                 }, function(err, resultSeniors){
+                        if (err) {
+                            console.log('Not found Senior :(');
+                            res.status(500).end("Error, user not found");
+                        } else {
+                            console.log('Result of the seacrh: ', resultSeniors);
+                          }
+
+                     }
+    );
+});
+
+
+
+module.exports = router;
+
+
+
+
+
+
+
+
+
+/*
+// --register: find and check id--
+router.get('/user/:identity', function (req, res) {
+var identity = req.params.identity;
+    console.log("identity:  "+identity);
+     Senior.findOne({'identity': identity}, function (err, userObj) {
+        if (err){
+            console.log(err);
+        }
+        else if (userObj) {
+            console.log('Found:', userObj);
+            res.status(200).end("User Found", req.body, "@ Seniors DB");
+            
+        }
+        else {
+            console.log('User not found!');
+            res.status(500).end(" user not in DB");
+        }
+    });
 
     });
 
-//// --register: find and check id--
-// router.post('/user/:identity', function (req, res) {
-// var identity = req.params.identity;
-//     console.log("identity:  "+identity);
-//      Senior.findOne({'identity': identity}, function (err, userObj) {
-//         if (err){
-//             console.log(err);
-//         }
-//         else if (userObj) {
-//             console.log('Found:', userObj);
-//             res.status(200).end("User Found", req.body, "@ Seniors DB");
-//            
-//         }
-//         else {
-//             console.log('User not found!');
-//             res.status(500).end(" user not in DB");
-//         }
-//     });
-//
-//     });
-// });
+
+});*/
 
 
 
@@ -186,7 +222,5 @@ router.post('/log', function (req, res) {
 //
 
 
-// Update Senior
 
 
-module.exports = router;

@@ -95,7 +95,7 @@ angular.module('mainApp').controller('igCtrl',['$http','$scope','$rootScope', fu
         console.log($scope.user);
         $http({method: 'POST', url: '/log', data: $scope.user})
             .then(function(data){
-                /// $scope.user.id = data;  ????? whay???
+                /// $scope.user.id = data;  ????? why???
                 $rootScope.infoUser = data;
                 
                 console.log("id exists!");

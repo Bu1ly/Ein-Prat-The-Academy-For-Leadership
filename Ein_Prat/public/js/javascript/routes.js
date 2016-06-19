@@ -55,6 +55,12 @@ angular.module('mainApp')
             controller: 'RegisterCtrl',
             controllerAs: 'regCtrl'
         })
+        .when('/find',{
+            templateUrl: 'views/senior_search.html',
+            controller: 'FindCtrl',
+            controllerAs: 'FindCtrl'
+
+        })
         .when('/log', {
             templateUrl: 'views/log.html',
             controller: 'LogInCtrl',

@@ -44,17 +44,7 @@ angular.module('mainApp')
         $scope.knowledge_else = false;
         
 
-        /*$scope.updateInfo = function(){
-            console.log($scope.infoUser);
-            $http({method: 'POST', url: '/reg', data: $scope.infoUser})
-                .then(function(data){
-                    console.log("Inserted to DB");
-                })
-                .catch(function() { console.log("Unsuccessful") });
-        };*/
-
-
-        // updateInfo is the bottom!  //////////////////
+        // updateInfo is the bottom!
         $scope.updateInfo = function(){
 
         $http({method: 'POST', url: '/change_info', data: $scope.infoUser})
@@ -71,8 +61,5 @@ angular.module('mainApp')
         };
 
         //console.log($scope.infoUser);
-
-
-
 
     }]);
