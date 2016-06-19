@@ -35,7 +35,7 @@ angular.module('mainApp')
         $scope.sendMessage = function(){
         };
 
-        $scope.deleteUser = function(){
+        $scope.setPage = function(){
         };
 
         $scope.searchUser = function(){
