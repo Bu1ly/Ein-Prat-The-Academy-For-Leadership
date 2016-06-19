@@ -66,8 +66,6 @@ var Job = connection.model('JobInfo', jobs);
 
 module.exports = Senior;   //if i want to use Senior in other files, i need to do before 'require'
 // exports.Jobs = Job;
-// exports.Senior = Senior;
-//
-// module.exports = connection;
+
 
 
