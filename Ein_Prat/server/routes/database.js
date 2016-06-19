@@ -47,6 +47,12 @@ router.post('/reg', function(req,res){
 // --login--
 router.post('/log', function (req, res) {
     //var loginData = req.body;
+
+
+
+
+
+
     var loginTime = new Date().toISOString().replace(/T/, ' ').replace(/\..+/, '');// get login time
 
     var pickedOne = Senior.findOne({'identity': req.body.identity, 'sis': req.body.sis}, function (err, userObj) {
@@ -56,6 +62,9 @@ router.post('/log', function (req, res) {
         else if (userObj) {
             userLogin = userObj;
             console.log('Found:', userObj);   /// need to return the userObj to put the data into the seniorInfo
+           var tempuser = userObj.firstName;
+            console.log("\n\n firstname :"+tempuser);
+            // res.render( 'app.js', { tempuser:tempuser } );
             res.status(200).end("User Found", req.body.firstName, "@ Seniors DB");
         }
         else {
@@ -117,6 +126,7 @@ router.post('/senior_search', function(req,res){
     var searchSenior = req.body;
     console.log('The dataSenior to search: ', searchSenior);  // for debug
     
+    
     Senior.find( { 'firstName': req.body.firstName , 'lastName': req.body.lastName, 'homeTown': req.body.homeTown,
                     'army_type': req.body.army_type, 'trip_continent': req.body.trip_continent, 'knowledge_type': req.body.knowledge_type,
                      'knowledge': req.body.knowledge
@@ -124,7 +134,7 @@ router.post('/senior_search', function(req,res){
                         if (err) {
                             console.log('Not found Senior :(');
                             res.status(500).end("Error, user not found");
-                        } else {
+                        } else if(resultSeniors) {
                             console.log('Result of the search: ', resultSeniors);
                             res.status(200).end("Result User");
                             //res.status(200).end(JSON.stringify(userMap,null,"\t"));
