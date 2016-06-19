@@ -50,6 +50,17 @@ var seniors = new Schema({
     knowledge_else: String
 });
 
+
+var review = new Schema({
+    descriptionReview : String
+});
+
+
+var note = new Schema({
+    descriptionNote : String
+});
+
+
 var jobs = new Schema({
     desc: String,
     timeuploaded: String
@@ -58,13 +69,15 @@ var jobs = new Schema({
 
 // -- Connect collections to schema --
 var Senior = connection.model('SeniorStudent',seniors);
-
-
+var Review = connection.model('ReviewStudent',review);
+var Note = connection.model('NoteStudent',note);
 var Job = connection.model('JobInfo', jobs);
 
 
-
+// -- Exports --
 module.exports = Senior;   //if i want to use Senior in other files, i need to do before 'require'
+//module.exports = Review;
+//module.exports - Note;
 // exports.Jobs = Job;
 
 
