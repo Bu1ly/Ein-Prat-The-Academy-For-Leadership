@@ -5,40 +5,40 @@
 
         <!--TOP HORIZONTAL LINE-->
         <ul class="hor-ul">
-            <li class="hor-li"><p class="info_req">שם פרטי:  </p><input type="text" name="fname" placeholder="שם פרטי" class="textBox-small"></li>
-            <li class="hor-li"><p class="info_req">שם משפחה:  </p><input type="text" name="lname" placeholder="שם משפחה" class="textBox-small"></li>
-            <li class="hor-li"><p class="info_req">עיר:  </p><input type="text" name="city" placeholder="עיר" class="textBox-small"></li>
+            <li class="hor-li"><p class="info_req">שם פרטי:  </p><input type="text" name="fname" ng-model="searchUser.name" placeholder="שם פרטי" class="textBox-small"></li>
+            <li class="hor-li"><p class="info_req">שם משפחה:  </p><input type="text" name="lname" ng-model="searchUser.last_name" placeholder="שם משפחה" class="textBox-small"></li>
+            <li class="hor-li"><p class="info_req">עיר:  </p><input type="text" name="city" ng-model="searchUser.city" placeholder="עיר" class="textBox-small"></li>
         </ul>
 
         <!--MIDDLE HORIZONTAL LINE-->
         <ul class="hor-ul">
             <li class="hor-li">
                 <p class="info_req">חיל:</p>
-                <select ng-model="infoUser.army_type"> //FILL OPTIONS & CHANGE IN 'CHANGE INFO' PAGE
-                    <!--<option value="keva">קבע</option>-->
-                    <!--<option value="ktsuna">קצונה</option>-->
+                <select ng-model="searchUser.armyType"> //FILL OPTIONS & CHANGE IN 'CHANGE INFO' PAGE
+                    <option value="shirion">שירון</option>
+                    <option value="tzanhanim">צנחנים</option>
+                    <option value="golani">גולני</option>
+
                 </select>
             </li>
 
+
             <li class="hor-li">
-                <p class="info_req">יחידה:</p>
-                <select ng-model="infoUser.army_unit"> //FILL OPTIONS & CHANGE IN 'CHANGE INFO' PAGE
-                    <!--<option value="keva">קבע</option>-->
-                    <!--<option value="ktsuna">קצונה</option>-->
-                </select>
-            </li>
+                <p class="info_req">יחידה:  </p>
+                <input ng-model="searchUser.armyUnit" type="text" name="unit" placeholder="יחידה" class="textBox"></li>
+
 
             <li class="hor-li">
                 <p class="info_req">קבע\קצונה:</p>
-                <select ng-model="infoUser.keva_ktsuna">
+                <select ng-model="searchUser.kevaOrKtzuna">
                     <option value="keva">קבע</option>
                     <option value="ktsuna">קצונה</option>
                 </select>
             </li>
 
             <li class="hor-li">
-                <p class="info_req">ארץ:</p>
-                <select ng-model="infoUser.trip_place">
+                <p class="info_req">טיול?</p>
+                <select ng-model="searchUser.trip_continent">
                     <option value="east">המזרח הרחוק</option>
                     <option value="sAmerica">דרום אמריקה</option>
                     <option value="mAmerica">מרכז אמריקה</option>
@@ -48,19 +48,19 @@
 
         <!--BOTTOM HORIZONTAL LINE-->
         <ul class="hor-ul">
-            <li class="hor-li"><p class="info_req">תחום לימודים:</p><input ng-model="infoUser.knowledge_type" type="text" name="knowledge" placeholder="תחום לימודים" class="textBox-small"></li>
+            <li class="hor-li"><p class="info_req">תחום לימודים:</p><input ng-model="searchUser.knowledgeType" type="text" name="knowledge" placeholder="תחום לימודים" class="textBox-small"></li>
             <li class="hor-li">
                 <p class="info_req">השכלה אקדמית:</p>
-                <select ng-model="infoUser.knowledge">
-                    <option value="gun">תואר ראשון</option>
-                    <option value="travel_guide">תואר שני</option>
-                    <option value="medic">דוקטורט</option>
-                    <option value="paramedic">פרופסורה</option>
+                <select ng-model="searchUser.academicEducation">
+                    <option value="BA">תואר ראשון</option>
+                    <option value="MA">תואר שני</option>
+                    <option value="Doctorate">דוקטורט</option>
+                    <option value="Professor">פרופסורה</option>
                 </select>
             </li>
             <li class="hor-li">
                 <p class="info_req">קורסים והסמכות:</p>
-                <select ng-model="infoUser.courses">
+                <select ng-model="searchUser.courses">
                     <option value="gun">רשיון נשק</option>
                     <option value="travel_guide">מדריך טיולים</option>
                     <option value="medic">חובש</option>
@@ -70,20 +70,18 @@
             </li>
         </ul>
 
-        <ul class="hor-ul">
-            <li class="hor-li">
-                <button class="search-button">חפש</button>
-            </li>
-        </ul>
+        <!-- <a href="/#/"> --> <input ng-click="searchSenior()" type="submit" value="חפש"> </a>
     </div>
 
 
-
+<!--
     <div class="search-results">
 
     </div>
 
+-->
 
 </div>
 
 </div>
+
