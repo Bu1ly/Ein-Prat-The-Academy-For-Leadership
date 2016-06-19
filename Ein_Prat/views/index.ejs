@@ -133,7 +133,7 @@
                                                 <div class="row">
                                                     <div class="col-sm-6 col-sm-offset-3">
                                                         <!--<input ng-click="checkUser()" id="myModalSave" type="button"  id="login-submit" tabindex="4" class="form-control btn btn-login" value="התחבר">-->
-                                                        <a href="/#/change_info"><input ng-click="newUser()" type="button" tabindex="7" class="form-control btn btn-register" value="הרשם עכשיו"> </a>
+                                                        <a ><input ng-click="newUser()" type="button" tabindex="7" class="form-control btn btn-register" value="הרשם עכשיו"> </a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -280,8 +280,8 @@
 
             <li class="dropdown">
                 <a  class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i>
-                    <div ng-controller="mainController">
-                        {{mainController.name}}
+                    <div ng-controller="usernameController">
+                        {{usernameController.name}}
                     </div>
                     <b class="caret"></b></a>
                 <ul class="dropdown-menu">
@@ -323,7 +323,7 @@
                     <a href="/#/events"><i class="fa fa-fw fa-bullhorn"></i> פעילויות בוגרים</a>
                 </li>
                 <li>
-                    <a href="/#/blank_page"><i class="fa fa-fw fa-wrench"></i> פאנל מנהל</a>
+                    <a href="/#/supervisor"><i class="fa fa-fw fa-wrench"></i> פאנל מנהל</a>
                 </li>
                 <li>
                     <a href="#"></a>

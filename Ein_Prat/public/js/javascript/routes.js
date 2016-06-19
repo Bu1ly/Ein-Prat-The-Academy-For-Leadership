@@ -44,7 +44,12 @@ angular.module('mainApp')
             controllerAs: 'InfoCtrl'
         })
         .when('/app_settings', {
-            templateUrl: 'views/app_settings.html'
+            // templateUrl: 'views/app_settings.html'
+            templateUrl: 'views/404.html'
+        })
+        .when('/supervisor', {
+            // templateUrl: 'views/app_settings.html'
+            templateUrl: 'views/supervisor.html'
         })
         .when('/', {
             templateUrl: 'views/home_page.html'

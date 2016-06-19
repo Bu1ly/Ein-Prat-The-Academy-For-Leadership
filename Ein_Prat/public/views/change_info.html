@@ -1,24 +1,25 @@
 <div class="register_page">
     <h2>עדכון פרטים אישיים:</h2>
     <form align="right">
+        <modal modal="modalText"></modal>
         <ul class="hor-ul">
             <!--placeholder="{{$scope.user.lastName}}"-->
             <!--existing data-->
-            <li class="hor-li"><p class="info_req">שם פרטי:  </p><input type="text" name="fname" ng-model="infoUser.firstName" class="textBox" disabled></li>
-            <li class="hor-li"><p class="info_req">שם משפחה:  </p><input type="text" name="lname" ng-model="infoUser.lastName" class="textBox" disabled></li>
             <li class="hor-li"><p class="info_req">ת.ז:  </p><input type="text" name="identity" ng-model="infoUser.identity" class="textBox" required></li>
-            <li class="hor-li"><p class="info_req">אימייל:  </p><input type="email" name="email" ng-model="infoUser.Email" class="textBox" disabled></li>
             <!- ------------ -->
 
             <li class="hor-li"><p class="info_req">תאריך לידה:</p><input ng-model="infoUser.birthday" name="birthday" type="date" class="textBox"></li><br>
-            <li class="hor-li">
+            <br>
+
+            <li class="hor-li"  >
+
                 <p class="info_req">מין:</p>
                 <select ng-model="infoUser.gender">
                     <option value="male">זכר</option>
                     <option value="female">נקבה</option>
                 </select>
             </li>
-            <li class="hor-li">
+            <li class="hor-li" >
                 <p class="info_req">סטטוס:</p>
                 <select ng-model="infoUser.status">
                     <option value="single">רווק\ה</option>

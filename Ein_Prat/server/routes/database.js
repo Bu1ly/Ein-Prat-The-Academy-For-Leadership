@@ -47,6 +47,12 @@ router.post('/reg', function(req,res){
 // --login--
 router.post('/log', function (req, res) {
     //var loginData = req.body;
+
+
+
+
+
+
     var loginTime = new Date().toISOString().replace(/T/, ' ').replace(/\..+/, '');// get login time
 
     var pickedOne = Senior.findOne({'identity': req.body.identity, 'sis': req.body.sis}, function (err, userObj) {
@@ -56,6 +62,9 @@ router.post('/log', function (req, res) {
         else if (userObj) {
             userLogin = userObj;
             console.log('Found:', userObj);   /// need to return the userObj to put the data into the seniorInfo
+           var tempuser = userObj.firstName;
+            console.log("\n\n firstname :"+tempuser);
+            // res.render( 'app.js', { tempuser:tempuser } );
             res.status(200).end("User Found", req.body.firstName, "@ Seniors DB");
         }
         else {
@@ -117,6 +126,7 @@ router.post('/senior_search', function(req,res){
     var searchSenior = req.body;
     console.log('The dataSenior to search: ', searchSenior);  // for debug
     
+    
     Senior.find( { 'firstName': req.body.firstName , 'lastName': req.body.lastName, 'homeTown': req.body.homeTown,
                     'army_type': req.body.army_type, 'trip_continent': req.body.trip_continent, 'knowledge_type': req.body.knowledge_type,
                      'knowledge': req.body.knowledge
@@ -124,7 +134,7 @@ router.post('/senior_search', function(req,res){
                         if (err) {
                             console.log('Not found Senior :(');
                             res.status(500).end("Error, user not found");
-                        } else {
+                        } else if(resultSeniors) {
                             console.log('Result of the search: ', resultSeniors);
                             res.status(200).end("Result User");
                             //res.status(200).end(JSON.stringify(userMap,null,"\t"));
@@ -137,14 +147,53 @@ router.post('/senior_search', function(req,res){
 
 module.exports = router;
 
+// -- Save the Reviews --
+router.post('/review', function (req,res) {
+    var nReview = req.body;
+    console.log('The Review: ', nReview); // for debug
+
+    var SeniorReview = {
+        descriptionReview : nReview.descriptionReview
+    };
+
+    //create new DB
+    var newReview = new Review(SeniorReview);
+
+    // save the review to the DB
+    newReview.save(function(err){
+        if(err)
+            res.status(500).end("Error");
+        else{
+            res.status(200).end("Added", SeniorReview, "to Seniors DB");
+        }
+    })
+
+});
 
 
-/*
 
+// -- Save the Notes --
+router.post('/note', function (req,res) {
+    var nNote = req.body;
+    console.log('The Review: ', nNote); // for debug
 
+    var SeniorNote = {
+        descriptionNote : nNote.descriptionNote
+    };
 
-*/
+    //create new DB
+    var newNote = new Note(SeniorNote);
 
+    // save the review to the DB
+    newNote.save(function(err){
+        if(err)
+            res.status(500).end("Error");
+        else{
+            res.status(200).end("Added", SeniorNote, "to Seniors DB");
+        }
+    })
+
+});
 
 
 

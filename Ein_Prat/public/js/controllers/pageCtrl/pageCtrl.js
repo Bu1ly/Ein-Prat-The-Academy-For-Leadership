@@ -1,5 +1,6 @@
 angular.module('mainApp')
     .controller('PageCtrl', ['$http','$scope', function($http,$scope) {
+
         $scope.page = {};
         $scope.review = "";
         $scope.reviews = [];
@@ -11,21 +12,23 @@ angular.module('mainApp')
         $scope.addNote = false;
 
         $scope.postReview = function(){
-                $http({method: 'POST', url: '/review', data: $scope.review})
-                    .then(function(data){
-                        console.log(data);
-                        console.log("Inserted to DB");
-                        $scope.reviews.push($scope.review);
-                    })
-                    .catch(function() { console.log("Note Unsuccessful") });
+            $http({method: 'POST', url: '/review', data: $scope.review})
+                .then(function(data){
+                    console.log(data);
+                    console.log("Inserted to DB");
+                    $scope.reviews.push($scope.review);
+                    $scope.review = "";
+                })
+                .catch(function() { console.log("Review Unsuccessful") });
             };
 
         $scope.postNote = function(){
             $http({method: 'POST', url: '/note', data: $scope.note})
                 .then(function(data){
-                    console.log(data);
+                    console.log($scope.note);
                     console.log("Inserted to DB");
                     $scope.notes.push($scope.note);
+                    $scope.note = "";
                 })
                 .catch(function() { console.log("Note Unsuccessful") });
         };
