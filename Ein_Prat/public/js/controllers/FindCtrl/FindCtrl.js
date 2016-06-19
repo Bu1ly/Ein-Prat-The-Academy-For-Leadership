@@ -20,7 +20,7 @@ angular.module('mainApp')
 
         $scope.searchSenior = function(){
 
-            $http({method: 'POST', url: '/senior_search', data: $scope.searchUser})
+            $http({method: 'GET', url: '/senior_search', data: $scope.searchUser})
                 .then(function(data){
                     console.log("SEARCH.....");
                     $scope.modalText = {

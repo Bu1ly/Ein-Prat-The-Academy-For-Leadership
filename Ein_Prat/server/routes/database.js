@@ -110,7 +110,7 @@ router.post('/change_info', function(req,res){
 
 
 // -- Find Senior --
-router.post('/find', function(req,res){
+router.get('/find', function(req,res){
     var searchSenior = req.body;
     console.log('The dataSenior to search: ', searchSenior);  // for debug
     
