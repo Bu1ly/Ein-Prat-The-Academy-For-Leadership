@@ -18,29 +18,38 @@ function addnew() {
 //--------------------Dynamic Table Controller---------------------------
 
 angular.module('mainApp')
-    .controller('jobCtrl', ['$scope', function($scope) {
+    .controller('jobCtrl', ['$scope', 'orderByFilter', function($scope,orderBy) {
 
-    $scope.jobs = [
-        { 'position':'eng', 'category': 'hitech',
-            'location':'jerusalem',
-            'CVs': '123-2343-44'
-        }
-    ];
+        $scope.jobs =[];
 
+        
 
-        $scope.addJob = function() {
-            $scope.jobs.push({'position':$scope.position, 'category':$scope.category,'location':$scope.location, 'CVs':$scope.CVs});
-        }
-
-        $scope.addJob = function() {
-
-            $scope.jobs.push({ position: $scope.position, category: $scope.category, location: $scope.location, CVs: $scope.CVs });
-
-            $scope.position='';
-            $scope.category='';
-            $scope.location='';
-            $scope.CVs='';
+        $scope.newJob = {
+            date: "",
+            position: "",
+            location: "",
+            CVs:""
         };
+
+        $scope.addJob = function() {
+            $scope.jobs.push($scope.newJob);
+            $scope.newJob = {
+                date: "",
+                position: "",
+                location: "",
+                CVs:""
+            };
+
+        };
+
+
+
+        $scope.sort = function() {
+            $scope.jobs = orderBy($scope.jobs, 'date', true);
+        };
+
+
+
 
 
 }]);

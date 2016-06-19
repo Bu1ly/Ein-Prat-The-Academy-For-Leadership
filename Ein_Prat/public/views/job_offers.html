@@ -1,20 +1,65 @@
-<!--<div>-->
-    <!--<head>-->
-        <!--<title>דרושים</title>-->
-        <!--&lt;!&ndash;<link rel="stylesheet" type="text/css" href="../css/css/job_offers.css">&ndash;&gt;-->
-        <!--<script src="../js/controllers/JobCtrl/jobCtrl.js"></script>-->
 
-    <!--</head>-->
+<div>
 
-    <!--<body>-->
-    <!--<div align="right">-->
 
-        <!--<div class="headline"><p>serch by:</p></div>-->
-        <!--<button onclick="drop()" class="dropbtn">אזור</button>-->
-        <!--<div align="right" id="myDropdown" class="dropdown-content" >-->
-            <!--<a href="/#/job_list">test</a>-->
-        <!--</div>-->
-    <!--</div>-->
+<div align="right">
+    <div>
+        <table border="2px" style="width:50%">
+            <tr>
+            <tr>
+                <th ng-click="sort()">תאריך</th>
+                <th>תפקיד</th>
+                <th>מיקום</th>
+                <th>פרטים נוספים</th>
+            </tr>
+            <tr ng-repeat="job in jobs" >
+                <td>{{job.date}}</td>
+                <td>{{job.position}}</td>
+                <td>{{job.location}}</td>
+                <td>{{job.CVs}}</td>
+            </tr>
+        </table>
+    </div>
 
-    <!--</body>-->
-<!--</div>-->
+</div>
+
+
+<input type="button" class="button" value="הוסף עבודה חדשה" onclick="addnew()">
+
+<div id="add" style="display: none">
+
+
+<div style="background-color: #EFF5FB ; max-width: 300px; border-radius: 5px">
+<form  ng-submit="addJob()" >
+
+    <p><label>תאריך</label></p>
+    <p><input type="text" class="text" name="date"
+           ng-model="newJob.date" /></p>
+
+    <p><label>תפקיד</label></p>
+    <p><input type="text" class="text" name="position"
+           ng-model="newJob.position" /></p>
+
+    <p><label>מיקום</label></p>
+    <p><input type="text" class="text" name="location"
+           ng-model="newJob.location" /></p>
+
+    <p><label>פרטים נוספים</label></p>
+    <p><input type="text" class="text" name="CVs"
+           ng-model="newJob.CVs" /></p>
+
+    <input type="submit"  value="הוסף" class="button button1"/>
+
+</form>
+</div>
+</div>
+
+<link rel="stylesheet" href="../css/css/job_offers.css">
+
+<script src="../js/angular/angular.min.js"></script>
+<script src="../js/controllers/JobCtrl/jobCtrl.js"></script>
+
+
+</div>
+
+
