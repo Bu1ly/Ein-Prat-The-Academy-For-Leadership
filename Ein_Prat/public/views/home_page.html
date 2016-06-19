@@ -5,7 +5,7 @@
         <section>
             <ul>
                 <li ng-repeat="rev in reviews">
-                    <blockquote>{{rev}}</blockquote>
+                    <blockquote>{{reviews[0]}}</blockquote>
                 </li>
             </ul>
 
@@ -18,13 +18,9 @@
             <header>תמונת היום:</header>
             <img src="images/YOUR_IMAGE.jpg" style="height: 370px; width: 400px"><br>
             <div class="rev-more-det">
-                <ul class="hor-ul">
-                    <li class="hor-li"><button ng-click="addRev = !addRev" style=":2%; border-radius: 5px 5px;">הוסף תגובה</button></li>
-                    <li class="hor-li">
-                        <input type="text" ng-show="addRev" ng-model="review" value="הזן תגובתך כאן">
-                        <input type="submit" ng-show="addRev" ng-click="postReview()">
-                    </li>
-                </ul>
+                    <button ng-click="addRev = !addRev" style=":2%; border-radius: 5px 5px;">הוסף תגובה</button>
+                    <input type="text" ng-show="addRev" ng-model="review" value="הזן תגובתך כאן">
+                    <input type="submit" ng-show="addRev" ng-click="postReview()">
             </div>
         </div>
     </div>
