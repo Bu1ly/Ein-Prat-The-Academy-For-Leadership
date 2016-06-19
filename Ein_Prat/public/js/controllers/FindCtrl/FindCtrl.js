@@ -3,26 +3,46 @@
  */
 
 angular.module('mainApp')
-    .controller('FindCtrl', ['$http','$scope','$rootScope', function($http,$scope, $rootScope) {
+    .controller('FindCtrl', ['$http','$scope', function($http,$scope) {
 
         $scope.searchUser = {
-            name : "",
-            last_name : "",
-            city: "",
-            armyType: "",
-            armyUnit: "",
-            kevaOrKtzuna: "",
+            firstName : "",
+            lastName : "",
+            homeTown: "",
+            army_type: "",
             trip_continent: "",
-            knowledgeType: "",
-            academicEducation: "",
-            courses: ""
+            knowledge_type: "",
+            knowledge: ""
         };
+        
+        
+        
+        
 
         $scope.searchSenior = function(){
 
-            $http({method: 'GET', url: '/senior_search', data: $scope.searchUser})
+            ///missing parts check
+
+            if($scope.searchUser.firstName.localeCompare("")==0
+                |  $scope.searchUser.lastName.localeCompare("")==0 |  $scope.searchUser.homeTown.localeCompare("")==0 |
+                $scope.searchUser.army_type.localeCompare("")==0| $scope.searchUser.trip_continent.localeCompare("")==0 |
+                $scope.searchUser.knowledge_type.localeCompare("")==0 | $scope.searchUser.knowledge.localeCompare("")==0) {
+                console.log('something missing');
+                $scope.modalText = {
+                    headline: "Senior Search",
+                    text: "אחד או יותר פרטים חסרים"
+                };
+                //$('#modal').modal('show')
+                alert("אחד או יותר פרטים חסרים");  ///need modal here
+                return;
+
+            }
+            
+            
+
+            $http({method: 'POST', url: '/senior_search', data: $scope.searchUser})
                 .then(function(data){
-                    console.log("SEARCH.....");
+                    console.log("\n\nSEARCH.....\n\n");
                     $scope.modalText = {
                         headline: "Search",
                         text: "חיפוש בוצע בהצלחה"

@@ -9,8 +9,7 @@ angular.module('mainApp')
     })
         .when('/senior_search', {
             templateUrl: 'views/senior_search.html',
-            controller: 'SeniorCtrl',
-            controllerAs: 'SeniorCtrl'
+            controller: 'FindCtrl',
         })
         .when('/studies', {
             templateUrl: 'views/studies.html'
@@ -45,7 +44,12 @@ angular.module('mainApp')
             controllerAs: 'InfoCtrl'
         })
         .when('/app_settings', {
-            templateUrl: 'views/app_settings.html'
+            // templateUrl: 'views/app_settings.html'
+            templateUrl: 'views/404.html'
+        })
+        .when('/supervisor', {
+            // templateUrl: 'views/app_settings.html'
+            templateUrl: 'views/supervisor.html'
         })
         .when('/', {
             templateUrl: 'views/home_page.html'
@@ -54,12 +58,6 @@ angular.module('mainApp')
             templateUrl: 'views/reg.html',
             controller: 'RegisterCtrl',
             controllerAs: 'regCtrl'
-        })
-        .when('/find',{
-            templateUrl: 'views/senior_search.html',
-            controller: 'FindCtrl',
-            controllerAs: 'FindCtrl'
-
         })
         .when('/log', {
             templateUrl: 'views/log.html',
