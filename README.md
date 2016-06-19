@@ -28,11 +28,10 @@ Please visit our wiki for furthur project info:
 - [Software Design Specification](../../wiki/sds)
 
 ### Iteration Pages
-   [ZFR](https://github.com/Bu1ly/Ein-Prat-The-Academy-For-Leadership/wiki/Iteration-0----ZFR).
-   [MVP](https://github.com/Bu1ly/Ein-Prat-The-Academy-For-Leadership/wiki/Iteration-1---MVP) .
-   [ASM](https://github.com/Bu1ly/Ein-Prat-The-Academy-For-Leadership/wiki/Iteration-2---ASM).
-   [HMB](https://github.com/Bu1ly/Ein-Prat-The-Academy-For-Leadership/wiki/Iteration-3-HMB).
-   [FFO](https://github.com/Bu1ly/Ein-Prat-The-Academy-For-Leadership/wiki/Iteration-4-FFO).
-
+[ZFR](https://github.com/Bu1ly/Ein-Prat-The-Academy-For-Leadership/wiki/Iteration-0----ZFR)
+[MVP](https://github.com/Bu1ly/Ein-Prat-The-Academy-For-Leadership/wiki/Iteration-1---MVP)
+[ASM](https://github.com/Bu1ly/Ein-Prat-The-Academy-For-Leadership/wiki/Iteration-2---ASM)
+[HMB](https://github.com/Bu1ly/Ein-Prat-The-Academy-For-Leadership/wiki/Iteration-3-HMB)
+[FFO](https://github.com/Bu1ly/Ein-Prat-The-Academy-For-Leadership/wiki/Iteration-4-FFO)
 
 
