@@ -7,7 +7,10 @@
 /* Global Styles */
 
 body {
-    margin-top: 100px;
+    background-image: url("/images/ein_background.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-top: 20px;
     background-color: #222;
 }
 
@@ -16,24 +19,17 @@ body {
         margin-top: 50px;
     }
 }
-
-#wrapper {
+#wrapper{
     padding-left: 0;
 }
 
 #page-wrapper {
-    background-image: url("/images/ein_background.jpg");
-    /*background: no-repeat;*/
-    background-repeat: no-repeat;
-    /*margin-top: 5%;*/
     width: 100%;
     padding: 0;
-    background-color: #fff;
 }
+
 #view_area{
-
-    margin-top: 6%;
-
+    margin-top: 1%;
 }
 
 .huge {
@@ -54,7 +50,8 @@ body {
 /* Top Navigation */
 
 .top-nav {
-    padding: 0 15px;
+    height: 5px;
+    padding: 0 50px;
 }
 
 .top-nav>li {
@@ -93,7 +90,7 @@ body {
 
 .top-nav>.open>.dropdown-menu>li>a {
     white-space: normal;
-    padding: 10px; 
+    padding: 10px;
 /*    CHANGED!--------------------------------------------*/
 }
 
@@ -379,4 +376,39 @@ ul.alert-dropdown {
     background-color: #00B7FF;
     box-shadow: 3px 5px 3px #888888;
 
+}
+
+.home-page{
+    margin-left: 5%;
+}
+
+.revs{
+
+    width: 200px;
+    height: 550px;
+    border: 1px solid lightslategrey;
+    float: left;
+    overflow: hidden;
+}
+
+.notes{
+    width: 200px;
+    height: 550px;
+    border: 1px solid lightslategrey;
+    float: left;
+}
+
+.page{
+    width: 550px;
+    height: 550px;
+    border: 1px solid lightslategrey;
+    float: left;
+    overflow: hidden;
+
+}
+.hm-con{
+    text-align: center;
+    background-color: rgba(255,255,255,.8);
+    /*background-color: White;*/
+    box-shadow: 3px 5px 3px #888888;
 }

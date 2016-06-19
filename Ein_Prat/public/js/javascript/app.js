@@ -10,22 +10,22 @@ var mainApp = angular.module('mainApp', ['ngRoute', 'ngMessages'])
         }
     })
 
-    .directive('ex', function(){
-        return {
-            restrict: 'EA',
-            templateUrl: 'views/modal-template.html',
-            scope:{
-                password: '=',
-                email : '=',
-                submitData : '&'
-            },
-            controller :
-
-                scope.submitData(scope.password, scope.email),
-        }
-
-
-    });
+    // .directive('ex', function(){
+    //     return {
+    //         restrict: 'EA',
+    //         templateUrl: 'views/modal-template.html',
+    //         scope:{
+    //             password: '=',
+    //             email : '=',
+    //             submitData : '&'
+    //         },
+    //         controller :
+    //
+    //             scope.submitData(scope.password, scope.email),
+    //     }
+    //
+    //
+    // });
 
 $(function() {
 

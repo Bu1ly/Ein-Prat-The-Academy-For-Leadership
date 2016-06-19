@@ -1,40 +1,77 @@
-<div class="home_page">
+<div class="home-page" dir="rtl">
 
-    <ul class="hor-ul" style="list-style-type:none">
-        <li class="hor-li">
-            <h2>לוח מודעות:</h2>
-                <ul class="users-notes">
-                    <li ng-repeat="note in notes">
-                        <blockquote>
-                            {{note}}
-                        </blockquote>
-                    </li>
+    <div class="revs hm-con">
+        <header>תגובות:</header>
+
+
+    </div>
+
+
+    <div class="page hm-con">
+        <div class="page-pic">
+            <header>תמונת היום:</header>
+            <img src="images/YOUR_IMAGE.jpg" style="height: 400px; width: 400px"><br>
+            <div class="rev-more-det">
+                <ul class="hor-ul">
+                    <li class="hor-li"><button ng-click="addRev = !addRev" style="border-radius: 5px 5px;">הוסף תגובה</button></li>
+                    <li class="hor-li"><input type="text" ng-show="addRev" ng-model="review" value="הזן תגובתך כאן"></li>
                 </ul>
+            </div>
+        </div>
 
+    </div>
 
-            </blockquote>
-        </li>
-        <li class="hor-li">
-            <ul>
-                <li>
-                    <h2>הדף היומי:</h2>
-                    <input class="write-talkback" type="text" ng-model="review"></li>
-                    <input ng-click="postReview()" type="submit" value="לחץ לשליחה">
-                </li>
-                <li>
-                    <h2>תגובות:</h2>
-                    <ul>
-                        <li ng-repeat="rev in reviews">
-                            {{rev}}
-                        </li>
-                    </ul>
-                </li>
-
-            </ul>
-        </li>
-    </ul>
+    <div class="notes hm-con">
+        <div class="notes-header">
+            <header>לוח מודעות:</header>
+            <div class="note-more-det">
+                    <button ng-click="addNote = !addNote" style="border-radius: 5px 5px;">הוסף הודעה</button>
+                    <input type="text" ng-show="addNote" ng-model="note" value="הזן תגובתך כאן">
+                    <input type="submit" ng-click="postNote()">
+            </div>
+        </div>
+    </div>
 
 </div>
+
+
+
+
+
+
+<!--<div class="home-page">-->
+        <!--<ul class="hor-ul" style="list-style-type:none;">-->
+
+            <!--&lt;!&ndash;RIGHT SIDE:&ndash;&gt;-->
+            <!--<li class="hor-li">-->
+                <!--<h2>לוח מודעות:</h2>-->
+                    <!--<ul class="users-notes">-->
+                        <!--<li ng-repeat="note in notes">-->
+                            <!--<blockquote>-->
+                                <!--{{note}}-->
+                            <!--</blockquote>-->
+                        <!--</li>-->
+                    <!--</ul>-->
+            <!--</li>-->
+
+            <!--&lt;!&ndash;CENTER SIDE:&ndash;&gt;-->
+            <!--<li class="hor-li">-->
+                <!--<h2>הדף היומי:</h2>-->
+                <!--<img src="/images/YOUR_IMAGE.jpg" style="height: 45%; width: 45%; right: 90%;"><br>-->
+                <!--<input class="write-talkback" type="text" ng-model="review"></li>-->
+                <!--<input ng-click="postReview()" type="submit" value="לחץ לשליחה">-->
+
+            <!--&lt;!&ndash;LEFT SIDE:&ndash;&gt;-->
+            <!--<li class="hor-li">-->
+                <!--<h2>תגובות:</h2>-->
+                <!--<ul>-->
+                    <!--<li ng-repeat="rev in reviews">-->
+                        <!--{{rev}}-->
+                    <!--</li>-->
+                <!--</ul>-->
+            <!--</li>-->
+        <!--</ul>-->
+<!--</div>-->
 
 
 
