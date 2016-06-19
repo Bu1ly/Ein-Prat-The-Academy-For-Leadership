@@ -147,14 +147,53 @@ router.post('/senior_search', function(req,res){
 
 module.exports = router;
 
+// -- Save the Reviews --
+router.post('/review', function (req,res) {
+    var nReview = req.body;
+    console.log('The Review: ', nReview); // for debug
+
+    var SeniorReview = {
+        descriptionReview : nReview.descriptionReview
+    };
+
+    //create new DB
+    var newReview = new Review(SeniorReview);
+
+    // save the review to the DB
+    newReview.save(function(err){
+        if(err)
+            res.status(500).end("Error");
+        else{
+            res.status(200).end("Added", SeniorReview, "to Seniors DB");
+        }
+    })
+
+});
 
 
-/*
 
+// -- Save the Notes --
+router.post('/note', function (req,res) {
+    var nNote = req.body;
+    console.log('The Review: ', nNote); // for debug
 
+    var SeniorNote = {
+        descriptionNote : nNote.descriptionNote
+    };
 
-*/
+    //create new DB
+    var newNote = new Note(SeniorNote);
 
+    // save the review to the DB
+    newNote.save(function(err){
+        if(err)
+            res.status(500).end("Error");
+        else{
+            res.status(200).end("Added", SeniorNote, "to Seniors DB");
+        }
+    })
+
+});
 
 
 

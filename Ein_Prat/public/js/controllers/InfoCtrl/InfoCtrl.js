@@ -1,4 +1,3 @@
-
 angular.module('mainApp')
     .controller('InfoCtrl', ['$http','$scope','$rootScope', function($http,$scope, $rootScope) {
         
@@ -33,13 +32,6 @@ angular.module('mainApp')
             knowledge: "",
             knowledge_diff: ""
         };
-
-        /*// add later to address string
-        $scope.homeAdd= "";
-        $scope.homeNum= "";
-        $scope.homeTown= "";
-        $scope.zipCode= "";*/
-
         $scope.trip_else =  false;
         $scope.knowledge_else = false;
         
