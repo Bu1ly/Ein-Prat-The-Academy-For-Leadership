@@ -9,8 +9,7 @@ angular.module('mainApp')
     })
         .when('/senior_search', {
             templateUrl: 'views/senior_search.html',
-            controller: 'SeniorCtrl',
-            controllerAs: 'SeniorCtrl'
+            controller: 'FindCtrl',
         })
         .when('/studies', {
             templateUrl: 'views/studies.html'
@@ -54,12 +53,6 @@ angular.module('mainApp')
             templateUrl: 'views/reg.html',
             controller: 'RegisterCtrl',
             controllerAs: 'regCtrl'
-        })
-        .when('/find',{
-            templateUrl: 'views/senior_search.html',
-            controller: 'FindCtrl',
-            controllerAs: 'FindCtrl'
-
         })
         .when('/log', {
             templateUrl: 'views/log.html',
