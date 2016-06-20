@@ -91,13 +91,13 @@ angular.module('mainApp').controller('igCtrl',['$http','$scope','$rootScope', fu
         Email: ""
     };
 
-    $scope.checkUser = function(){
+    $scope.checkUser = function () {
         console.log($scope.user);
         $http({method: 'POST', url: '/log', data: $scope.user})
-            .then(function(data){
+            .then(function (data) {
                 /// $scope.user.id = data;  ????? why???
                 $rootScope.infoUser = data;
-                
+
                 console.log("id exists!");
                 $scope.modalText = {
                     headline: "LogIn",
@@ -108,15 +108,16 @@ angular.module('mainApp').controller('igCtrl',['$http','$scope','$rootScope', fu
                 // $('#modal').modal('show')
                 // <a href="#" data-toggle="modal" data-target="#login-modal">התחבר</a>
             })
-            .catch(function() {
+            .catch(function () {
                 $scope.modalText = {
                     headline: "LogIn",
                     text: "פרטים לא נכונים"
                 };
                 // $('#modal').modal('show')
                 window.alert("פרטים לא נכונים");
-                console.log("Unsuccessful login") });
-       // $('#myModal').modal('hide');
+                console.log("Unsuccessful login")
+            });
+        // $('#myModal').modal('hide');
     };
 
 
@@ -131,21 +132,16 @@ angular.module('mainApp').controller('igCtrl',['$http','$scope','$rootScope', fu
     };
 
     $scope.data = {
-        confirmPassword : ''
+        confirmPassword: ''
     };
 
-    var clearData = function() {
+    var clearData = function () {
         $scope.data = {};
     };
 
 
-
-
-
-
-
     //newUser is the bottom!
-    $scope.newUser = function(){
+    $scope.newUser = function () {
 
         if($scope.user_reg.identity.localeCompare("")==0)
         {
@@ -154,22 +150,22 @@ angular.module('mainApp').controller('igCtrl',['$http','$scope','$rootScope', fu
         }
 
 
-        if($scope.user_reg.sis  !==  $scope.data.confirmPassword) {
+        if ($scope.user_reg.sis !== $scope.data.confirmPassword) {
             //here you need to send him back to fill signUP request(same page)
             console.log('password does not match');
             $scope.modalText = {
                 headline: "Register",
                 text: "סיסמאות לא תואמות"
             };
-           // $('#modal').modal('show')
+            // $('#modal').modal('show')
             window.alert("סיסמאות לא תואמות");
             clearData();
             return;
         }
 
         ///check if the id exists in the db
-        $http({method: 'GET', url: '/user/'+$scope.user_reg.identity})
-            .then(function(params){
+        $http({method: 'GET', url: '/user/' + $scope.user_reg.identity})
+            .then(function (params) {
                 console.log("id exists in the DB");
                 $scope.modalText = {
                     headline: "Register",
@@ -179,25 +175,28 @@ angular.module('mainApp').controller('igCtrl',['$http','$scope','$rootScope', fu
                 window.alert("המשתמש קיים כבר במערכת");
 
             })
-            .catch(function() { console.log("id dont exists in DB, register new user ")
+            .catch(function () {
+                console.log("id dont exists in DB, register new user ")
 
 
                 console.log($scope.user);
 
                 $http({method: 'POST', url: '/reg', data: $scope.user_reg})
-                    .then(function(data){
+                    .then(function (data) {
                         $rootScope.user_information = $scope.user_reg;
                         console.log("Inserted to DB");
                         $scope.modalText = {
                             headline: "Register",
                             text: "הרשמה בוצעה בהצלחה"
                         };
-                      //  $('#modal').modal('show')
+                        //  $('#modal').modal('show')
                         window.alert("הרשמה בוצעה בהצלחה, ניתן כעת להתחבר למערכת");
                         $('#myModal').modal('hide');
                         window.location.href = "/#/change_info";
                     })
-                    .catch(function() { console.log("Unsuccessful") });
+                    .catch(function () {
+                        console.log("Unsuccessful")
+                    });
             });
     };
 

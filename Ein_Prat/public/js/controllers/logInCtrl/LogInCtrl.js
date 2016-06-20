@@ -1,5 +1,5 @@
 /*angular.module('mainApp')
-    .controller('LogInCtrl', ['$http','$scope', '$rootScope', function($http,$scope, $rootScope) {
+    .controller('LogInCtrl', ['$http',    '$rootScope', function($http,$scope, $rootScope) {
 
     // $rootScope = its global -
 
