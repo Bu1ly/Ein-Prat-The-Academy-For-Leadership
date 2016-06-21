@@ -7,6 +7,7 @@ var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
 var userLogin;
+var result_find = {};
 
 
 var Senior = require('./../utils/schemas_and_connectDB');// to insert into senior db
@@ -136,8 +137,9 @@ router.post('/senior_search', function(req,res){
                             res.status(500).end("Error, user not found");
                         } else if(resultSeniors) {
                             console.log('Result of the search: ', resultSeniors);
-                            res.status(200).end("Result User");
-                            //res.status(200).end(JSON.stringify(userMap,null,"\t"));
+                            //result_find = resultSeniors;
+                            //res.status(200).end("Result User");
+                            res.status(200).end(JSON.stringify(resultSeniors));
                           }
 
                      }
@@ -145,7 +147,6 @@ router.post('/senior_search', function(req,res){
 });
 
 
-module.exports = router;
 
 // -- Save the Reviews --
 router.post('/review', function (req,res) {
@@ -196,6 +197,8 @@ router.post('/note', function (req,res) {
 });
 
 
+module.exports = router;
+//exports.res_find = result_find;
 
 /*
 // --register: find and check id--

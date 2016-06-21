@@ -2,6 +2,8 @@
  * Created by G.G on 18/06/2016.
  */
 
+//var result = require("./../../../../server/routes/database");
+
 angular.module('mainApp')
     .controller('FindCtrl', ['$http','$scope', function($http,$scope) {
 
@@ -43,6 +45,7 @@ angular.module('mainApp')
             $http({method: 'POST', url: '/senior_search', data: $scope.searchUser})
                 .then(function(data){
                     console.log("\n\nSEARCH.....\n\n");
+                    console.log(data);
                     $scope.modalText = {
                         headline: "Search",
                         text: "חיפוש בוצע בהצלחה"
