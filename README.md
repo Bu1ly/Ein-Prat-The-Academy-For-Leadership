@@ -3,9 +3,6 @@
 
 ![logo](https://upload.wikimedia.org/wikipedia/he/thumb/6/6c/Ein_Prat_Logo.jpg/220px-Ein_Prat_Logo.jpg)
 
-## Please visit our website (https://demo.reactstarterkit.com/)
-
-
 ##Join us in our team's chat room
 [![Gitter](https://badges.gitter.im/Bu1ly/classProject.svg)](https://gitter.im/Bu1ly/classProject?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=body_badge)
 
